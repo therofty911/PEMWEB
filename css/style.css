@@ -1,3 +1,7 @@
 .navbar{
     height: 100px;
 }
+
+.nav-link{
+    background-color: royalblue;
+}
