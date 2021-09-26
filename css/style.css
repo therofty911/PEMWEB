@@ -6,14 +6,52 @@
 	box-sizing: border-box;
 }
 */
-html{
-	font-size: 10px;
-	font-family: "Roboto Cn", sans-serif;
+
+.custom-toggler.navbar-toggler {
+    background-color: #0D1A44;
+}
+.custom-toggler .navbar-toggler-icon {
+    background-image: url(
+"data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
-a{
+.logo1 .mobile{
+    display: none;
+}
+
+.info{
+    background-color: #0D1A44;
+    color: white;
+    padding: 5px; 
+}
+
+.connect, .logo, .icon{
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.logo{
+    margin-left: 0px;
+}
+
+.connect{
+    justify-content: center;
+}
+
+ul.connect > li{
+    display: inline-block;
+}
+ul.connect > li > a{
+    margin-right: 1.5em;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+.navbar-collapse>ul>li>a{
 	text-decoration: none;
-	color: #eee;
+	color: #000;
 }
 
 .container{
@@ -22,15 +60,10 @@ a{
 	margin: 0 auto;
 }
 
-.menu-toggle{
-	position: fixed;
-	top: 2.5rem;
-	right: 2.5rem;
-	color: #eeeeee;
-	font-size: 3rem;
-	cursor: pointer;
-	z-index: 1000;
-	display: none;
+.navbar-custom{
+    background: #FFFFFF;
+    border-bottom: 0.5px solid #e6e6e6;
+    box-shadow: -1px 4px 5px 6px rgba(0,0,0,0.20);
 }
 
 nav{
@@ -39,14 +72,8 @@ nav{
 	justify-content: space-between;
 	align-items: center;
 	text-transform: uppercase;
-	font-size: 1.6rem;
-}
-
-.brand{
-	font-size: 3rem;
-	font-weight: 300;
-	transform: translateX(-100rem);
-	animation: slideIn .5s forwards;
+	font-size: 1rem;
+    
 }
 
 .brand span{
@@ -113,8 +140,8 @@ nav ul li:nth-child(4){
 }
 
 nav ul li a{
-	padding: 1rem 0;
-	margin: 0 3rem;
+	padding: .5rem 0;
+	margin: 0 .8rem;
 	position: relative;
     letter-spacing: 2px;
     text-decoration: none;
@@ -156,14 +183,13 @@ nav ul li a::after{
 	transition: opacity 650ms;
 	transform: scale(0);
 	opacity: 0;
-  display: none;
+    display: none;
 }
 
 nav ul li a:hover::before,
 nav ul li a:hover::after{
 	transform: scaleX(1);
 }
-
 
 @media (max-width: 700px){
     .mx-30{
@@ -218,8 +244,34 @@ nav ul li a:hover::after{
 	  transform: scale(1);
 	  opacity: 1;
   }
+  .connect{
+      justify-content: center;
+      text-align: center;
+  }
 
   
+}
+
+@media (max-width: 600px) {
+    .logo1 .mobile {
+        margin-top: 50px;
+        display: block;
+    }
+    .logo2 .desktop {
+      display: none;
+    }
+    .list{
+        display: none;
+    }
+}
+@media (max-width: 1280px) {
+    .logo1 .mobile {
+        margin-top: 20px;
+        display: block;
+    }
+    .logo2 .desktop {
+      display: none;
+    }
 }
 /*
 font-family: 'Montserrat', sans-serif;
@@ -608,7 +660,9 @@ footer > p{
     border-bottom: 1.6px solid #808080;
 }
 
-
+.read{
+    color: red !important;
+}
 
 @media(max-width: 460px){
     .hot-topic-content h2{
