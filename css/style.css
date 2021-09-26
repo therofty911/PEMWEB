@@ -189,11 +189,9 @@ nav ul li a:hover::after{
 
 	nav{
 		padding-top: 0;
-		display: none;
 		flex-direction: column;
 		justify-content: space-evenly;
 		align-items: center;
-		height: 100vh;
 		text-align: center;
 	}
 
