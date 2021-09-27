@@ -15,7 +15,11 @@
 "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
-.logo1 .mobile{
+.logo1 .mobile {
+    display: none;
+}
+
+.logM{
     display: none;
 }
 
@@ -47,7 +51,9 @@ ul.connect > li > a{
     color: white;
 }
 
-
+.navbar-collapse{
+    margin-right: 500px;
+}
 
 .navbar-collapse>ul>li>a{
 	text-decoration: none;
@@ -191,6 +197,16 @@ nav ul li a:hover::after{
 	transform: scaleX(1);
 }
 
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    nav{
+        margin-right: 500px;
+    }
+}
+
 @media (max-width: 700px){
     .mx-30{
         margin-bottom: 30px;
@@ -263,6 +279,55 @@ nav ul li a:hover::after{
     .list{
         display: none;
     }
+    .logD{
+        display: none;
+    }
+    .logM{
+        background-color: #0D1A44;
+        display: block;
+
+    }
+    .logM:hover{
+        background-color: #3f3f3f;
+    }
+    nav{
+		padding-top: 0;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
+		text-align: center;
+	}
+    nav ul li{
+		margin-top: 2rem;
+	}
+    nav ul li a{
+		margin: 0;
+		font-size: 2rem;
+	}
+    .navbar-collapse{
+        margin-right: 0px;
+    }
+
+}
+@media (max-width: 800px) {
+    nav{
+		padding-top: 0;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
+		text-align: center;
+	}
+    nav ul li{
+		margin-top: 2rem;
+	}
+    nav ul li a{
+		margin: 0;
+		font-size: 2rem;
+	}
+    .navbar-collapse{
+        margin-right: 0px;
+    }
+
 }
 @media (max-width: 1280px) {
     .logo1 .mobile {
@@ -272,7 +337,9 @@ nav ul li a:hover::after{
     .logo2 .desktop {
       display: none;
     }
+
 }
+
 /*
 font-family: 'Montserrat', sans-serif;
 font-family: 'Raleway', sans-serif;
@@ -283,6 +350,7 @@ font-family: 'Raleway', sans-serif;
     padding: 0;
     margin: 0;
 }
+
 
 :root{
     --heading: 'Montserrat', sans-serif;
