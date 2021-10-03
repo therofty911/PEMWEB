@@ -1,11 +1,13 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
+
 *{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
  */
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 .custom-toggler.navbar-toggler {
     background-color: #0D1A44;
@@ -51,9 +53,10 @@ ul.connect > li > a{
     color: white;
 }
 
-/* .forNav{
-    margin-right: 350px;
-} */
+.nav-link{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
 
 .navbar-collapse>ul>li>a{
 	text-decoration: none;
