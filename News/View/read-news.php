@@ -1,8 +1,8 @@
-<?php require __DIR__.'../includes/functions.php' ?>
+<?php require __DIR__.'../News/controller/functions.php' ?>
 <html>
 <head>
     <title>Welcome to news channel</title>
-    <link rel="stylesheet" type="text/css" href="design/style.css">
+    <link rel="stylesheet" type="text/css" href="News\design\style.css">
 </head>
 <body>
     <div class="container">
