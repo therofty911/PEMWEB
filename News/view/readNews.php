@@ -232,6 +232,7 @@
     a{
         color: #f3f3f3;
         transition: 0.2s ease;
+        text-decoration: none;
     }
     a:hover{
         color: #707070;
@@ -685,7 +686,7 @@
                         </button>
                     </div>
                     </div>
-                    <h4 class="aside-heading mt-3">Popular Article</h4>
+                    <h4 class="aside-heading mt-3">Recommended Article</h4>
                     <a href="#" class="link-popular">
                         <article class="news-post shadow mb-3">
                             <img class="img-fluid photo" src="https://cdn.discordapp.com/attachments/868897795397005362/894847007892598784/unknown.png" alt="" style="max-width: 100%;height:335px;"></img>
