@@ -13,9 +13,562 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/fontawesome.min.css" integrity="sha512-Rcr1oG0XvqZI1yv1HIg9LgZVDEhf2AHjv+9AuD1JXWGLzlkoKDVvE925qySLcEywpMAYA/rkg296MkvqBF07Yw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="./design/css/style.css">
-    <script src="./design/js/script.js"></script>
+    <script src="./assets/js/script.js"></script>
     <title>News Speedy UMN</title>
 </head>
+<style>
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+    .custom-toggler.navbar-toggler {
+        background-color: #0D1A44;
+    }
+    .custom-toggler .navbar-toggler-icon {
+        background-image: url(
+    "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+
+    .logo1 .mobile {
+        display: none;
+    }
+
+    .logM{
+        display: none;
+    }
+
+    .info{
+        background-color: #0D1A44;
+        color: white;
+        padding: 5px; 
+    }
+
+    .connect, .logo, .icon{
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .logo{
+        margin-left: 0px;
+    }
+
+    .connect{
+        justify-content: center;
+    }
+
+    ul.connect > li{
+        display: inline-block;
+    }
+    ul.connect > li > a{
+        margin-right: 1.5em;
+        text-decoration: none;
+        color: white;
+    }
+
+    .nav-link{
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+    }
+
+    .navbar-collapse>ul>li>a{
+        text-decoration: none;
+        color: #000;
+    }
+
+    .container{
+        max-width: 120rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .navbar-custom{
+        background: #FFFFFF;
+        border-bottom: 0.5px solid #e6e6e6;
+        box-shadow: -1px 4px 5px 6px rgba(0,0,0,0.20);
+    }
+
+    nav{
+        padding-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-transform: uppercase;
+        font-size: 1rem;
+        
+    }
+
+    .brand span{
+        color: crimson;
+    }
+
+    nav ul{
+        display: flex;
+    }
+
+    nav ul li{
+        list-style: none;
+        transform: translateX(100rem);
+        animation: slideIn .5s forwards;
+    }
+
+    nav ul li:nth-child(1){
+        animation-delay: 0s;
+    }
+
+    nav ul li:nth-child(2){
+        animation-delay: .5s;
+    }
+
+    nav ul li:nth-child(3){
+        animation-delay: 1s;
+    }
+
+    nav ul li:nth-child(4){
+        animation-delay: 1.5s;
+    }
+    nav ul li:nth-child(5){
+        animation-delay: 2s;
+    }
+    nav ul li:nth-child(6){
+        animation-delay: 2.5s;
+    }
+    nav ul li:nth-child(7){
+        animation-delay: 3s;
+    }
+    nav ul li:nth-child(8){
+        animation-delay: 3.5s;
+    }
+    nav ul li:nth-child(9){
+        animation-delay: 4s;
+    }
+    nav ul li:nth-child(10){
+        animation-delay: 4.5s;
+    }
+    nav ul li:nth-child(11){
+        animation-delay: 5s;
+    }
+    nav ul li:nth-child(12){
+        animation-delay: 5.5s;
+    }
+    nav ul li:nth-child(4){
+        animation-delay: 1.5s;
+    }
+    nav ul li:nth-child(4){
+        animation-delay: 1.5s;
+    }
+    nav ul li:nth-child(4){
+        animation-delay: 1.5s;
+    }
+
+    nav ul li a{
+        padding: 0rem 0;
+        margin: 0 .8rem;
+        position: relative;
+        letter-spacing: 2px;
+        text-decoration: none;
+    }
+
+    nav ul li a:last-child{
+        margin-right: 0;
+    }
+
+    nav ul li a::before,
+    nav ul li a::after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: crimson;
+        left: 0;
+        transform: scaleX(0);
+        transition: all .5s;
+    }
+
+    nav ul li a::before{
+        top: 0;
+        transform-origin: left;
+    }
+
+    nav ul li a::after{
+        bottom: 0;
+        transform-origin: right;
+    }
+
+    .overlay{
+        background-color: rgba(0,0,0,.95);
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        transition: opacity 650ms;
+        transform: scale(0);
+        opacity: 0;
+        display: none;
+    }
+
+    nav ul li a:hover::before,
+    nav ul li a:hover::after{
+        transform: scaleX(1);
+    }
+
+    h1,h2,h3,h4{
+        font-weight: 700;
+        color:rgb(0, 255, 255);
+    }
+
+    h3{
+        font-size: 1.5rem;
+    }
+
+    .news-post {
+        position: relative;
+    }
+
+    .news-post-badge{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    a{
+        color: #f3f3f3;
+        transition: 0.2s ease;
+    }
+    a:hover{
+        color: #707070;
+
+    }
+
+    img{
+        filter: grayscale(30%) brightness(0.9);
+    }
+
+    .link-popular:hover{
+        opacity: 80%;
+    }
+
+    .news-post-badge a{
+        display: block;
+        background-color: #0D1A44;
+        color: #f3f3f3;
+        font-size: 0.7em;
+        width: 100px;
+        border-radius: 25px;
+    }
+
+    .news-post-content{
+        position: absolute;
+        bottom: 10px;
+        color: #ffffff;
+
+    }
+
+    .news{
+        background-color: #08102b;
+    }
+
+    .news-posts{
+        background-color: #0D1A44;
+        color: #C5C6C7;
+    }
+
+    .news-daily-post{
+        /* background-color: #0029af; */
+        background-color: #000b2e;
+        border-radius: 10px;
+    }
+
+    .news-daily-post img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .news-daily-post p{
+        font-size: 0.9rem;
+    }
+    .news-daily-post .col-sm-8{
+        border-left: 3px solid rgb(0, 255, 255);
+        border-radius: 5px;
+    }
+
+    .badge{
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+        
+    }
+
+    .badge > a{
+        margin-left: 0.5rem;
+        padding: 0.5rem;
+        background-color: #142868;
+        color: #f3f3f3;
+        font-size: 1em;
+        border-radius: 25px;
+    }
+
+    .social-links {
+        background-color: #142868;
+        font-size: 1rem;
+    }
+    .social-links button{
+        background: transparent;
+        border: none;
+        color: #f3f3f3;
+    }
+
+    .aside-heading{
+        border-bottom: 3px solid rgb(0, 255, 255);
+        padding-left: 5px
+    }
+
+    .secondary-link{
+        background-color: #000b2e;
+
+    }
+
+    .badges{
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .badges > a{
+        margin-left: 0.5rem;
+        display: inline-block;
+        margin: 0.2rem;
+        padding: 0.5rem;
+        background-color: #142868;
+        color: #f3f3f3;
+        font-size: 0.9em;
+        border-radius: 25px;
+    }
+
+    .content{
+        background-color: #0D1A44;
+        color:#f3f3f3;
+    }
+
+    .footer{
+        background-color: #080f27;
+        color: #f3f3f3;
+        /* height: 250px; */
+
+    }
+
+
+    .btn-main{
+        background-color: #142868 !important;
+        color: #f3f3f3 !important;
+    }
+
+    .btn-main:hover{
+        background-color: #001b75 !important;
+
+    }
+
+    input{
+        background-color: #252525 !important;
+        color: #f3f3f3 !important;
+    }
+
+    @media only screen 
+    and (min-device-width: 768px) 
+    and (max-device-width: 1024px) 
+    and (orientation: landscape) 
+    and (-webkit-min-device-pixel-ratio: 1) {
+        nav{
+            margin-right: 500px;
+        }
+    }
+
+    @keyframes slideIn {
+        from{
+
+        }
+        to{
+            transform: translateX(0);
+        }
+    }
+
+
+
+    @media(max-width: 460px){
+        .news-post .photo{
+            height: auto !important;
+        }
+    }
+
+    @media(max-width: 500px){
+        .news-post .photo{
+            height: auto !important;
+        }
+    }
+
+
+    @media (max-width: 600px) {
+        .logo1 .mobile {
+            margin-top: 50px;
+            display: block;
+        }
+        .logo2 .desktop {
+        display: none;
+        }
+        .list{
+            display: none;
+        }
+        .logD{
+            display: none;
+        }
+        .logM{
+            background-color: #0D1A44;
+            display: block;
+
+        }
+        .logM:hover{
+            background-color: #3f3f3f;
+        }
+        nav{
+            padding-top: 0;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            text-align: center;
+        }
+        nav ul li{
+            margin-top: 2rem;
+        }
+        nav ul li a{
+            margin: 0;
+            font-size: 2rem;
+        }
+        .navbar-collapse{
+            margin-right: 0px;
+        }
+        .news-post .photo{
+            height: auto !important;
+        }
+
+    }
+
+    @media (max-width: 700px){
+        .mx-30{
+            margin-bottom: 30px;
+        }
+    }
+
+    @media screen and (max-width: 700px){
+
+        .menu-toggle{
+            display: block;
+        }
+
+        nav{
+            padding-top: 0;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            text-align: center;
+        }
+
+        nav ul{
+            flex-direction: column;
+        }
+
+        nav ul li{
+            margin-top: 3rem;
+        }
+
+        nav ul li a{
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .brand{
+            font-size: 5rem;
+        }
+    
+    .overlay.menu-open,
+    nav.menu-open{
+        display: flex;
+        transform: scale(1);
+        opacity: 1;
+    }
+    .connect{
+        justify-content: center;
+        text-align: center;
+    }
+
+    
+    }
+
+    @media(max-width: 768px){
+        .news-post .photo{
+            height: auto !important;
+        }
+    }
+
+    @media (max-width: 800px) {
+        nav{
+            padding-top: 0;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            text-align: center;
+        }
+        nav ul li{
+            margin-top: 2rem;
+        }
+        nav ul li a{
+            margin: 0;
+            font-size: 2rem;
+        }
+        .navbar-collapse{
+            margin-right: 0px;
+        }
+        .news-post .photo{
+            height: auto !important;
+        }
+
+    }
+
+    @media(max-width: 992px){
+        .news-post .photo{
+            height: auto !important;
+        }
+    }
+
+    @media (max-width: 1280px) {
+
+        .logo1 .mobile {
+            margin-top: 20px;
+            display: block;
+        }
+        .logo2 .desktop {
+        display: none;
+        }
+        .news-post .photo{
+            height: auto !important;
+        }
+
+    }
+    @media  screen and (max-width: 1366px) {
+        .news-post .photo{
+            height: auto !important;
+        }
+    }
+
+
+    /*
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    */
+
+    /* *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    } */
+
+
+</style>
 <body style="overflow-x: hidden;">
 
     <div class="info">
@@ -82,12 +635,10 @@
                 <!-- Content -->
                 <img src="https://cdn.discordapp.com/attachments/891579314401869864/894262194756255784/wp2622216-dodge-charger-wallpaper.jpg" alt="" class="img-fluid">
                 <div class="row p-3">
-                    <?php
+                <?php
                         // get the database handler
                         $dbh = connect_to_db(); // function created in dbconnect, remember?
-
                         $id_article = (int)$_GET['newsid'];
-
                         if ( !empty($id_article) && $id_article > 0) {
                             // Fecth news
                             $article = getAnArticle( $id_article, $dbh );
@@ -96,18 +647,17 @@
                             $article = false;
                             echo "<strong>Wrong article!</strong>";
                         }
-
                         $other_articles = getOtherArticles( $id_article, $dbh );
                     ?>
                     <div class="col-sm-12">
-                        <h2><?= stripslashes($article->news_title) ?></h2>
+                    <h2><?= stripslashes($article->news_title) ?></h2>
                         <span>published on <?= date("M, jS  Y, H:i", $article->news_published_on) ?> by <?= stripslashes($article->news_author) ?></span>
                     </div>
                     <div class="badges px-3">
-                        <a href="link to categories"><?= stripslashes($article->news_category) ?></a>
+                    <a href="link to categories"><?= stripslashes($article->news_category) ?></a>
                     </div>
                     <div class="p-content px-3">
-                        <p><?= stripslashes($article->news_full_content) ?></p>
+                    <p><?= stripslashes($article->news_full_content) ?></p> 
                     </div>
                 </div>
             </div>
@@ -141,6 +691,7 @@
                             <img class="img-fluid photo" src="https://cdn.discordapp.com/attachments/868897795397005362/894847007892598784/unknown.png" alt="" style="max-width: 100%;height:335px;"></img>
                             <div class="news-post-badge text-center">
                                 <a class="p-2 px-2 mb-2" href="#" >Games</a>
+                                <a class="p-2 px-2" href="#">Technology</a>
                             </div>
                             <a href="#" class="link-popular">
                                 <div class="news-post-content">

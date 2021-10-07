@@ -11,8 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/fontawesome.min.css" integrity="sha512-Rcr1oG0XvqZI1yv1HIg9LgZVDEhf2AHjv+9AuD1JXWGLzlkoKDVvE925qySLcEywpMAYA/rkg296MkvqBF07Yw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="./design/css/style.css">
-    <script src="./design/js/script.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/script.js"></script>
     <title>News Speedy UMN</title>
 </head>
 <body style="overflow-x: hidden;">
@@ -157,11 +157,13 @@
             <div class="row">
                 <div class="col-lg-8">
                     <?php
-                        require_once 'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\config\dbconnect.php';
+                        // require_once 'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\config\dbconnect.php';
+                        require_once '..\News\config\dbconnect.php';
                         // get the database handler
                         $dbh = connect_to_db(); // function created in dbconnect, remember?
                         // Fecth news
-                        require_once  'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\controller\functions.php';
+                        // require_once  'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\controller\functions.php';
+                        require_once  '..\News\controller\functions.php';
                         $news = fetchNews($dbh);
                     ?>
                     <?php foreach ($news as $key => $article) :?>

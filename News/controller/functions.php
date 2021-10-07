@@ -1,5 +1,6 @@
 <?php 
-    include_once 'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\config\dbconnect.php'; 
+    // include_once 'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\config\dbconnect.php'; 
+    include_once 'D:\XAMPP\htdocs\PROGRAM_WEB\PROJECT\PEMWEB\News\config\dbconnect.php'; 
 
     function fetchNews( $conn )
     {
