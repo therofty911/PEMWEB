@@ -1,3 +1,4 @@
+<?php require '..\controller\functions.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,27 +82,32 @@
                 <!-- Content -->
                 <img src="https://cdn.discordapp.com/attachments/891579314401869864/894262194756255784/wp2622216-dodge-charger-wallpaper.jpg" alt="" class="img-fluid">
                 <div class="row p-3">
+                    <?php
+                        // get the database handler
+                        $dbh = connect_to_db(); // function created in dbconnect, remember?
+
+                        $id_article = (int)$_GET['newsid'];
+
+                        if ( !empty($id_article) && $id_article > 0) {
+                            // Fecth news
+                            $article = getAnArticle( $id_article, $dbh );
+                            $article = $article[0];
+                        }else{
+                            $article = false;
+                            echo "<strong>Wrong article!</strong>";
+                        }
+
+                        $other_articles = getOtherArticles( $id_article, $dbh );
+                    ?>
                     <div class="col-sm-12">
-                        <h2>The best muscle american dodge charger, using HEMI CHARGER engine</h2>
+                        <h2><?= stripslashes($article->news_title) ?></h2>
+                        <span>published on <?= date("M, jS  Y, H:i", $article->news_published_on) ?> by <?= stripslashes($article->news_author) ?></span>
                     </div>
                     <div class="badges px-3">
-                        <a href="link to categories">Technology</a>
-                        <a href="link to categories">Cars</a>
+                        <a href="link to categories"><?= stripslashes($article->news_category) ?></a>
                     </div>
                     <div class="p-content px-3">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed convallis magna eu sem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Mauris metus. Quisque porta. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Aliquam in lorem sit amet leo accumsan lacinia. Integer lacinia. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Suspendisse nisl. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Aliquam erat volutpat. Mauris metus. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus in lacus. Proin pede metus, vulputate nec, fermentum fringilla, vehicula vitae, justo. Pellentesque pretium lectus id turpis. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Nulla non lectus sed nisl molestie malesuada.</p>
-
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Fusce nibh. Fusce suscipit libero eget elit. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Etiam bibendum elit eget erat. Fusce wisi. Nulla quis diam. Duis risus. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
-
-                        <p>Etiam egestas wisi a erat. Fusce aliquam vestibulum ipsum. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Sed ac dolor sit amet purus malesuada congue. Et harum quidem rerum facilis est et expedita distinctio. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Pellentesque arcu. Nunc auctor. In sem justo, commodo ut, suscipit at, pharetra vitae, orci. Nullam eget nisl. Nullam faucibus mi quis velit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer tempor. Phasellus et lorem id felis nonummy placerat. Integer in sapien. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Mauris elementum mauris vitae tortor.</p>
-
-                        <p>Nunc auctor. Suspendisse sagittis ultrices augue. Vivamus porttitor turpis ac leo. Nam sed tellus id magna elementum tincidunt. Nullam faucibus mi quis velit. Curabitur bibendum justo non orci. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Fusce suscipit libero eget elit. Et harum quidem rerum facilis est et expedita distinctio. Aliquam erat volutpat. Maecenas libero. Etiam neque. Proin in tellus sit amet nibh dignissim sagittis. Nullam rhoncus aliquam metus. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Nam sed tellus id magna elementum tincidunt. Fusce suscipit libero eget elit. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
-
-                        <p>Nullam dapibus fermentum ipsum. In convallis. Et harum quidem rerum facilis est et expedita distinctio. Mauris metus. Integer malesuada. Aliquam in lorem sit amet leo accumsan lacinia. Etiam commodo dui eget wisi. Aenean id metus id velit ullamcorper pulvinar. Mauris elementum mauris vitae tortor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-
-                        <p>Duis risus. Vivamus porttitor turpis ac leo. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Etiam commodo dui eget wisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est. Duis condimentum augue id magna semper rutrum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Etiam quis quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris metus. Phasellus faucibus molestie nisl.</p>
-
-                        <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Aliquam erat volutpat. Integer lacinia. Etiam neque. Nunc dapibus tortor vel mi dapibus sollicitudin. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Integer pellentesque quam vel velit. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Cras elementum. Aenean vel massa quis mauris vehicula lacinia. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Etiam neque. Nam sed tellus id magna elementum tincidunt. Aliquam erat volutpat. Etiam dictum tincidunt diam.</p>
+                        <p><?= stripslashes($article->news_full_content) ?></p>
                     </div>
                 </div>
             </div>
@@ -135,7 +141,6 @@
                             <img class="img-fluid photo" src="https://cdn.discordapp.com/attachments/868897795397005362/894847007892598784/unknown.png" alt="" style="max-width: 100%;height:335px;"></img>
                             <div class="news-post-badge text-center">
                                 <a class="p-2 px-2 mb-2" href="#" >Games</a>
-                                <a class="p-2 px-2" href="#">Technology</a>
                             </div>
                             <a href="#" class="link-popular">
                                 <div class="news-post-content">

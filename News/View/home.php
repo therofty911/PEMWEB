@@ -156,150 +156,36 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
+                    <?php
+                        require_once 'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\config\dbconnect.php';
+                        // get the database handler
+                        $dbh = connect_to_db(); // function created in dbconnect, remember?
+                        // Fecth news
+                        require_once  'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\controller\functions.php';
+                        $news = fetchNews($dbh);
+                    ?>
+                    <?php foreach ($news as $key => $article) :?>
                     <article class="news-daily-post mb-3 shadow-lg">
                             <div class="row">
                                 <div class="col-sm-4">
                                     <img src="https://cdn.discordapp.com/attachments/891579314401869864/894262234979663892/wallhaven-p81xve.png" alt="" class="img-fluid">
                                 </div>
                                 <div class="col-sm-8">
-                                    <a href="" class="link-popular">
-                                        <h3 class="m-0 mt-2">this is the title of news</h3>
-                                        <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta animi harum incidunt eaque dolores temporibus mollitia labore cumque? Accusamus harum, maxime ratione perspiciatis atque assumenda eaque et alias quia fugit!
-                                        Ut deleniti quo, saepe hic voluptatum eligendi laboriosam repudiandae in, modi libero minus dignissimos recusandae soluta neque eius eaque provident. Reiciendis aliquid sunt sed non autem natus dignissimos commodi magnam?</p>    
-                                    </a>
-                                    <div class="badge">
-                                        <a href="link to categories">Technology</a>
-                                        <a href="link to categories">Cars</a>
+                                    
+                                    <h3 class="m-0 mt-2"><a href="..\News\view\readNews.php?newsid=<?=$article->news_ID?>" class="link-popular"><?= stripslashes($article->news_title) ?></a></h3>
+                                    <p class="m-0"><?= stripslashes($article->news_short_description) ?></p>    
+                                    <span>published on <?= date($article->news_published_on) ?> by <?= stripslashes($article->news_author) ?></span> <br>
+                                    
+                                    <div class="badge mb-2" >
+
+                                        <a href="link to categories"><?= stripslashes($article->news_category) ?></a>
                                     </div>
+    
                                 </div>
                             </div>
                     </article>
-                    <article class="news-daily-post mb-3 shadow-lg">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <img src="https://cdn.discordapp.com/attachments/891579314401869864/894262234979663892/wallhaven-p81xve.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-sm-8">
-                                    <a href="" class="link-popular">
-                                        <h3 class="m-0 mt-2">this is the title of news</h3>
-                                        <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta animi harum incidunt eaque dolores temporibus mollitia labore cumque? Accusamus harum, maxime ratione perspiciatis atque assumenda eaque et alias quia fugit!
-                                        Ut deleniti quo, saepe hic voluptatum eligendi laboriosam repudiandae in, modi libero minus dignissimos recusandae soluta neque eius eaque provident. Reiciendis aliquid sunt sed non autem natus dignissimos commodi magnam?</p>    
-                                    </a>
-                                    <div class="badge">
-                                        <a href="link to categories">Technology</a>
-                                        <a href="link to categories">Cars</a>
-                                    </div>
-                                </div>
-                            </div>
-                    </article>
-                    <article class="news-daily-post mb-3 shadow-lg">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <img src="https://cdn.discordapp.com/attachments/891579314401869864/894262234979663892/wallhaven-p81xve.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-sm-8">
-                                    <a href="" class="link-popular">
-                                        <h3 class="m-0 mt-2">this is the title of news</h3>
-                                        <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta animi harum incidunt eaque dolores temporibus mollitia labore cumque? Accusamus harum, maxime ratione perspiciatis atque assumenda eaque et alias quia fugit!
-                                        Ut deleniti quo, saepe hic voluptatum eligendi laboriosam repudiandae in, modi libero minus dignissimos recusandae soluta neque eius eaque provident. Reiciendis aliquid sunt sed non autem natus dignissimos commodi magnam?</p>    
-                                    </a>
-                                    <div class="badge">
-                                        <a href="link to categories">Technology</a>
-                                        <a href="link to categories">Cars</a>
-                                    </div>
-                                </div>
-                            </div>
-                    </article>
-                    <article class="news-daily-post mb-3 shadow-lg">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <img src="https://cdn.discordapp.com/attachments/891579314401869864/894262234979663892/wallhaven-p81xve.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-sm-8">
-                                    <a href="" class="link-popular">
-                                        <h3 class="m-0 mt-2">this is the title of news</h3>
-                                        <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta animi harum incidunt eaque dolores temporibus mollitia labore cumque? Accusamus harum, maxime ratione perspiciatis atque assumenda eaque et alias quia fugit!
-                                        Ut deleniti quo, saepe hic voluptatum eligendi laboriosam repudiandae in, modi libero minus dignissimos recusandae soluta neque eius eaque provident. Reiciendis aliquid sunt sed non autem natus dignissimos commodi magnam?</p>    
-                                    </a>
-                                    <div class="badge">
-                                        <a href="link to categories">Technology</a>
-                                        <a href="link to categories">Cars</a>
-                                    </div>
-                                </div>
-                            </div>
-                    </article>
-                    <article class="news-daily-post mb-3 shadow-lg">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <img src="https://cdn.discordapp.com/attachments/891579314401869864/894262234979663892/wallhaven-p81xve.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-sm-8">
-                                    <a href="" class="link-popular">
-                                        <h3 class="m-0 mt-2">this is the title of news</h3>
-                                        <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta animi harum incidunt eaque dolores temporibus mollitia labore cumque? Accusamus harum, maxime ratione perspiciatis atque assumenda eaque et alias quia fugit!
-                                        Ut deleniti quo, saepe hic voluptatum eligendi laboriosam repudiandae in, modi libero minus dignissimos recusandae soluta neque eius eaque provident. Reiciendis aliquid sunt sed non autem natus dignissimos commodi magnam?</p>    
-                                    </a>
-                                    <div class="badge">
-                                        <a href="link to categories">Technology</a>
-                                        <a href="link to categories">Cars</a>
-                                    </div>
-                                </div>
-                            </div>
-                    </article>
-                    <article class="news-daily-post mb-3 shadow-lg">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <img src="https://cdn.discordapp.com/attachments/891579314401869864/894262234979663892/wallhaven-p81xve.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-sm-8">
-                                    <a href="" class="link-popular">
-                                        <h3 class="m-0 mt-2">this is the title of news</h3>
-                                        <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta animi harum incidunt eaque dolores temporibus mollitia labore cumque? Accusamus harum, maxime ratione perspiciatis atque assumenda eaque et alias quia fugit!
-                                        Ut deleniti quo, saepe hic voluptatum eligendi laboriosam repudiandae in, modi libero minus dignissimos recusandae soluta neque eius eaque provident. Reiciendis aliquid sunt sed non autem natus dignissimos commodi magnam?</p>    
-                                    </a>
-                                    <div class="badge">
-                                        <a href="link to categories">Technology</a>
-                                        <a href="link to categories">Cars</a>
-                                    </div>
-                                </div>
-                            </div>
-                    </article>
-                    <article class="news-daily-post mb-3 shadow-lg">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <img src="https://cdn.discordapp.com/attachments/891579314401869864/894262234979663892/wallhaven-p81xve.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-sm-8">
-                                    <a href="" class="link-popular">
-                                        <h3 class="m-0 mt-2">this is the title of news</h3>
-                                        <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta animi harum incidunt eaque dolores temporibus mollitia labore cumque? Accusamus harum, maxime ratione perspiciatis atque assumenda eaque et alias quia fugit!
-                                        Ut deleniti quo, saepe hic voluptatum eligendi laboriosam repudiandae in, modi libero minus dignissimos recusandae soluta neque eius eaque provident. Reiciendis aliquid sunt sed non autem natus dignissimos commodi magnam?</p>    
-                                    </a>
-                                    <div class="badge">
-                                        <a href="link to categories">Technology</a>
-                                        <a href="link to categories">Cars</a>
-                                    </div>
-                                </div>
-                            </div>
-                    </article>
-                    <article class="news-daily-post mb-3 shadow-lg">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <img src="https://cdn.discordapp.com/attachments/891579314401869864/894262234979663892/wallhaven-p81xve.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-sm-8">
-                                    <a href="" class="link-popular">
-                                        <h3 class="m-0 mt-2">this is the title of news</h3>
-                                        <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta animi harum incidunt eaque dolores temporibus mollitia labore cumque? Accusamus harum, maxime ratione perspiciatis atque assumenda eaque et alias quia fugit!
-                                        Ut deleniti quo, saepe hic voluptatum eligendi laboriosam repudiandae in, modi libero minus dignissimos recusandae soluta neque eius eaque provident. Reiciendis aliquid sunt sed non autem natus dignissimos commodi magnam?</p>    
-                                    </a>
-                                    <div class="badge">
-                                        <a href="link to categories">Technology</a>
-                                        <a href="link to categories">Cars</a>
-                                    </div>
-                                </div>
-                            </div>
-                    </article>
+                    <?php endforeach?>
+                    
 
                 </div>
                 <aside class="col-md-4 px-4 mt-lg-0 mt-3">
@@ -440,7 +326,7 @@
 <script src="script.js" async defer></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script>
+<!-- <script>
     var open = document.getElementById('hamburger');
     var changeIcon = true;
 
@@ -465,6 +351,6 @@
             changeIcon = true;
         }
     });
-</script>
+</script> -->
 </body>
 </html>
