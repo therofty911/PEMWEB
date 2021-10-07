@@ -21,5 +21,12 @@
         $request =  $conn->prepare(" SELECT news_ID,  news_title, news_short_description, news_full_content, news_author, news_published_on, news_category FROM news_info  WHERE news_ID != ? ");
         return $request->execute(array($differ_id)) ? $request->fetchAll() : false; 
     }
+   
+    function runMyFunction() {
+        echo 'I just ran a php function';
+    }
+
+  
+
 
     
