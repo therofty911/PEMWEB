@@ -1,4 +1,4 @@
-<?php require '..\controller\functions.php'?>
+<?php include '..\controller\functions.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +17,7 @@
     <title>News Speedy UMN</title>
 </head>
 <style>
- @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
     .custom-toggler.navbar-toggler {
         background-color: #0D1A44;
@@ -651,7 +651,7 @@
                     ?>
                     <div class="col-sm-12">
                     <h2><?= stripslashes($article->news_title) ?></h2>
-                        <span>published on <?= date("M, jS  Y, H:i", $article->news_published_on) ?> by <?= stripslashes($article->news_author) ?></span>
+                        <span>published on <?= date($article->news_published_on) ?> by <?= stripslashes($article->news_author) ?></span>
                     </div>
                     <div class="badges px-3">
                     <a href="link to categories"><?= stripslashes($article->news_category) ?></a>
