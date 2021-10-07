@@ -24,13 +24,19 @@
                 <ul class="connect">
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>    
-                    <li><a href="#">Contact Us</a></li>    
+                    <li><a href="..\News\view\dashboard.php">Dashboard</a></li>    
                 </ul>
             </div>
             <div class="col-md-3">
                 <div class="row">
                     <div class="text-center icon">
-                        <button type="button" class="btn btn-light col-5 col-xxl-3 logD"><a href="login.html" target="_blank" style="color: black; text-decoration: none;">Login</a></button>
+                        <?php //if( $_SESSION['user_logged_in']): ?>
+                            <!-- <button type="button" class="btn btn-light col-5 col-xxl-3 logD"><a href="login.html" target="_blank" style="color: black; text-decoration: none;">Logout</a></button> -->
+
+                        <?php //else: ?>
+                            <button type="button" class="btn btn-light col-5 col-xxl-3 logD"><a href="login.html" target="_blank" style="color: black; text-decoration: none;">Login</a></button>
+
+                        <?php //endif; ?>
                     </div>
                 </div>
             </div>
