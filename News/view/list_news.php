@@ -1,3 +1,11 @@
+<?php
+    include '..\config\dbconnect.php';
+    $conn = connect_to_db();
+    $query = "SELECT * FROM news_info";
+    $execute = $conn->prepare($query);
+    $execute->execute();
+    $data= $execute->fetchAll();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -193,7 +201,7 @@
                                                 <button type="submit" class="btn btn-success"><a href="" style="text-decoration:none; color: white;">
                                                     <i class="fas fa-edit"></i>Edit</a>
                                                 </button>
-                                                <button type="submit" class="btn btn-danger"><a href="" style="text-decoration:none; color: white;">
+                                                <button type="submit" class="btn btn-danger"><a href="..\News\controller\delete.php?news_ID=<?= $std["news_ID"]; ?>" style="text-decoration:none; color: white;">
                                                     <i class="fas fa-trash-alt"></i>Delete</a>
                                                 </button>
                                                     
