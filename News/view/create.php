@@ -4,31 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shorcut icon" href="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png"> 
+
     <title>Form News - Admin Dashboard</title>
     
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
 
-<link rel="stylesheet" href="../assets/vendors/fontawesome/all.min.css">
-<style>
-    .fontawesome-icons {
-        text-align: center;
-    }
+    <link rel="stylesheet" href="../assets/vendors/fontawesome/all.min.css">
+    <style>
+        .fontawesome-icons {
+            text-align: center;
+        }
 
-    article dl {
-        background-color: rgba(0, 0, 0, .02);
-        padding: 20px;
-    }
+        article dl {
+            background-color: rgba(0, 0, 0, .02);
+            padding: 20px;
+        }
 
-    .fontawesome-icons .the-icon svg {
-        font-size: 24px;
-    }
-</style>
-    
-<link rel="stylesheet" href="../assets/vendors/toastify/toastify.css">
-<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
-<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+        .fontawesome-icons .the-icon svg {
+            font-size: 24px;
+        }
+    </style>
+        
+    <link rel="stylesheet" href="../assets/vendors/toastify/toastify.css">
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
 
     <link rel="stylesheet" href="../assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="../assets/vendors/bootstrap-icons/bootstrap-icons.css">

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/fontawesome.min.css" integrity="sha512-Rcr1oG0XvqZI1yv1HIg9LgZVDEhf2AHjv+9AuD1JXWGLzlkoKDVvE925qySLcEywpMAYA/rkg296MkvqBF07Yw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shorcut icon" href="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png"> 
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="./assets/js/script.js"></script>
@@ -179,16 +180,14 @@
                                     <img src="https://cdn.discordapp.com/attachments/891579314401869864/894262234979663892/wallhaven-p81xve.png" alt="" class="img-fluid">
                                 </div>
                                 <div class="col-sm-8">
-                                    
-                                    <h3 class="m-0 mt-2"><a href="..\News\view\readNews.php?newsid=<?=$article->news_ID?>" class="link-popular"><?= stripslashes($article->news_title) ?></a></h3>
-                                    <p class="m-0"><?= stripslashes($article->news_short_description) ?></p>    
-                                    <span>published on <?= date($article->news_published_on) ?> by <?= stripslashes($article->news_author) ?></span> <br>
-                                    
+                                    <a href="..\News\view\readNews.php?newsid=<?=$article->news_ID?>" class="link-popular">
+                                        <h3 class="m-0 mt-2"><?= stripslashes($article->news_title) ?></h3>
+                                        <p class="m-0"><?= stripslashes($article->news_short_description) ?></p>    
+                                        <span>published on <?= date($article->news_published_on) ?> by <?= stripslashes($article->news_author) ?></span> <br>
+                                    </a>
                                     <div class="badge mb-2" >
-
                                         <a href="link to categories"><?= stripslashes($article->news_category) ?></a>
                                     </div>
-    
                                 </div>
                             </div>
                     </article>

@@ -1,4 +1,20 @@
 <?php include '..\controller\functions.php'?>
+<?php
+    // get the database handler
+    $dbh = connect_to_db(); // function created in dbconnect, remember?
+    $id_article = (int)$_GET['newsid'];
+    if ( !empty($id_article) && $id_article > 0) {
+        // Fecth news
+        $article = getAnArticle( $id_article, $dbh );
+        $article = $article[0];
+    }else{
+        $article = false;
+        echo "<strong>Wrong article!</strong>";
+    }
+    $other_articles = getOtherArticles( $id_article, $dbh );
+?>
+</body>
+</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,10 +27,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/fontawesome.min.css" integrity="sha512-Rcr1oG0XvqZI1yv1HIg9LgZVDEhf2AHjv+9AuD1JXWGLzlkoKDVvE925qySLcEywpMAYA/rkg296MkvqBF07Yw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shorcut icon" href="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png"> 
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href=",./assets/css/style.css">
-    <script src="../assets/js/script.js"></script>
-    <title>News Speedy UMN</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <script src="./assets/js/script.js"></script>
+    <title><?= stripslashes($article->news_title) ?></title>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
@@ -232,7 +250,7 @@
     a{
         color: #f3f3f3;
         transition: 0.2s ease;
-        text-decoration: none;
+        text-decoration:none;
     }
     a:hover{
         color: #707070;
@@ -263,12 +281,42 @@
 
     }
 
+    .card{
+        background-color: #040816;
+
+    }
+
+    .card-comment{
+        background-color: #0D1A44;
+    }
+
+    .card-header{
+        background-color: #08102B;
+        color: #00FFFF;
+    }
+
+    .comment input{
+        border: none;
+        outline: none;
+    }
+
+    .like{
+        border: none;
+        outline: none;
+        background-color: #142868;
+        color: rgb(0, 255, 255);
+        padding: 5px;
+        width: 100px;
+        border-radius: 25px;
+        letter-spacing: 2px;
+    }
+
     .news{
         background-color: #08102b;
     }
 
     .news-posts{
-        background-color: #0D1A44;
+        background-color: #08102b;
         color: #C5C6C7;
     }
 
@@ -395,11 +443,56 @@
         .news-post .photo{
             height: auto !important;
         }
+
+        .card{
+        background-color: #040816;
+        }
+
+        .card-comment{
+            background-color: #0D1A44;
+        }
+
+        .card-header{
+            background-color: #08102B;
+            color: #00FFFF;
+        }
+
+        .comment input{
+            border: none;
+            outline: none;
+        }
+        h3{
+        font-size: 0.8rem;
+        }
     }
 
     @media(max-width: 500px){
         .news-post .photo{
             height: auto !important;
+        }
+        .card{
+        background-color: #040816;
+        }
+
+        .card-comment{
+            background-color: #0D1A44;
+        }
+
+        .card-header{
+            background-color: #08102B;
+            color: #00FFFF;
+        }
+
+        .comment input{
+            border: none;
+            outline: none;
+        }
+        h3{
+        font-size: 0.8rem;
+        }
+        .social-links {
+        background-color: #142868;
+        font-size: 1rem;
         }
     }
 
@@ -446,12 +539,46 @@
         .news-post .photo{
             height: auto !important;
         }
+        .card{
+        background-color: #040816;
+        }
+
+        .card-comment{
+            background-color: #0D1A44;
+        }
+
+        .card-header{
+            background-color: #08102B;
+            color: #00FFFF;
+        }
+
+        .comment input{
+            border: none;
+            outline: none;
+        }
 
     }
 
     @media (max-width: 700px){
         .mx-30{
             margin-bottom: 30px;
+        }
+        .card{
+        background-color: #040816;
+        }
+
+        .card-comment{
+            background-color: #0D1A44;
+        }
+
+        .card-header{
+            background-color: #08102B;
+            color: #00FFFF;
+        }
+
+        .comment input{
+            border: none;
+            outline: none;
         }
     }
 
@@ -485,24 +612,58 @@
         .brand{
             font-size: 5rem;
         }
-    
-    .overlay.menu-open,
-    nav.menu-open{
-        display: flex;
-        transform: scale(1);
-        opacity: 1;
-    }
-    .connect{
-        justify-content: center;
-        text-align: center;
-    }
 
-    
+        .overlay.menu-open,
+        nav.menu-open{
+            display: flex;
+            transform: scale(1);
+            opacity: 1;
+        }
+        .connect{
+            justify-content: center;
+            text-align: center;
+        }
+        .card{
+        background-color: #040816;
+        }
+
+        .card-comment{
+            background-color: #0D1A44;
+        }
+
+        .card-header{
+            background-color: #08102B;
+            color: #00FFFF;
+        }
+
+        .comment input{
+            border: none;
+            outline: none;
+        }
+
+
     }
 
     @media(max-width: 768px){
         .news-post .photo{
             height: auto !important;
+        }
+        .card{
+        background-color: #040816;
+        }
+
+        .card-comment{
+            background-color: #0D1A44;
+        }
+
+        .card-header{
+            background-color: #08102B;
+            color: #00FFFF;
+        }
+
+        .comment input{
+            border: none;
+            outline: none;
         }
     }
 
@@ -527,12 +688,48 @@
         .news-post .photo{
             height: auto !important;
         }
+        .card{
+        background-color: #040816;
+        }
 
+        .card-comment{
+            background-color: #0D1A44;
+        }
+
+        .card-header{
+            background-color: #08102B;
+            color: #00FFFF;
+        }
+
+        .comment input{
+            border: none;
+            outline: none;
+        }
+        h3{
+        font-size: 0.8rem;
+        }
     }
 
     @media(max-width: 992px){
         .news-post .photo{
             height: auto !important;
+        }
+        .card{
+        background-color: #040816;
+        }
+
+        .card-comment{
+            background-color: #0D1A44;
+        }
+
+        .card-header{
+            background-color: #08102B;
+            color: #00FFFF;
+        }
+
+        .comment input{
+            border: none;
+            outline: none;
         }
     }
 
@@ -548,33 +745,57 @@
         .news-post .photo{
             height: auto !important;
         }
+        .card{
+        background-color: #040816;
+        }
+
+        .card-comment{
+            background-color: #0D1A44;
+        }
+
+        .card-header{
+            background-color: #08102B;
+            color: #00FFFF;
+        }
+
+        .comment input{
+            border: none;
+            outline: none;
+        }
+        h3{
+        font-size: 0.8rem;
+        }
 
     }
     @media  screen and (max-width: 1366px) {
         .news-post .photo{
             height: auto !important;
         }
+        .card{
+        background-color: #040816;
+        }
+
+        .card-comment{
+            background-color: #0D1A44;
+        }
+
+        .card-header{
+            background-color: #08102B;
+            color: #00FFFF;
+        }
+
+        .comment input{
+            border: none;
+            outline: none;
+        }
     }
-
-
-    /*
-    font-family: 'Montserrat', sans-serif;
-    font-family: 'Raleway', sans-serif;
-    */
-
-    /* *{
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-    } */
-
 
 </style>
 <body style="overflow-x: hidden;">
 
     <div class="info">
         <div class="row">
-            <div class="col-md-2 logo1"><a href=""><img class="mobile" src="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png" alt="News_Speedy_UMN"></a></div>
+            <div class="col-md-2 logo1"><img class="mobile" src="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png" alt="News_Speedy_UMN"></div>
             <div class="col-md-7 mt-2 list">
                 <ul class="connect">
                     <li><a href="#">About Us</a></li>
@@ -592,41 +813,42 @@
         </div>
     </div>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 bg-body rounded">
-    <div class="container-fluid">
-      <a class="navbar-brand logo2" href=""><img class="desktop" src="https://cdn.discordapp.com/attachments/891579314401869864/891681342994153512/news_logo.png" alt="News_Speedy_UMN" style="width: 250px;"></a>
-      <button type="button" class="btn btn-light col-4 col-lg-2 float-start logM" style="transform: translateX(-80%);"><a href="login.html" target="_blank" style="color: white; text-decoration: none;">Login</a></button>
-        <button class="navbar-toggler mr-auto custom-toggler col-2 float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon" style="color: white;">
-            </span>
-        </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="..\News\view\home.php">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Link</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 bg-body rounded">
+        <div class="container-fluid">
+        <a class="navbar-brand logo2" href="#"><img class="desktop" src="https://cdn.discordapp.com/attachments/891579314401869864/891681342994153512/news_logo.png" alt="News_Speedy_UMN" style="width: 250px;"></a>
+        <button type="button" class="btn btn-light col-4 col-lg-2 float-start logM" style="transform: translateX(-80%);"><a href="login.html" target="_blank" style="color: white; text-decoration: none;">Login</a></button>
+            <button class="navbar-toggler mr-auto custom-toggler col-2 float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="color: white;">
+                </span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Link</a>
+            </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+
 
     <!-- news section -->
     <section class="news py-5">
@@ -636,51 +858,39 @@
                 <!-- Content -->
                 <img src="https://cdn.discordapp.com/attachments/891579314401869864/894262194756255784/wp2622216-dodge-charger-wallpaper.jpg" alt="" class="img-fluid">
                 <div class="row p-3">
-                <?php
-                        // get the database handler
-                        $dbh = connect_to_db(); // function created in dbconnect, remember?
-                        $id_article = (int)$_GET['newsid'];
-                        if ( !empty($id_article) && $id_article > 0) {
-                            // Fecth news
-                            $article = getAnArticle( $id_article, $dbh );
-                            $article = $article[0];
-                        }else{
-                            $article = false;
-                            echo "<strong>Wrong article!</strong>";
-                        }
-                        $other_articles = getOtherArticles( $id_article, $dbh );
-                    ?>
+                    
                     <div class="col-sm-12">
-                    <h2><?= stripslashes($article->news_title) ?></h2>
+                        <h2><?= stripslashes($article->news_title) ?></h2>
                         <span>published on <?= date($article->news_published_on) ?> by <?= stripslashes($article->news_author) ?></span>
                     </div>
                     <div class="badges px-3">
-                    <a href="link to categories"><?= stripslashes($article->news_category) ?></a>
+                        <a href="link to categories"><?= stripslashes($article->news_category) ?></a>
+                        <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like (0)</button>
                     </div>
                     <div class="p-content px-3">
-                    <p><?= stripslashes($article->news_full_content) ?></p> 
+                        <p><?= stripslashes($article->news_full_content) ?></p> 
                     </div>
                 </div>
             </div>
               <div class="col-lg-4 mt-3 mt-lg-0">
                   <!-- social media -->
                     <div class="social-links row text-center">
-                    <div class="col-sm-3 py-2">
+                    <div class="col-3 col-lg-3 py-2 secondary-link">
                         <button href="" class="social-link w-100">
                             <i class="fab fa-twitter"></i>
                         </button>
                     </div>
-                    <div class="col-sm-3 py-2 secondary-link">
+                    <div class="col-3 col-lg-3 py-2 ">
                         <button href="" class="social-link w-100">
                             <i class="fab fa-facebook-square"></i>
                         </button>
                     </div>
-                    <div class="col-sm-3 py-2">
+                    <div class="col-3 col-lg-3 py-2 secondary-link">
                         <button href="" class="social-link w-100">
                             <i class="fab fa-youtube"></i>
                         </button>
                     </div>
-                    <div class="col-sm-3 py-2 secondary-link">
+                    <div class="col-3 col-lg-3 py-2 ">
                         <button href="" class="social-link w-100">
                             <i class="fab fa-instagram"></i>
                         </button>
@@ -872,7 +1082,88 @@
     </section>
 
     <!-- main block section -->
+    <div class="news-posts py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="" method="">
+                                <div class="mb-3 comment">
+                                    <label for="formGroupExampleInput" class="form-label">Enter Your Name</label>
+                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Your Name">
+                                  </div>
+                                  <div class="mb-3 comment">
+                                    <label for="comment" class="form-label">Write Your Comments</label>
+                                    <input type="text" class="form-control" id="comment" placeholder="Write Your Comments">
+                                  </div>
+                                  <div class="mb-3 comment">
+                                    <button type="submit" class="btn btn-primary" style="background-color: #142868;color: rgb(0, 255, 255);outline: none;border: none;">Submit</button>
+                                  </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card mt-3 card-comment shadow-lg">
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card-header mb-0 pb-0">
+                                 Posted by : joji 
+                                 <p class="text-end" style="display: inline; float: right;">TANGGAL POST</p>
+                                </div>
+                                <div class="card-body">
+                                  <h5 class="card-title">Special title treatment</h5>
+                                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                  <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like (0)</button>
+                                </div>
+                              </div>
+                            </div>
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card-header mb-0 pb-0">
+                                 Posted by : joji 
+                                 <p class="text-end" style="display: inline; float: right;">TANGGAL POST</p>
+                                </div>
+                                <div class="card-body">
+                                  <h5 class="card-title">Special title treatment</h5>
+                                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                  <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like (0)</button>
+                                </div>
+                              </div>
+                            </div>
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card-header mb-0 pb-0">
+                                 Posted by : joji 
+                                 <p class="text-end" style="display: inline; float: right;">TANGGAL POST</p>
+                                </div>
+                                <div class="card-body">
+                                  <h5 class="card-title">Special title treatment</h5>
+                                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                  <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like (0)</button>
+                                </div>
+                              </div>
+                            </div>
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card-header mb-0 pb-0">
+                                 Posted by : joji 
+                                 <p class="text-end" style="display: inline; float: right;">TANGGAL POST</p>
+                                </div>
+                                <div class="card-body">
+                                  <h5 class="card-title">Special title treatment</h5>
+                                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                  <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like (0)</button>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                <aside class="col-md-4 px-4 mt-lg-0 mt-3">
+                </aside>
+            </div>
+        </div>
 
+    </div>
     <!-- footer section -->
     <footer class="footer py-4">
         <div class="container">
@@ -914,9 +1205,7 @@
 <script src="script.js" async defer></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/js/fontawesome.min.js" integrity="sha512-xs1el+uLI2T4QTvRIv3kFBWvjQiPVAvKQM4kzZrJoLVZ1tSz1E0fkZch0cjd1f+sTk2MtBCHbP3PiVTdoFKAJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
     var open = document.getElementById('hamburger');
     var changeIcon = true;
@@ -943,5 +1232,21 @@
         }
     });
 </script>
+
+<!-- like button -->
+<script type="text/javascript">
+    $(".like").click(function(){
+        let button = $(this)
+        let post_id = $(button).data('postid')
+        $.post("index.php",
+        {
+            'like' : post_id
+        },
+        function(data, status){
+            $(button).html("Like (" + ($(button).data('likes')+1) + ")")
+            $(button).data('likes', $(button).data('likes')+1)
+        });
+    });
+    </script>
 </body>
 </html>
