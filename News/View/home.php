@@ -35,7 +35,7 @@
                             <!-- <button type="button" class="btn btn-light col-5 col-xxl-3 logD"><a href="login.html" target="_blank" style="color: black; text-decoration: none;">Logout</a></button> -->
 
                         <?php //else: ?>
-                            <button type="button" class="btn btn-light col-5 col-xxl-3 logD"><a href="login.html" target="_blank" style="color: black; text-decoration: none;">Login</a></button>
+                            <button type="button" class="btn btn-light col-5 col-xxl-3 logD"><a href="..\News\view\login_singup.php" target="_blank" style="color: black; text-decoration: none;">Login</a></button>
 
                         <?php //endif; ?>
                     </div>
