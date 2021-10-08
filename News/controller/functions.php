@@ -9,14 +9,14 @@
         return $request->execute() ? $request->fetchAll() : false; 
     }
 
-    function getAnArticle($id_article)
+    function getAnArticle( $id_article)
     {
         $conn = connect_to_db();
         $request =  $conn->prepare(" SELECT news_ID,  news_title, news_full_content, news_author, news_published_on, news_category FROM news_info  WHERE news_ID = ? ");
         return $request->execute(array($id_article)) ? $request->fetchAll() : false; 
     }
 
-    function getOtherArticles($differ_id)
+    function getOtherArticles( $differ_id)
     {
         $conn = connect_to_db();
         $request =  $conn->prepare(" SELECT news_ID,  news_title, news_short_description, news_full_content, news_author, news_published_on, news_category FROM news_info  WHERE news_ID != ? ");

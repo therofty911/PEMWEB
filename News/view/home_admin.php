@@ -1,6 +1,4 @@
-<?php 
-    session_start();
-?>
+<?php session_start();?>
 <?php
     // require_once 'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\config\dbconnect.php';
     
@@ -11,12 +9,12 @@
     include_once  '..\controller\functions.php';
     $news = fetchNews();
 ?>
-<?php
-  include '..\controller\logout.php';
-  if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['logout'])){
-    validatelogout();
-  }
-?>
+<!-- <?php
+//   include '..\controller\logout.php';
+//   if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["logout"])){
+//     validatelogout();
+//   }
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,14 +43,14 @@
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>    
                     <li><a href="..\view\dashboard.php">Dashboard</a></li>    
-                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['user']?></a></li>    
+                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['level'];?></a></li>    
                 </ul>
             </div>
             <div class="col-md-3">
                 <div class="row">
                     <div class="text-center icon">
-                        <form action="" method="POST" style="display: inline;">
-                            <button type="button" class="btn btn-light col-5 col-xxl-3 logD"><a href=""  style="color: black; text-decoration: none;" name="logout">Logout</a></button>
+                        <form  method="post" style="display: inline;">
+                            <button type="button" class="btn btn-light col-5 col-xxl-3 logD" name="logout"><a href="..\controller\logout.php">Logout</a></button>
                             <p class="logM">Hello, Username</p>
                         </form>
                     </div>
@@ -64,7 +62,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 bg-body rounded">
         <div class="container-fluid">
         <a class="navbar-brand logo2" href="#"><img class="desktop" src="https://cdn.discordapp.com/attachments/891579314401869864/891681342994153512/news_logo.png" alt="News_Speedy_UMN" style="width: 250px;"></a>
-        <button type="button" class="btn btn-light col-4 col-lg-2 float-start logM" style="transform: translateX(-80%);"><a href=""  style="color: white; text-decoration: none;" name="logout">Logout</a></button>
+        <button type="button" class="btn btn-light col-4 col-lg-2 float-start logM" style="transform: translateX(-80%);" name="logout"><a   style="color: white; text-decoration: none;" >Logout</a></button>
             <button class="navbar-toggler mr-auto custom-toggler col-2 float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon" style="color: white;">
                 </span>
@@ -188,7 +186,7 @@
                                     <img src="https://cdn.discordapp.com/attachments/891579314401869864/894262234979663892/wallhaven-p81xve.png" alt="" class="img-fluid">
                                 </div>
                                 <div class="col-sm-8">
-                                    <a href="..\News\view\readNews.php?newsid=<?=$article->news_ID?>" class="link-popular">
+                                    <a href="..\view\readNews.php?newsid=<?=$article->news_ID?>" class="link-popular">
                                         <h3 class="m-0 mt-2"><?= stripslashes($article->news_title) ?></h3>
                                         <p class="m-0 mb-2"><?= stripslashes($article->news_short_description) ?></p>    
                                         <span><strong>published on <?= date($article->news_published_on) ?> by <?= stripslashes($article->news_author) ?></strong></span> <br>

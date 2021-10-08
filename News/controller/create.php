@@ -25,7 +25,7 @@ function createData(){
         // Output message
         if($stmt){
             echo("<script>console.log('Created Successfully!')</script>");
-            header('Location:..\News\view\create.php');
+            header('Location:..\..\News\view\create.php');
         }
         else{
             echo("<script>console.log('failed!')</script>");

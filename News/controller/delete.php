@@ -1,15 +1,15 @@
 <?php
-//include_once("..\config\dbconnect.php");
+include_once("config/dbconnect.php");
 include '..\controller\functions.php';
 $pdo = connect_to_db();
 $msg = '';
-// $id = $_GET["$news_ID"]; 
+// $id = $_GET["$news_id"]; 
 if (isset($_GET['news_ID'])) {
     // Select the record that is going to be deleted
-    $stmt = $pdo->prepare('DELETE FROM news_info WHERE news_ID = ?');
+    $stmt = $pdo->prepare('SELECT * FROM news_info WHERE news_ID = ?');
     $stmt->execute([$_GET['news_ID']]);
-    // $stmt = $pdo->prepare("DELETE FROM news_info WHERE $id = $news_ID");
-    // $stmt->execute();
+    $stmt = $pdo->prepare("DELETE FROM news_info WHERE $id = $news_ID");
+    $stmt->execute();
     // $stmt->execute([$_GET['news_ID']]);
     $news = $stmt->fetch(PDO::FETCH_ASSOC);
     if (!$news) {

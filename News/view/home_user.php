@@ -1,6 +1,4 @@
-<?php 
-    session_start();
-?>
+<?php session_start();?>
 <?php
     // require_once 'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\config\dbconnect.php';
     
@@ -8,14 +6,14 @@
     //$dbh = connect_to_db(); // function created in dbconnect, remember?
     // Fecth news
     // require_once  'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\controller\functions.php';
-    include_once  '..\News\controller\functions.php';
+    include_once  '..\controller\functions.php';
     $news = fetchNews();
 ?>
 <?php
-  include '..\News\controller\logout.php';
-  if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['logout'])){
-    validatelogout();
-  }
+  //include '..\controller\logout.php';
+//   if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['logout'])){
+//     validatelogout();
+//   }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,8 +29,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/fontawesome.min.css" integrity="sha512-Rcr1oG0XvqZI1yv1HIg9LgZVDEhf2AHjv+9AuD1JXWGLzlkoKDVvE925qySLcEywpMAYA/rkg296MkvqBF07Yw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shorcut icon" href="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png"> 
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="./assets/js/script.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/script.js"></script>
     <title>News Speedy UMN</title>
 </head>
 <body style="overflow-x: hidden;">
@@ -44,15 +42,15 @@
                 <ul class="connect">
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>    
-                    <li><a href="" class="logD">Hello, Username</a></li>    
+                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['user'];?></a></li>    
                 </ul>
             </div>
             <div class="col-md-3">
                 <div class="row">
                     <div class="text-center icon">
                         <form action="" method="POST" style="display: inline;">
-                            <button type="button" class="btn btn-light col-5 col-xxl-3 logD"><a href="..\News\view\login.php" target="_blank" style="color: black; text-decoration: none;">Logout</a></button>
-                            <p class="logM">Hello, Username</p>
+                            <button type="button" class="btn btn-light col-5 col-xxl-3 logD"><a href="..\controller\logout.php" target="_blank" style="color: black; text-decoration: none;">Logout</a></button>
+                            <p class="logM">Hello, <?php echo $_SESSION['user'];?></p>
                         </form>
                     </div>
                 </div>
@@ -63,7 +61,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 bg-body rounded">
         <div class="container-fluid">
         <a class="navbar-brand logo2" href="#"><img class="desktop" src="https://cdn.discordapp.com/attachments/891579314401869864/891681342994153512/news_logo.png" alt="News_Speedy_UMN" style="width: 250px;"></a>
-        <button type="button" class="btn btn-light col-4 col-lg-2 float-start logM" style="transform: translateX(-80%);"><a href="login.html" target="_blank" style="color: white; text-decoration: none;">Logout</a></button>
+        <button type="button" class="btn btn-light col-4 col-lg-2 float-start logM" style="transform: translateX(-80%);"><a href="..\controller\logout.php" target="_blank" style="color: white; text-decoration: none;">Logout</a></button>
             <button class="navbar-toggler mr-auto custom-toggler col-2 float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon" style="color: white;">
                 </span>
@@ -187,7 +185,7 @@
                                     <img src="https://cdn.discordapp.com/attachments/891579314401869864/894262234979663892/wallhaven-p81xve.png" alt="" class="img-fluid">
                                 </div>
                                 <div class="col-sm-8">
-                                    <a href="..\News\view\readNews.php?newsid=<?=$article->news_ID?>" class="link-popular">
+                                    <a href="..\view\readNews.php?newsid=<?=$article->news_ID?>" class="link-popular">
                                         <h3 class="m-0 mt-2"><?= stripslashes($article->news_title) ?></h3>
                                         <p class="m-0 mb-2"><?= stripslashes($article->news_short_description) ?></p>    
                                         <span><strong>published on <?= date($article->news_published_on) ?> by <?= stripslashes($article->news_author) ?></strong></span> <br>

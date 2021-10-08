@@ -50,7 +50,7 @@
                 </div>
                 <div class="g-recaptcha" data-sitekey="6LdFmmQcAAAAAGuC6N1MNLbDMeSLwB8n1PR512k8" style="margin-bottom: 10px;"></div>
 
-                <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" style="background-color: #0D1A44;" name="login">Log in</button>
+                <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" style="background-color: #0D1A44;" name="signin">Log in</button>
             </form>
             <div class="text-center mt-5 text-lg fs-4">
                 <p class="text-gray-600">Don't have an account? <a href="auth-register.html" class="font-bold">Signup</a>.</p>
@@ -67,8 +67,8 @@
 </body>
 </html>
 <?php
-  include '..\..\News\controller\login.php';
-  if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])){
+  include '..\controller\login.php';
+  if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signin'])){
     verifiedlogin();
   }
 ?>
