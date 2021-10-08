@@ -182,8 +182,8 @@
                                 <div class="col-sm-8">
                                     <a href="..\News\view\readNews.php?newsid=<?=$article->news_ID?>" class="link-popular">
                                         <h3 class="m-0 mt-2"><?= stripslashes($article->news_title) ?></h3>
-                                        <p class="m-0"><?= stripslashes($article->news_short_description) ?></p>    
-                                        <span>published on <?= date($article->news_published_on) ?> by <?= stripslashes($article->news_author) ?></span> <br>
+                                        <p class="m-0 mb-2"><?= stripslashes($article->news_short_description) ?></p>    
+                                        <span><strong>published on <?= date($article->news_published_on) ?> by <?= stripslashes($article->news_author) ?></strong></span> <br>
                                     </a>
                                     <div class="badge mb-2" >
                                         <a href="link to categories"><?= stripslashes($article->news_category) ?></a>
