@@ -164,13 +164,13 @@
                 <div class="col-lg-8">
                     <?php
                         // require_once 'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\config\dbconnect.php';
-                        require_once '..\News\config\dbconnect.php';
+                        
                         // get the database handler
-                        $dbh = connect_to_db(); // function created in dbconnect, remember?
+                        //$dbh = connect_to_db(); // function created in dbconnect, remember?
                         // Fecth news
                         // require_once  'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\controller\functions.php';
-                        require_once  '..\News\controller\functions.php';
-                        $news = fetchNews($dbh);
+                        include_once  '..\News\controller\functions.php';
+                        $news = fetchNews();
                     ?>
                     <?php foreach ($news as $key => $article) :?>
                     <article class="news-daily-post mb-3 shadow-lg">
