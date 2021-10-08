@@ -1,5 +1,6 @@
 <?php
 include_once("config/dbconnect.php");
+$pdo = connect_to_db();
 $msg = '';
 if (isset($_GET['news_ID'])) {
     // Select the record that is going to be deleted

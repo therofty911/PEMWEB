@@ -1,6 +1,7 @@
 <?php
 // include_once("config/dbconnect.php");
 include '..\controller\functions.php';
+$pdo = connect_to_db();
 $msg = '';
 
 function createData(){
