@@ -33,7 +33,7 @@
                         if($db['level']=="admin"){
  
                             // buat session login dan username
-                            $_SESSION['user'] = $user;
+                            $_SESSION['user'] = $db;
                             $_SESSION['level'] = "admin";
                             // alihkan ke halaman dashboard admin
                             //header("location:..\News\index.php");
@@ -44,7 +44,7 @@
                         // cek jika user login sebagai pegawai
                         }else if($db['level']=="user"){
                             // buat session login dan username
-                            $_SESSION['user'] = $user;
+                            $_SESSION['user'] = $db;
                             $_SESSION['level'] = "user";
                             // alihkan ke halaman dashboard pegawai
                             //header("location:..\News\index.php");

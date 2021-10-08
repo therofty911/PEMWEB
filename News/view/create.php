@@ -1,4 +1,4 @@
-<?php //include '..\controller\create.php'?>
+
 <?php
   include '..\..\News\controller\create.php';
   if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create'])){
@@ -195,16 +195,15 @@
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="form-group">
-                                                                <label for=" news_title">Title</label>
-                                                                <input type="text" id="title" class="form-control"
-                                                                    name="title" placeholder="Title">
+                                                                <label for=" title">Title</label>
+                                                                <input type="text" id="title" class="form-control" name="news_title" placeholder="Title">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mt-3">
                                                             <div class="row">
                                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="radio" name="category" id="category">
+                                                                        <input class="form-check-input" type="radio" name="news_category" id="category" value="Technology">
                                                                         <label class="form-check-label" for="category">
                                                                             Technology
                                                                         </label>
@@ -212,7 +211,7 @@
                                                                 </div>
                                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="radio" name="category" id="category">
+                                                                        <input class="form-check-input" type="radio" name="news_category" id="category" value="Music">
                                                                         <label class="form-check-label" for="category">
                                                                             Music
                                                                         </label>
@@ -220,7 +219,7 @@
                                                                 </div>
                                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="radio" name="category" id="category">
+                                                                        <input class="form-check-input" type="radio" name="news_category" id="category" value="Game">
                                                                         <label class="form-check-label" for="category">
                                                                             Game
                                                                         </label>
@@ -228,7 +227,7 @@
                                                                 </div>
                                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="radio" name="category" id="category">
+                                                                        <input class="form-check-input" type="radio" name="news_category" id="category" value="Politic">
                                                                         <label class="form-check-label" for="category">
                                                                             Politic
                                                                         </label>
@@ -236,7 +235,7 @@
                                                                 </div>
                                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="radio" name="category" id="category">
+                                                                        <input class="form-check-input" type="radio" name="news_category" id="category" value="Art">
                                                                         <label class="form-check-label" for="category">
                                                                             Art
                                                                         </label>
@@ -244,7 +243,7 @@
                                                                 </div>
                                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="radio" name="category" id="category">
+                                                                        <input class="form-check-input" type="radio" name="news_category" id="category" value="Automotive">
                                                                         <label class="form-check-label" for="category">
                                                                             Automotive
                                                                         </label>
@@ -252,7 +251,7 @@
                                                                 </div>
                                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="radio" name="category" id="category">
+                                                                        <input class="form-check-input" type="radio" name="news_category" id="category" value="Fashion">
                                                                         <label class="form-check-label" for="category">
                                                                             Fashion
                                                                         </label>
@@ -260,7 +259,7 @@
                                                                 </div>
                                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="radio" name="category" id="category">
+                                                                        <input class="form-check-input" type="radio" name="news_category" id="category" value="Healthy">
                                                                         <label class="form-check-label" for="category">
                                                                             Healthy
                                                                         </label>
@@ -272,13 +271,14 @@
                                                             <div class="form-group">
                                                                 <label for="sdesc">Short Description</label>
                                                                 <input type="text" id="sdesc" class="form-control"
-                                                                    name="sdesc" placeholder="Short Description">
+                                                                    name="news_short_description" placeholder="Short Description">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mt-3">
                                                             <div class="card">
                                                                 <div class="card-body">
-                                                                    <textarea id="dark" cols="30" rows="10"></textarea>
+                                                                    <label for="fullcontent">Full content</label>
+                                                                    <textarea id="dark" cols="30" rows="10" name="news_full_content"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -286,14 +286,14 @@
                                                             <div class="form-group">
                                                                 <label for="author">Author</label>
                                                                 <input type="text" id="author" class="form-control"
-                                                                    name="author" placeholder="Author">
+                                                                    name="news_author" placeholder="Author">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mt-3">
                                                             <div class="form-group">
                                                                 <label for="published">Published on</label>
                                                                 <input type="date" id="published" class="form-control"
-                                                                    name="published" placeholder="Published on">
+                                                                    name="news_published_on" placeholder="Published on">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 d-flex justify-content-start mt-3">

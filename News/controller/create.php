@@ -17,13 +17,21 @@ function createData(){
         $content = isset($_POST['news_full_content']) ? $_POST['news_full_content'] : '';
         $author = isset($_POST['news_author']) ? $_POST['news_author'] : '';
         $published = isset($_POST['news_published_on']) ? $_POST['news_published_on'] : date('m-d-Y');
+        $id = '5006';
         
         // Insert new record into the contacts table
-        $stmt = $pdo->prepare('INSERT INTO news_info (news_category, news_title, news_short_description, news_full_content, news_author, news_published_on) VALUES (?, ?, ?, ?, ?, ?)');
-        $stmt->execute([$category, $title, $sdesc, $content, $author, $published]);
+        $stmt = $pdo->prepare("INSERT INTO news_info (news_ID, news_category, news_title, news_short_description, news_full_content, news_author, news_published_on) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->execute(array($id, $category, $title, $sdesc, $content, $author, $published));
         // Output message
-        $msg = 'Created Successfully!';
-        header("Location: ..\..\News\view\create.php");
+        if($stmt){
+            echo("<script>console.log('Created Successfully!')</script>");
+            header('Location:..\..\News\view\create.php');
+        }
+        else{
+            echo("<script>console.log('failed!')</script>");
+        }
+        
+        
     }
 }
 ?>
