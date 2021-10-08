@@ -179,7 +179,7 @@
                                 <div class="card">
                                     <div class="card-content">
                                         <div class="card-body">
-                                            <form class="form form-vertical" action="" method="POST">
+                                            <form class="form form-vertical" action="" method="POST" enctype="multipart/form-data">
                                                 <div class="form-body">
                                                     <div class="row">
                                                         <div class="col-12 col-md-12">
