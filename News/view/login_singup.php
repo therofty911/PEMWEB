@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -416,7 +415,7 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-            <form action="..\..\controller\login.php" class="sign-in-form" method="POST">
+            <form class="sign-in-form" method="POST">
                 <h2 class="title">Sign in</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
@@ -426,7 +425,7 @@
                     <i class="fas fa-lock"></i>
                     <input type="password" name="pw" placeholder="Password" />
                 </div>
-                <input type="submit" value="Login" class="btn solid" />
+                <input type="submit" value="Login" name="signin" class="btn solid" />
             </form>
             <form action="#" class="sign-up-form">
                 <h2 class="title">Sign up</h2>
@@ -491,3 +490,10 @@ sign_in_btn.addEventListener("click", () => {
     </script>
   </body>
 </html>
+
+<?php
+  include '..\..\News\controller\login.php';
+  if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signin'])){
+    verifiedlogin();
+  }
+?>
