@@ -1,7 +1,10 @@
 <?php
-include_once("config/dbconnect.php");
+// include_once("config/dbconnect.php");
+include '..\controller\functions.php';
 $msg = '';
-// Check if POST data is not empty
+
+function createData(){
+    // Check if POST data is not empty
 if (!empty($_POST)) {
     // Post data not empty insert a new record
     // Set-up the variables that are going to be inserted, we must check if the POST variables exist if not we can default them to blank
@@ -19,6 +22,7 @@ if (!empty($_POST)) {
     $stmt->execute([$id, $category, $title, $sdesc, $content, $author, $published]);
     // Output message
     $msg = 'Created Successfully!';
-    header("Location: ../index.php");
+    header("Location: ..\..\News\view\create.php");
+}
 }
 ?>

@@ -1,6 +1,6 @@
 
 <?php
-include 'view/home.php'
+include 'view/home.php';
 // include 'config.php'; 
 
 //     if(isset($_SESSION['username'])== 0) { /* Halaman ini tidak dapat diakses jika belum ada yang login */

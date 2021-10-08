@@ -1,4 +1,22 @@
-<?php session_start(); ?>
+<?php 
+    session_start();
+?>
+<?php
+    // require_once 'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\config\dbconnect.php';
+    
+    // get the database handler
+    //$dbh = connect_to_db(); // function created in dbconnect, remember?
+    // Fecth news
+    // require_once  'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\controller\functions.php';
+    include_once  '..\News\controller\functions.php';
+    $news = fetchNews();
+?>
+<?php
+  include '..\News\controller\logout.php';
+  if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['logout'])){
+    validatelogout();
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,13 +50,9 @@
             <div class="col-md-3">
                 <div class="row">
                     <div class="text-center icon">
-                        <?php //if( $_SESSION['user_logged_in']): ?>
-                            <!-- <button type="button" class="btn btn-light col-5 col-xxl-3 logD"><a href="login.html" target="_blank" style="color: black; text-decoration: none;">Logout</a></button> -->
-
-                        <?php //else: ?>
-                            <button type="button" class="btn btn-light col-5 col-xxl-3 logD"><a href="..\News\view\login_singup.php" target="_blank" style="color: black; text-decoration: none;">Login</a></button>
-
-                        <?php //endif; ?>
+                        <form action="" method="POST">
+                            <button type="button" class="btn btn-light col-5 col-xxl-3 logD"><a href="..\News\view\login.php" target="_blank" style="color: black; text-decoration: none;">Login</a></button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -164,16 +178,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <?php
-                        // require_once 'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\config\dbconnect.php';
-                        
-                        // get the database handler
-                        //$dbh = connect_to_db(); // function created in dbconnect, remember?
-                        // Fecth news
-                        // require_once  'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\controller\functions.php';
-                        include_once  '..\News\controller\functions.php';
-                        $news = fetchNews();
-                    ?>
+
                     <?php foreach ($news as $key => $article) :?>
                     <article class="news-daily-post mb-3 shadow-lg">
                             <div class="row">
