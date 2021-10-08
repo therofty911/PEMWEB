@@ -37,7 +37,7 @@
             
             <li
                 class="sidebar-item  ">
-                <a href="..\News\view\dashboard.php" class='sidebar-link'>
+                <a href="..\..\News\view\dashboard.php" class='sidebar-link'>
                     <i class="bi bi-grid-fill"></i>
                     <span>Dashboard</span>
                 </a>
@@ -57,14 +57,14 @@
             </li>
             <li
                 class="sidebar-item  ">
-                <a href="..\News\view\create.php" class='sidebar-link'>
+                <a href="..\..\News\view\create.php" class='sidebar-link'>
                     <i class="bi bi-pen-fill"></i>
                     <span>Create</span>
                 </a>
             </li>
             <li
                 class="sidebar-item  ">
-                <a href="..\News\view\list_news.php" class='sidebar-link'>
+                <a href="..\..\News\view\list_news.php" class='sidebar-link'>
                     <i class="bi bi-card-list"></i>
                     <span>List</span>
                 </a>

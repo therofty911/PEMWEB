@@ -45,7 +45,7 @@
     <div class="sidebar-header">
         <div class="d-flex justify-content-between">
             <div class="logo">
-                <a href="index.html"><img src="../assets/images/logo/logo.png" alt="Logo" srcset="" style="width: 250px; height: auto;"></a>
+                <a href="..\index.php"><img src="../assets/images/logo/logo.png" alt="Logo" srcset="" style="width: 250px; height: auto;"></a>
             </div>
             <div class="toggler">
                 <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -58,7 +58,7 @@
             
             <li
                 class="sidebar-item  ">
-                <a href="..\News\view\dashboard.php" class='sidebar-link'>
+                <a href="..\..\News\view\dashboard.php" class='sidebar-link'>
                     <i class="bi bi-grid-fill"></i>
                     <span>Dashboard</span>
                 </a>
@@ -78,14 +78,14 @@
             </li>
             <li
                 class="sidebar-item  ">
-                <a href="..\News\view\create.php" class='sidebar-link'>
+                <a href="..\..\News\view\create.php" class='sidebar-link'>
                     <i class="bi bi-pen-fill"></i>
                     <span>Create</span>
                 </a>
             </li>
             <li
                 class="sidebar-item  ">
-                <a href="..\News\view\list_news.php" class='sidebar-link'>
+                <a href="..\..\News\view\list_news.php" class='sidebar-link'>
                     <i class="bi bi-card-list"></i>
                     <span>List</span>
                 </a>
