@@ -12,7 +12,7 @@
     $news = fetchNews();
 ?>
 <?php
-  include '..\News\controller\logout.php';
+  include '..\controller\logout.php';
   if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['logout'])){
     validatelogout();
   }
@@ -45,7 +45,7 @@
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>    
                     <li><a href="..\News\view\dashboard.php">Dashboard</a></li>    
-                    <li><a href="" class="logD">Hello, Username</a></li>    
+                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['user']?></a></li>    
                 </ul>
             </div>
             <div class="col-md-3">

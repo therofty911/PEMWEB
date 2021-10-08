@@ -35,22 +35,22 @@
             <h1 class="auth-title" style="color: #0D1A44;">Log in.</h1>
             <p class="auth-subtitle mb-2">Silahkan Login ke News Speedy UMN</p>
 
-            <form action="index.html">
+            <form method="post">
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="text" class="form-control form-control-xl" placeholder="Username">
+                    <input type="text" class="form-control form-control-xl" placeholder="Username" name="user">
                     <div class="form-control-icon">
                         <i class="bi bi-person"></i>
                     </div>
                 </div>
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="password" class="form-control form-control-xl" placeholder="Password">
+                    <input type="password" class="form-control form-control-xl" placeholder="Password" name="pw">
                     <div class="form-control-icon">
                         <i class="bi bi-shield-lock"></i>
                     </div>
                 </div>
                 <div class="g-recaptcha" data-sitekey="6LdFmmQcAAAAAGuC6N1MNLbDMeSLwB8n1PR512k8" style="margin-bottom: 10px;"></div>
 
-                <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" style="background-color: #0D1A44;">Log in</button>
+                <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" style="background-color: #0D1A44;" name="login">Log in</button>
             </form>
             <div class="text-center mt-5 text-lg fs-4">
                 <p class="text-gray-600">Don't have an account? <a href="auth-register.html" class="font-bold">Signup</a>.</p>
@@ -65,8 +65,13 @@
 
     </div>
 </body>
-
 </html>
+<?php
+  include '..\..\News\controller\login.php';
+  if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])){
+    verifiedlogin();
+  }
+?>
 
 
 
@@ -566,9 +571,4 @@ sign_in_btn.addEventListener("click", () => {
   </body>
 </html>
 
-<?php
-  // include '..\..\News\controller\login.php';
-  // if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signin'])){
-  //   verifiedlogin();
-  // }
-?> -->
+ -->

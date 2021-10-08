@@ -1,6 +1,6 @@
 <?php
 //     include_once 'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\config\dbconnect.php'; 
-    
+    session_start();
     $user = "";
     $pw = "";
     function verifiedlogin(){
@@ -33,10 +33,10 @@
                         if($db['level']=="admin"){
  
                             // buat session login dan username
-                            $_SESSION['user'] = $db;
+                            $_SESSION['user'] = $user;
                             $_SESSION['level'] = "admin";
                             // alihkan ke halaman dashboard admin
-                            //header("location:..\News\index.php");
+                            //header("location:..\index.php");
                             echo "<script>document.location.href = '../index.php';</script>";
                         
 
@@ -44,17 +44,17 @@
                         // cek jika user login sebagai pegawai
                         }else if($db['level']=="user"){
                             // buat session login dan username
-                            $_SESSION['user'] = $db;
+                            $_SESSION['user'] = $user;
                             $_SESSION['level'] = "user";
                             // alihkan ke halaman dashboard pegawai
                             //header("location:..\News\index.php");
-                            echo "<script>document.location.href = '../index.php';</script>";
+                            echo "<script>document.location.href = '..\index.php';</script>";
                         }
                     }
                     else{
                         echo "<script>console.log('error 45, wrong email or password');</script>";
                         //header('location:..\News\index.php');
-                        echo "<script>document.location.href = '../index.php';</script>";
+                        echo "<script>document.location.href = '..\index.php';</script>";
                         //echo "<script>console.log('$user, $pw');</script>";
                     }
                 }
