@@ -189,72 +189,72 @@
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <label for=" news_title">Title</label>
-                                                                <input type="text" id=" news_title" class="form-control"
-                                                                    name="news_title" placeholder="Title">
+                                                                <input type="text" id="title" class="form-control"
+                                                                    name="title" placeholder="Title">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mt-3">
                                                             <div class="row">
                                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="radio" name="news_category" id="news_category">
-                                                                        <label class="form-check-label" for="news_category">
+                                                                        <input class="form-check-input" type="radio" name="category" id="category">
+                                                                        <label class="form-check-label" for="category">
                                                                             Technology
                                                                         </label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="radio" name="news_category" id="news_category">
-                                                                        <label class="form-check-label" for="news_category">
+                                                                        <input class="form-check-input" type="radio" name="category" id="category">
+                                                                        <label class="form-check-label" for="category">
                                                                             Music
                                                                         </label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="radio" name="news_category" id="news_category">
-                                                                        <label class="form-check-label" for="news_category">
-                                                                            Games
+                                                                        <input class="form-check-input" type="radio" name="category" id="category">
+                                                                        <label class="form-check-label" for="category">
+                                                                            Game
                                                                         </label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="radio" name="news_category" id="news_category">
-                                                                        <label class="form-check-label" for="news_category">
+                                                                        <input class="form-check-input" type="radio" name="category" id="category">
+                                                                        <label class="form-check-label" for="category">
                                                                             Politic
                                                                         </label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="radio" name="news_category" id="news_category">
-                                                                        <label class="form-check-label" for="news_category">
-                                                                            Arts
+                                                                        <input class="form-check-input" type="radio" name="category" id="category">
+                                                                        <label class="form-check-label" for="category">
+                                                                            Art
                                                                         </label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="radio" name="news_category" id="news_category">
-                                                                        <label class="form-check-label" for="news_category">
+                                                                        <input class="form-check-input" type="radio" name="category" id="category">
+                                                                        <label class="form-check-label" for="category">
                                                                             Automotive
                                                                         </label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="radio" name="news_category" id="news_category">
-                                                                        <label class="form-check-label" for="news_category">
+                                                                        <input class="form-check-input" type="radio" name="category" id="category">
+                                                                        <label class="form-check-label" for="category">
                                                                             Fashion
                                                                         </label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="radio" name="news_category" id="news_category">
-                                                                        <label class="form-check-label" for="news_category">
+                                                                        <input class="form-check-input" type="radio" name="category" id="category">
+                                                                        <label class="form-check-label" for="category">
                                                                             Healthy
                                                                         </label>
                                                                     </div>
@@ -263,9 +263,9 @@
                                                         </div>
                                                         <div class="col-12 mt-3">
                                                             <div class="form-group">
-                                                                <label for="news_short_description">Short Description</label>
-                                                                <input type="text" id="news_short_description" class="form-control"
-                                                                    name="news_short_description" placeholder="Short Description">
+                                                                <label for="sdesc">Short Description</label>
+                                                                <input type="text" id="sdesc" class="form-control"
+                                                                    name="sdesc" placeholder="Short Description">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mt-3">
@@ -277,16 +277,16 @@
                                                         </div>
                                                         <div class="col-12 mt-3">
                                                             <div class="form-group">
-                                                                <label for="news_author">Author</label>
-                                                                <input type="text" id="news_author" class="form-control"
-                                                                    name="news_author" placeholder="Author">
+                                                                <label for="author">Author</label>
+                                                                <input type="text" id="author" class="form-control"
+                                                                    name="author" placeholder="Author">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mt-3">
                                                             <div class="form-group">
-                                                                <label for="news_published_on">published on</label>
-                                                                <input type="date" id="news_published_on" class="form-control"
-                                                                    name="news_published_on" placeholder="published on">
+                                                                <label for="published">Published on</label>
+                                                                <input type="date" id="published" class="form-control"
+                                                                    name="published" placeholder="Published on">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 d-flex justify-content-start mt-3">
