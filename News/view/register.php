@@ -69,6 +69,14 @@
                     </div>
                 </div>
                 <div class="form-group position-relative has-icon-left mb-2">
+                    <fieldset class="form-group">
+                        <select class="form-select" id="basicSelect">
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </fieldset>
+                </div>
+                <div class="form-group position-relative has-icon-left mb-2">
                     <input type="date" class="form-control form-control-md" placeholder="DOB">
                     <div class="form-control-icon">
                         <i class="bi bi-calendar3"></i>
