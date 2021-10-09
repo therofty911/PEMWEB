@@ -53,6 +53,12 @@
         return $request->execute() ? $request->fetchAll() : false; 
     }
 
+    function fetchPopular()
+    {
+        $conn = connect_to_db();
+        $request = $conn->prepare(" SELECT news_ID, news_title, news_short_description FROM news_info ORDER BY news_likes DESC LIMIT 5");
+        return $request->execute() ? $request->fetchAll() : false; 
+    }
     // function fetchNews()
     // {
     //     $conn = connect_to_db();

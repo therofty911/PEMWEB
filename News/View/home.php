@@ -31,6 +31,14 @@
     <script src="../assets/js/script.js"></script>
     <title>News Speedy UMN</title>
 </head>
+<style>
+    #popshort {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 75ch;
+    }
+</style>
 <body style="overflow-x: hidden;">
 
     <div class="info">
@@ -190,7 +198,7 @@
                     
 
                 </div>
-                <aside class="col-md-4 px-4 mt-lg-0 mt-3">
+                <aside class="col-lg-4 px-4 mt-lg-0 mt-3">
                     <!-- social media -->
                     <div class="social-links row text-center">
                         <div class="col-sm-3 py-2">

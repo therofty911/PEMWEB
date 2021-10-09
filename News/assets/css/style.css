@@ -209,6 +209,14 @@ h3{
     font-size: 1.5rem;
 }
 
+#popshort {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 75ch;
+}
+
+
 .news-post {
     position: relative;
 }
@@ -307,7 +315,7 @@ img{
 }
 
 .aside-heading{
-    border-bottom: 3px solid rgb(0, 255, 255);
+    border-left: 3px solid rgba(0, 255, 255);
     padding-left: 5px
 }
 
@@ -391,10 +399,20 @@ input{
     .news-post .photo{
         height: auto !important;
     }
+    #popshort {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 75ch;
+    }
 }
 
 
 @media (max-width: 600px) {
+    h3{
+    font-size: 0.9rem;
+
+    }
     .logo1 .mobile {
         margin-top: 50px;
         display: block;
@@ -436,6 +454,13 @@ input{
     .news-post .photo{
         height: auto !important;
     }
+    #popshort {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 25ch;
+    }
+    
 
 }
 
@@ -517,8 +542,15 @@ input{
     .news-post .photo{
         height: auto !important;
     }
+    #popshort {
+        white-space: nowrap;
+        width: 470px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 
 }
+
 
 @media(max-width: 992px){
     .news-post .photo{
