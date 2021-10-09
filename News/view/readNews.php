@@ -153,31 +153,36 @@
                         </div>
                         <!-- for comment -->
                         <div class="card">
-                            <div class="card-body">
-                                <form action="" method="">
-                                    <div class="mb-3 comment">
-                                        <label for="comment" class="form-label">Write Your Comments</label>
-                                        <input type="text" class="form-control" id="comment" placeholder="Write Your Comments">
-                                    </div>
-                                    <div class="mb-3 comment">
-                                        <button type="submit" class="btn btn-primary" style="background-color: #142868;color: rgb(0, 255, 255);outline: none;border: none;">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
+                        <div class="card-body">
+                            <form action="" method="">
+                                <div class="mb-3 comment">
+                                    <label for="formGroupExampleInput" class="form-label">Enter Your Name</label>
+                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Your Name">
+                                  </div>
+                                  <div class="mb-3 comment">
+                                    <label for="comment" class="form-label">Write Your Comments</label>
+                                    <input type="text" class="form-control" id="comment" placeholder="Write Your Comments">
+                                  </div>
+                                  <div class="mb-3 comment">
+                                    <button type="submit" class="btn btn-primary" style="background-color: #142868;color: rgb(0, 255, 255);outline: none;border: none;"><a href="..\View\login.php">Submit</a></button>
+                                  </div>
+                            </form>
                         </div>
+                    </div>
+                        <?php foreach($comment as $key => $comments) : ?>
                         <div class="card-body">
                             <div class="card">
                                 <div class="card-header mb-0 pb-0">
-                                Posted by : joji 
-                                <p class="text-end" style="display: inline; float: right;">TANGGAL POST</p>
+                                 Posted by : <?= $comments->username ?>
+                                 <p class="text-end" style="display: inline; float: right;"><?= $comments->date ?></p>
                                 </div>
                                 <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like (0)</button>
+                                  <p class="card-text"><?= $comments->comment ?></p>
+                                  <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like (0)</button>
                                 </div>
+                              </div>
                             </div>
-                        </div>
+                        <?php endforeach ?>
                         <!-- end of comment -->
                     </div>
                 </div>
@@ -307,7 +312,7 @@
     </section>
 
     <!-- main block section -->
-    <div class="news-posts py-4">
+    <!-- <div class="news-posts py-4">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
@@ -349,7 +354,7 @@
             </div>
         </div>
 
-    </div>
+    </div> -->
     <!-- footer section -->
     <footer class="footer py-4">
         <div class="container">
