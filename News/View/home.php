@@ -66,27 +66,41 @@
             </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Link</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Technology</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Music</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Games</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Politic</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Arts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Automotive</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Fashion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Healty</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Link</a>
+                <li class="nav-item logM" style="background:transparent;">
+                    <a class="nav-link active" aria-current="page" href="#">About Us</a>
+                </li>
+                <li class="nav-item logM" style="background:transparent;">
+                    <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
+                </li>
             </ul>
         </div>
         </div>
