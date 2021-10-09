@@ -181,14 +181,14 @@ include '..\..\News\controller\update.php';
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <label for=" news_title">Title</label>
-                                                                <input type="text" id=" news_title" class="form-control" name="news_title" value="<?=$title;?>">
+                                                                <input type="text" id=" news_title" class="form-control" name="news_title" value="<?=$news['news_title']?>">
                                                                 <br /><b>Warning</b>:  Undefined variable $news_info in <b>D:\XAMPP\htdocs\PROGRAM_WEB\PROJECT\PEMWEB\News\view\edit_news.php</b> on line <b>183</b><br /><br /><b>Warning</b>:  Trying to access array offset on value of type null in <b>D:\XAMPP\htdocs\PROGRAM_WEB\PROJECT\PEMWEB\News\view\edit_news.php</b> on line <b>183</b><br />
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mt-3">
                                                             <div class="form-group">
                                                                 <label for="news_short_description">Short Description</label>
-                                                                <input type="text" id="news_short_description" class="form-control" name="news_short_description" value="<?=$sdesc;?>">
+                                                                <input type="text" id="news_short_description" class="form-control" name="news_short_description" value="<?=$news['news_short_description']?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mt-3">
@@ -198,7 +198,7 @@ include '..\..\News\controller\update.php';
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <div class="form-group mb-3">
-                                                                        <textarea class="form-control" id="news_full_content" rows="3" placeholder="<?=$fullcontent;?>"></textarea>
+                                                                        <textarea class="form-control" id="news_full_content" rows="3" placeholder="<?=$news['news_full_content']?>"></textarea>
                                                                     </div>
                                                                 </div>
                                                             </div>

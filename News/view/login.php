@@ -30,7 +30,7 @@
     <div class="col-lg-5 col-12 justify-content-center text-center">
         <div id="auth-left">
             <div class="auth-logo">
-                <a href="index.html"><img src="../assets/images/logo/logo.png" alt="Logo" style="width: 250px;height: auto;"></a>
+                <a href="..\index.php"><img src="../assets/images/logo/logo.png" alt="Logo" style="width: 250px;height: auto;"></a>
             </div>
             <h1 class="auth-title" style="color: #0D1A44;">Log in.</h1>
             <p class="auth-subtitle mb-2">Silahkan Login ke News Speedy UMN</p>

@@ -12,6 +12,8 @@
         echo "<strong>Wrong article!</strong>";
     }
     $other_articles = getOtherArticles( $id_article, $dbh );
+
+    $comment = fetchcomment($id_article);
 ?>
 </body>
 </html>
@@ -806,7 +808,7 @@
             <div class="col-md-3">
                 <div class="row">
                     <div class="text-center icon">
-                        <button type="button" class="btn btn-light col-5 col-xxl-3 logD"><a href="login.html" target="_blank" style="color: black; text-decoration: none;">Login</a></button>
+                        <button type="button" class="btn btn-light col-5 col-xxl-3 logD"><a href="login.php" target="_blank" style="color: black; text-decoration: none;">Login</a></button>
                     </div>
                 </div>
             </div>
@@ -1098,65 +1100,26 @@
                                     <input type="text" class="form-control" id="comment" placeholder="Write Your Comments">
                                   </div>
                                   <div class="mb-3 comment">
-                                    <button type="submit" class="btn btn-primary" style="background-color: #142868;color: rgb(0, 255, 255);outline: none;border: none;">Submit</button>
+                                    <button type="submit" class="btn btn-primary" style="background-color: #142868;color: rgb(0, 255, 255);outline: none;border: none;"><a href="..\View\login.php">Submit</a></button>
                                   </div>
                             </form>
                         </div>
                     </div>
                     <div class="card mt-3 card-comment shadow-lg">
+                        <?php foreach($comment as $key => $comments) : ?>
                         <div class="card-body">
                             <div class="card">
                                 <div class="card-header mb-0 pb-0">
-                                 Posted by : joji 
-                                 <p class="text-end" style="display: inline; float: right;">TANGGAL POST</p>
+                                 Posted by : <?= $comments->username ?>
+                                 <p class="text-end" style="display: inline; float: right;"><?= $comments->date ?></p>
                                 </div>
                                 <div class="card-body">
-                                  <h5 class="card-title">Special title treatment</h5>
-                                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                  <p class="card-text"><?= $comments->comment ?></p>
                                   <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like (0)</button>
                                 </div>
                               </div>
                             </div>
-                        <div class="card-body">
-                            <div class="card">
-                                <div class="card-header mb-0 pb-0">
-                                 Posted by : joji 
-                                 <p class="text-end" style="display: inline; float: right;">TANGGAL POST</p>
-                                </div>
-                                <div class="card-body">
-                                  <h5 class="card-title">Special title treatment</h5>
-                                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                  <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like (0)</button>
-                                </div>
-                              </div>
-                            </div>
-                        <div class="card-body">
-                            <div class="card">
-                                <div class="card-header mb-0 pb-0">
-                                 Posted by : joji 
-                                 <p class="text-end" style="display: inline; float: right;">TANGGAL POST</p>
-                                </div>
-                                <div class="card-body">
-                                  <h5 class="card-title">Special title treatment</h5>
-                                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                  <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like (0)</button>
-                                </div>
-                              </div>
-                            </div>
-                        <div class="card-body">
-                            <div class="card">
-                                <div class="card-header mb-0 pb-0">
-                                 Posted by : joji 
-                                 <p class="text-end" style="display: inline; float: right;">TANGGAL POST</p>
-                                </div>
-                                <div class="card-body">
-                                  <h5 class="card-title">Special title treatment</h5>
-                                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                  <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like (0)</button>
-                                </div>
-                              </div>
-                            </div>
-                        </div>
+                        <?php endforeach ?>
                     </div>
                 <aside class="col-md-4 px-4 mt-lg-0 mt-3">
                 </aside>
