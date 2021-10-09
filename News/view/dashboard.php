@@ -1,3 +1,10 @@
+<?php 
+    session_start(); 
+    if(empty($_SESSION)){
+        echo "<script>alert('you haven't log in yet')</script>";
+        header("location:..\index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,7 +102,7 @@
                                 <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="user-menu d-flex">
                                         <div class="user-name text-end me-3">
-                                            <h6 class="mb-0 text-gray-600">Joji The Azrael</h6>
+                                            <h6 class="mb-0 text-gray-600"><?= $_SESSION['user']?> The Azrael</h6>
                                             <p class="mb-0 text-sm text-gray-600">Administrator</p>
                                         </div>
                                         <div class="user-img d-flex align-items-center">
@@ -107,7 +114,7 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton" style="min-width: 11rem;">
                                     <li>
-                                        <h6 class="dropdown-header">Hello, JOJI!</h6>
+                                        <h6 class="dropdown-header">Hello, <?= $_SESSION['user']?></h6>
                                     </li>
                                     <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-person me-2"></i> My
                                         Profile</a>

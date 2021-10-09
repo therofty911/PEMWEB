@@ -1,11 +1,21 @@
 <?php
 // $posts = new Posts();
 // $post = $posts->editPost();
-include '..\..\News\controller\update.php';
-
-  if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])){
-    updateData();
-  }
+session_start(); 
+    if(empty($_SESSION)){
+        echo "<script>alert('you haven't log in yet')</script>";
+        header("location:..\index.php");
+    }
+    else{
+    include '..\..\News\controller\update.php';
+    include_once '..\controller\functions.php';
+        $id = (int)$_GET['news_ID'];
+        $contact = getAnArticle($id);
+        $contact = $contact[0];
+        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])){
+            updateData();
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -124,7 +134,7 @@ include '..\..\News\controller\update.php';
                                 <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="user-menu d-flex">
                                         <div class="user-name text-end me-3">
-                                            <h6 class="mb-0 text-gray-600">John Ducky</h6>
+                                            <h6 class="mb-0 text-gray-600"><?= $_SESSION['user']?></h6>
                                             <p class="mb-0 text-sm text-gray-600">Administrator</p>
                                         </div>
                                         <div class="user-img d-flex align-items-center">
@@ -181,14 +191,14 @@ include '..\..\News\controller\update.php';
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <label for=" news_title">Title</label>
-                                                                <input type="text" id=" news_title" class="form-control" name="news_title" value="<?=$contact['news_title']?>">
-                                                                <br /><b>Warning</b>:  Undefined variable $news_info in <b>D:\XAMPP\htdocs\PROGRAM_WEB\PROJECT\PEMWEB\News\view\edit_news.php</b> on line <b>183</b><br /><br /><b>Warning</b>:  Trying to access array offset on value of type null in <b>D:\XAMPP\htdocs\PROGRAM_WEB\PROJECT\PEMWEB\News\view\edit_news.php</b> on line <b>183</b><br />
+                                                                <input type="text" id=" news_title" class="form-control" name="news_title" value="<?=stripslashes($contact->news_title)?>">
+                                                                
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mt-3">
                                                             <div class="form-group">
                                                                 <label for="news_short_description">Short Description</label>
-                                                                <input type="text" id="news_short_description" class="form-control" name="news_short_description" value="<?=$contact['news_short_description']?>">
+                                                                <input type="text" id="news_short_description" class="form-control" name="news_short_description" value="<?=stripslashes($contact->news_short_description)?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mt-3">
@@ -198,7 +208,7 @@ include '..\..\News\controller\update.php';
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <div class="form-group mb-3">
-                                                                        <textarea class="form-control" id="news_full_content" rows="3" placeholder="<?=$contact['news_full_content']?>"></textarea>
+                                                                        <textarea class="form-control" id="news_full_content" rows="3"name="news_full_content" placeholder=""><?=stripslashes($contact->news_full_content)?></textarea>
                                                                     </div>
                                                                 </div>
                                                             </div>

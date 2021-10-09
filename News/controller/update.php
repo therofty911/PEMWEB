@@ -14,16 +14,19 @@ function updateData(){
             // Update the record
             $stmt = $pdo->prepare('UPDATE news_info SET news_title = ?, news_short_description = ?, news_full_content = ? WHERE news_ID = ?');
             $stmt->execute([$title, $sdesc, $content, $_GET['news_ID']]);
-            $msg = 'Updated Successfully!';
+            //$msg = 'Updated Successfully!';
+            if($stmt){
+                header('Location: ..\..\News\view\list_news.php');
+            }
         }
-        // Get the contact from the contacts table
-        $stmt = $pdo->prepare('SELECT * FROM news_info WHERE news_ID = ?');
-        $stmt->execute([$_GET['news_ID']]);
-        $contact = $stmt->fetch(PDO::FETCH_ASSOC);
-        if (!$contact) {
-            // exit('Update doesn\'t exist with that ID!');
-            header('Location: ..\..\News\view\list_news.php');
-        }
+        // // Get the contact from the contacts table
+        // $stmt = $pdo->prepare('SELECT * FROM news_info WHERE news_ID = ?');
+        // $stmt->execute([$_GET['news_ID']]);
+        // $contact = $stmt->fetch(PDO::FETCH_ASSOC);
+        // if (!$contact) {
+        //     // exit('Update doesn\'t exist with that ID!');
+        //     header('Location: ..\..\News\view\list_news.php');
+        // }
     } else {
         exit('No ID specified!');
     }

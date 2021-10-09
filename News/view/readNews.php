@@ -1,4 +1,4 @@
-<?php include '..\controller\functions.php'?>
+<?php include_once '..\controller\functions.php'?>
 <?php
     // get the database handler
     $dbh = connect_to_db(); // function created in dbconnect, remember?
