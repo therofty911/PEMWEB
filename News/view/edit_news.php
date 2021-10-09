@@ -1,7 +1,10 @@
 <?php
-  include '..\..\News\controller\update.php';
+// $posts = new Posts();
+// $post = $posts->editPost();
+include '..\..\News\controller\update.php';
+
   if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])){
-    update();
+    updateData();
   }
 ?>
 
@@ -50,7 +53,7 @@
     <div class="sidebar-header">
         <div class="d-flex justify-content-between">
             <div class="logo">
-                <a href="index.html"><img src="assets/images/logo/logo.png" alt="Logo" srcset="" style="width: 250px; height: auto;"></a>
+                <a href="index.html"><img src="../assets/images/logo/logo.png" alt="Logo" srcset="" style="width: 250px; height: auto;"></a>
             </div>
             <div class="toggler">
                 <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -178,15 +181,14 @@
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <label for=" news_title">Title</label>
-                                                                <input type="text" id=" news_title" class="form-control" value="<?=$news_info['news_title']?>"
-                                                                    name="news_title" placeholder="Title">
+                                                                <input type="text" id=" news_title" class="form-control" name="news_title" value="<?=$title;?>">
+                                                                <br /><b>Warning</b>:  Undefined variable $news_info in <b>D:\XAMPP\htdocs\PROGRAM_WEB\PROJECT\PEMWEB\News\view\edit_news.php</b> on line <b>183</b><br /><br /><b>Warning</b>:  Trying to access array offset on value of type null in <b>D:\XAMPP\htdocs\PROGRAM_WEB\PROJECT\PEMWEB\News\view\edit_news.php</b> on line <b>183</b><br />
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mt-3">
                                                             <div class="form-group">
                                                                 <label for="news_short_description">Short Description</label>
-                                                                <input type="text" id="news_short_description" class="form-control" value="<?=$news_info['news_short_description']?>"
-                                                                    name="news_short_description" placeholder="Short Description">
+                                                                <input type="text" id="news_short_description" class="form-control" name="news_short_description" value="<?=$sdesc;?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mt-3">
@@ -196,8 +198,7 @@
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <div class="form-group mb-3">
-                                                                        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"placeholder="<?=$news_info['news_full_contest']?>"></textarea>
+                                                                        <textarea class="form-control" id="news_full_content" rows="3" placeholder="<?=$fullcontent;?>"></textarea>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -205,7 +206,7 @@
                                                         
                                                         </div>
                                                         <div class="col-12 d-flex justify-content-start mt-3">
-                                                            <button type="submit" class="btn btn-success me-1 mb-1">Submit <i class="fas fa-paper-plane"></i></button>
+                                                            <button type="submit" name="update" class="btn btn-success me-1 mb-1">Submit <i class="fas fa-paper-plane"></i></button>
                                                             <button type="reset"
                                                                 class="btn btn-light-secondary me-1 mb-1">Reset</button>
                                                         </div>
