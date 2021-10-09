@@ -19,7 +19,8 @@
                 
                 $result = $query->rowCount();
                 if($result != 1){
-                    echo "<script>console.log('error 26, wrong email or password');</script>";
+                    echo "<script>console.log('error 26, wrong email or password');
+                            alert('Wrong Email or Password!!!')</script>";
                     //echo "<script>document.location.href = '../index.php';</script>";
                     
                 }

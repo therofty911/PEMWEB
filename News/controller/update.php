@@ -20,7 +20,7 @@ function updateData(){
         $stmt = $pdo->prepare('SELECT * FROM news_info WHERE news_ID = ?');
         $stmt->execute([$_GET['news_ID']]);
         $contact = $stmt->fetch(PDO::FETCH_ASSOC);
-        if (!$update) {
+        if (!$contact) {
             // exit('Update doesn\'t exist with that ID!');
             header('Location: ..\..\News\view\list_news.php');
         }

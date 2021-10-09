@@ -9,6 +9,18 @@
         return $request->execute() ? $request->fetchAll() : false; 
     }
 
+    function newsHeadOne(){
+        $conn = connect_to_db();
+        $request = $conn->prepare(" SELECT news_ID, news_title, news_category FROM news_info ORDER BY news_published_on DESC LIMIT 1 ");
+        return $request->execute() ? $request->fetchAll() : false; 
+    }
+
+    function newsHeadSideBar(){
+        $conn = connect_to_db();
+        $request = $conn->prepare(" SELECT news_ID, news_title, news_category FROM news_info ORDER BY news_published_on DESC LIMIT 1,2 ");
+        return $request->execute() ? $request->fetchAll() : false; 
+    }   
+
     function getAnArticle( $id_article)
     {
         $conn = connect_to_db();

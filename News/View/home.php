@@ -8,6 +8,8 @@
     // require_once  'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\controller\functions.php';
     include_once  '..\controller\functions.php';
     $news = fetchNews();
+    $newsHeadOne = newsHeadOne();
+    $newsHeadSideBar = newsHeadSideBar();
 ?>
 <?php
   //validatelogout();
@@ -95,12 +97,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <a href="read-news.php" class="link-popular">
+                    <?php foreach ($newsHeadOne as $key => $headBig) :?>
+                    <a href="..\view\readNews.php?newsid=<?=$headBig->news_ID?>" class="link-popular">
                         <div class="news-post shadow ">
                             <img class="img-fluid photo" src="https://cdn.discordapp.com/attachments/891579314401869864/894262194756255784/wp2622216-dodge-charger-wallpaper.jpg" alt="" style="max-width: 100%;height:685px;"></img>
                             <div class="news-post-badge text-center">
-                              <a class="p-2 px-2 mb-2" href="#" >Games</a>
-                              <a class="p-2 px-2" href="#">Technology</a>
+                            <a href="link to categories"><?= stripslashes($headBig->news_category) ?></a>
+                              <!-- <a class="p-2 px-2 mb-2" href="#" >Games</a>
+                              <a class="p-2 px-2" href="#">Technology</a> -->
                             </div>
                             <div class="news-post-content">
                                 <div class="row">
@@ -108,7 +112,7 @@
                                       <img src="https://cdn.discordapp.com/attachments/891579314401869864/891942172235034674/unnamed.png" alt="" class="img-fluid rounded-circle">
                                   </div> -->
                                     <div class="col-sm-12 ms-2">
-                                        <h3>Sebuah Game yang sangat enjoyable saat di mainkan, dan membawa lagu bernuansa indonesia</h3>
+                                        <h3><?= stripslashes($headBig->news_title) ?></h3>
                                         <a class="btn btn-primary ms-1 btn-sm" href="read-news.php" role="button">Read More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
                                         <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                                         </svg></a>
@@ -117,14 +121,15 @@
                             </div>
                         </div>
                     </a>
+                    <?php endforeach ?>
                 </div>
               <div class="col-lg-4 mt-3 mt-lg-0">
-                    <div class="news-post shadow mb-3">
-                        <a href="" class="link-popular">
+                        <?php foreach ($newsHeadSideBar as $key => $headSide) : ?>
+                    <a href="..\view\readNews.php?newsid=<?=$headSide->news_ID?>" class="link-popular">
+                        <div class="news-post shadow mb-3">
                             <img class="img-fluid photo" src="https://cdn.discordapp.com/attachments/868897795397005362/894847007892598784/unknown.png" alt="" style="max-width: 100%;height:335px;"></img>
                             <div class="news-post-badge text-center">
-                                <a class="p-2 px-2 mb-2" href="#" >Games</a>
-                                <a class="p-2 px-2" href="#">Technology</a>
+                                <a href="link to categories"><?= stripslashes($headSide->news_category) ?></a>
                             </div>
                             <div class="news-post-content">
                                 <div class="row">
@@ -132,29 +137,7 @@
                                       <img src="https://cdn.discordapp.com/attachments/891579314401869864/891942172235034674/unnamed.png" alt="" class="img-fluid rounded-circle">
                                   </div> -->
                                     <div class="col-sm-12 ms-2">
-                                        <h3>Sebuah Game yang sangat enjoyable saat di mainkan, dan membawa lagu bernuansa indonesia</h3>
-                                        <a class="btn btn-primary ms-1 btn-sm" href="read-news.php" role="button">Read More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-                                        </svg></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <a href="" class="link-popular">
-                        <div class="news-post shadow">
-                            <img class="img-fluid photo" src="https://cdn.discordapp.com/attachments/891579314401869864/894249908805201971/unknown.png" alt="" style="max-width: 100%;height:335px;"></img>
-                            <div class="news-post-badge text-center">
-                                <a class="p-2 px-2 mb-2" href="#" >Games</a>
-                                <a class="p-2 px-2" href="#">Technology</a>
-                            </div>
-                            <div class="news-post-content">
-                                <div class="row">
-                                  <!-- <div class="col-md-3">
-                                      <img src="https://cdn.discordapp.com/attachments/891579314401869864/891942172235034674/unnamed.png" alt="" class="img-fluid rounded-circle">
-                                  </div> -->
-                                    <div class="col-sm-12 ms-2">
-                                        <h3>Sebuah Game yang sangat enjoyable saat di mainkan, dan membawa lagu bernuansa indonesia</h3>
+                                        <h3><?= stripslashes($headSide->news_title) ?></h3>
                                         <a class="btn btn-primary ms-1 btn-sm" href="read-news.php" role="button">Read More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
                                         <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                                         </svg></a>
@@ -163,6 +146,7 @@
                             </div>
                         </div>
                     </a>
+                    <?php endforeach ?>
                 </div>
             </div>
         </div>

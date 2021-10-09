@@ -53,7 +53,7 @@ include '..\..\News\controller\update.php';
     <div class="sidebar-header">
         <div class="d-flex justify-content-between">
             <div class="logo">
-                <a href="index.html"><img src="../assets/images/logo/logo.png" alt="Logo" srcset="" style="width: 250px; height: auto;"></a>
+                <a href="..\index.php"><img src="../assets/images/logo/logo.png" alt="Logo" srcset="" style="width: 250px; height: auto;"></a>
             </div>
             <div class="toggler">
                 <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -181,14 +181,14 @@ include '..\..\News\controller\update.php';
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <label for=" news_title">Title</label>
-                                                                <input type="text" id=" news_title" class="form-control" name="news_title" value="<?=$title;?>">
+                                                                <input type="text" id=" news_title" class="form-control" name="news_title" value="<?=$contact['news_title']?>">
                                                                 <br /><b>Warning</b>:  Undefined variable $news_info in <b>D:\XAMPP\htdocs\PROGRAM_WEB\PROJECT\PEMWEB\News\view\edit_news.php</b> on line <b>183</b><br /><br /><b>Warning</b>:  Trying to access array offset on value of type null in <b>D:\XAMPP\htdocs\PROGRAM_WEB\PROJECT\PEMWEB\News\view\edit_news.php</b> on line <b>183</b><br />
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mt-3">
                                                             <div class="form-group">
                                                                 <label for="news_short_description">Short Description</label>
-                                                                <input type="text" id="news_short_description" class="form-control" name="news_short_description" value="<?=$sdesc;?>">
+                                                                <input type="text" id="news_short_description" class="form-control" name="news_short_description" value="<?=$contact['news_short_description']?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mt-3">
@@ -198,7 +198,7 @@ include '..\..\News\controller\update.php';
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <div class="form-group mb-3">
-                                                                        <textarea class="form-control" id="news_full_content" rows="3" placeholder="<?=$fullcontent;?>"></textarea>
+                                                                        <textarea class="form-control" id="news_full_content" rows="3" placeholder="<?=$contact['news_full_content']?>"></textarea>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -207,8 +207,7 @@ include '..\..\News\controller\update.php';
                                                         </div>
                                                         <div class="col-12 d-flex justify-content-start mt-3">
                                                             <button type="submit" name="update" class="btn btn-success me-1 mb-1">Submit <i class="fas fa-paper-plane"></i></button>
-                                                            <button type="reset"
-                                                                class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                                            <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
                                                         </div>
                                                     </div>
                                                 </div>
