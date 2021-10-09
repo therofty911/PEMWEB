@@ -186,10 +186,10 @@
                                             <td><?= $datas->news_ID ?></td>
                                             <td><?= stripslashes($datas->news_title) ?></td>
                                             <td>
-                                                <button type="submit" class="btn btn-success"><a href="..\..\News\view\edit_news.php" style="text-decoration:none; color: white;">
+                                                <button type="submit" class="btn btn-success"><a href="..\..\News\view\edit_news.php?news_ID=<?= $datas->news_ID; ?>" style="text-decoration:none; color: white;">
                                                     <i class="fas fa-edit"></i>Edit</a>
                                                 </button>
-                                                <button type="submit" class="btn btn-danger"><a href="..\News\controller\delete.php?news_ID=<?= $std["news_ID"]; ?>" style="text-decoration:none; color: white;">
+                                                <button type="submit" class="btn btn-danger"><a href="..\controller\delete.php?news_ID=<?= $datas->news_ID; ?>" style="text-decoration:none; color: white;">
                                                     <i class="fas fa-trash-alt"></i>Delete</a>
                                                 </button>   
                                             </td>

@@ -1,56 +1,59 @@
 <?php
-// include database connection file
-include '..\..\News\config\dbconnect.php'; 
- 
-// Check if form is submitted for user update, then redirect to homepage after update
-if(isset($_POST['update']))
-{    
-    $category = $_POST['news_category'];
-    $title = $_POST['news_title']
-    $sdesc = $_POST['news_short_description'];
-    $content = $_POST['news_full_contest'];
-    $author = $_POST['news_author'];
-    $published = $_POST['news_published_on']
-    $id = $_POST['id']
+include '..\config\dbconnect.php';
+$pdo = pdo_connect_mysql();
+$msg = '';
 
-    // update user data
-    $result = mysqli_query($mysqli, "UPDATE users SET
-                                        news_category='$category',
-                                        news_title='$title',
-                                        news_short_description='$sdesc',
-                                        news_full_contest='$content',
-                                        news_author='$author',
-                                        news_published_on='$published'
+function update(){
+    $pdo = connect_to_db();
 
-                                        WHERE id='$id';
-                            );
-
-    header("Location: home.php");
+    if (isset($_GET['news_id'])) {
+        if (!empty($_POST)) {
+        // This part is similar to the create.php, but instead we update a record and not insert
+            $title = isset($_POST['news_title']) ? $_POST['news_title'] : '';
+            $sdesc = isset($_POST['news_short_description']) ? $_POST['news_short_description'] : '';
+            $content = isset($_POST['news_full_contest']) ? $_POST['news_full_contest'] : '';
+            // Update the record
+            $stmt = $pdo->prepare('UPDATE news_info SET news_title = ?, news_short_description = ?, news_full_contest = ? WHERE news_id = ?');
+            $stmt->execute([$title, $sdesc, $content, $_GET['news_id']]);
+            $msg = 'Updated Successfully!';
+        }
+        // Get the contact from the contacts table
+        $stmt = $pdo->prepare('SELECT * FROM news_info WHERE news_id = ?');
+        $stmt->execute([$_GET['news_id']]);
+        $contact = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (!$update) {
+            exit('Update doesn\'t exist with that ID!');
+        }
+    } else {
+        exit('No ID specified!');
+    }
 }
-
-<?php
-    require '../include/db_connect.php';
-    
-    function ubah($data){
-		global $db;
-		$id = $data["Student_Id"];
-		$Student_Name = $data["Student_Name"];
-		$Student_Nim = $data["Student_Nim"];
-		$Student_Angkatan = $data["Student_Angkatan"];
-		$Student_Jurusan = $data["Student_Jurusan"];
-		
-		$query = "UPDATE siswa SET
-					Student_Id = '$id',
-					Student_Name = '$Student_Name',
-					Student_Nim = '$Student_Nim',
-					Student_Angkatan = '$Student_Angkatan',
-					Student_Jurusan = '$Student_Jurusan'
-					
-					WHERE Student_Id = '$id';
-				 ";
-		
-		mysqli_query($db, $query);
-		
-		return mysqli_affected_rows($db);
-	}
 ?>
+
+// Check if form is submitted for user update, then redirect to homepage after update
+
+// if(isset($_POST['update']))
+// {    
+//     $category = isset($_POST['news_category']) ? $_POST['news_category'] : '';
+//     $title = isset($_POST['news_title']) ? $_POST['news_title'] : '';
+//     $sdesc = isset($_POST['news_short_description']) ? $_POST['news_short_description'] : '';
+//     $content = isset($_POST['news_full_contest']) ? $_POST['news_full_contest'] : '';
+//     $author = isset($_POST['news_author']) ? $_POST['news_author'] : '';
+//     $published = isset($_POST['news_published_on']) ? $_POST['news_published_on'] : '';
+//     $id = $_POST['id']
+
+//     // update user data
+//     $result = mysqli_query($mysqli, "UPDATE users SET
+//                                         news_category='$category',
+//                                         news_title='$title',
+//                                         news_short_description='$sdesc',
+//                                         news_full_contest='$content',
+//                                         news_author='$author',
+//                                         news_published_on='$published'
+
+//                                         WHERE id='$id';
+//                             );
+
+//     header("Location: home.php");
+// }
+
