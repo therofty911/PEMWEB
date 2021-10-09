@@ -209,6 +209,14 @@ h3{
     font-size: 1.5rem;
 }
 
+#popshort {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 75ch;
+}
+
+
 .news-post {
     position: relative;
 }
@@ -536,22 +544,17 @@ input{
     }
     #popshort {
         white-space: nowrap;
-        width: 460px;
+        width: 470px;
         overflow: hidden;
         text-overflow: ellipsis;
     }
 
 }
 
+
 @media(max-width: 992px){
     .news-post .photo{
         height: auto !important;
-    }
-    #popshort {
-        white-space: nowrap;
-        width: 520px;
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
 }
 
