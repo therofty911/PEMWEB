@@ -1,5 +1,6 @@
 <?php include '..\controller\functions.php'?>
 <?php
+session_start();
     // get the database handler
     $dbh = connect_to_db(); // function created in dbconnect, remember?
     $id_article = (int)$_GET['newsid'];
@@ -71,7 +72,7 @@
 
     <div class="info">
         <div class="row">
-            <div class="col-md-2 logo1"><img class="mobile" src="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png" alt="News_Speedy_UMN"></div>
+            <div class="col-md-2 logo1"><a href="home_user.php"><img class="mobile" src="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png" alt="News_Speedy_UMN"></a></div>
             <div class="col-md-7 mt-2 list">
                 <ul class="connect">
                     <li><a href="#">About Us</a></li>
@@ -94,7 +95,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 bg-body rounded">
         <div class="container-fluid">
-        <a class="navbar-brand logo2" href="#"><img class="desktop" src="https://cdn.discordapp.com/attachments/891579314401869864/891681342994153512/news_logo.png" alt="News_Speedy_UMN" style="width: 250px;"></a>
+        <a class="navbar-brand logo2" href="home_user.php"><img class="desktop" src="https://cdn.discordapp.com/attachments/891579314401869864/891681342994153512/news_logo.png" alt="News_Speedy_UMN" style="width: 250px;"></a>
         <button type="button" class="btn btn-light col-4 col-lg-2 float-start logM" style="transform: translateX(-80%);"><a href="..\controller\logout.php" target="_blank" style="color: white; text-decoration: none;">Logout</a></button>
             <button class="navbar-toggler mr-auto custom-toggler col-2 float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon" style="color: white;">
@@ -103,7 +104,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="home_user.php">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="kategoriNews_user.php?category=Technology">Technology</a>
@@ -317,50 +318,6 @@
         </div>
     </section>
 
-    <!-- main block section -->
-    <!-- <div class="news-posts py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="card">
-                        <div class="card-body">
-                            <form action="" method="">
-                                <div class="mb-3 comment">
-                                    <label for="formGroupExampleInput" class="form-label">Enter Your Name</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Your Name">
-                                  </div>
-                                  <div class="mb-3 comment">
-                                    <label for="comment" class="form-label">Write Your Comments</label>
-                                    <input type="text" class="form-control" id="comment" placeholder="Write Your Comments">
-                                  </div>
-                                  <div class="mb-3 comment">
-                                    <button type="submit" class="btn btn-primary" style="background-color: #142868;color: rgb(0, 255, 255);outline: none;border: none;"><a href="..\View\login.php">Submit</a></button>
-                                  </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="card mt-3 card-comment shadow-lg">
-                        <?php foreach($comment as $key => $comments) : ?>
-                        <div class="card-body">
-                            <div class="card">
-                                <div class="card-header mb-0 pb-0">
-                                 Posted by : <?= $comments->username ?>
-                                 <p class="text-end" style="display: inline; float: right;"><?= $comments->date ?></p>
-                                </div>
-                                <div class="card-body">
-                                  <p class="card-text"><?= $comments->comment ?></p>
-                                  <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like (0)</button>
-                                </div>
-                              </div>
-                            </div>
-                        <?php endforeach ?>
-                    </div>
-                <aside class="col-md-4 px-4 mt-lg-0 mt-3">
-                </aside>
-            </div>
-        </div>
-
-    </div> -->
     <!-- footer section -->
     <footer class="footer py-4">
         <div class="container">
