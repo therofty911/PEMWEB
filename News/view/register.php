@@ -38,46 +38,46 @@
     <div class="col-lg-5 col-12">
         <div id="auth-left">
             <div class="auth-logo">
-                <a href="index.html"><img src="../assets/images/logo/logo2.png" alt="Logo" style="width: 250px;height: auto;"></a>
+                <a href="..\index.php"><img src="../assets/images/logo/logo2.png" alt="Logo" style="width: 250px;height: auto;"></a>
             </div>
             <h4 class="auth-title">Sign Up</h4>
             <p class="auth-subtitle mb-3">Input your data to register to our website.</p>
 
             <form action="" method="POST"  enctype="multipart/form-data">
                 <div class="form-group position-relative has-icon-left mb-2">
-                    <input type="text" class="form-control form-control-md" placeholder="First Name">
+                    <input type="text" class="form-control form-control-md" placeholder="First Name" name="Fname">
                     <div class="form-control-icon">
                         <i class="bi bi-card-heading"></i>
                     </div>
                 </div>
                 <div class="form-group position-relative has-icon-left mb-2">
-                    <input type="text" class="form-control form-control-md" placeholder="Last Name">
+                    <input type="text" class="form-control form-control-md" placeholder="Last Name" name="Lname">
                     <div class="form-control-icon">
                         <i class="bi bi-card-text"></i>
                     </div>
                 </div>
                 <div class="form-group position-relative has-icon-left mb-2">
-                    <input type="text" class="form-control form-control-md" placeholder="Username">
+                    <input type="text" class="form-control form-control-md" placeholder="Username" name="user">
                     <div class="form-control-icon">
                         <i class="bi bi-person"></i>
                     </div>
                 </div>
                 <div class="form-group position-relative has-icon-left mb-2">
-                    <input type="password" class="form-control form-control-md" placeholder="Password">
+                    <input type="password" class="form-control form-control-md" placeholder="Password" name="pw">
                     <div class="form-control-icon">
                         <i class="bi bi-shield-lock"></i>
                     </div>
                 </div>
                 <div class="form-group position-relative has-icon-left mb-2">
                     <fieldset class="form-group">
-                        <select class="form-select" id="basicSelect">
-                            <option>Male</option>
-                            <option>Female</option>
+                        <select class="form-select" id="basicSelect" name="gender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                         </select>
                     </fieldset>
                 </div>
                 <div class="form-group position-relative has-icon-left mb-2">
-                    <input type="date" class="form-control form-control-md" placeholder="DOB">
+                    <input type="date" class="form-control form-control-md" placeholder="DOB" name="birth">
                     <div class="form-control-icon">
                         <i class="bi bi-calendar3"></i>
                     </div>
@@ -94,7 +94,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Sign Up</button>
+                <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" name="register">Sign Up</button>
             </form>
             <div class="text-center mt-5 text-lg fs-4">
                 <p class='text-gray-600'>Already have an account? <a href="..\..\News\view\login.php" class="font-bold">Login</a>.</p>
@@ -163,9 +163,11 @@
         })
     });
 </script>
-
-    <script src="../assets/js/mazer.js"></script>
-</body>
-</body>
-
+<script src="../assets/js/mazer.js"></script>
 </html>
+<?php
+  include '..\controller\register.php';
+  if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])){
+    register();
+  }
+?>

@@ -194,12 +194,6 @@
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="form-group">
-                                                                <label for="id">ID</label>
-                                                                <input type="text" id="id" class="form-control" name="news_ID" placeholder="ID">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="form-group">
                                                                 <label for=" title">Title</label>
                                                                 <input type="text" id="title" class="form-control" name="news_title" placeholder="Title">
                                                             </div>

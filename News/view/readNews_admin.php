@@ -81,7 +81,7 @@
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>    
                     <li><a href="..\view\dashboard.php">Dashboard</a></li>    
-                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['level'];?></a></li>    
+                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['user'];?></a></li>    
                 </ul>
             </div>
             <div class="col-md-3">
@@ -89,7 +89,7 @@
                     <div class="text-center icon">
                         <form  method="post" style="display: inline;">
                             <button type="button" class="btn btn-light col-5 col-xxl-3 logD" name="logout"><a href="..\controller\logout.php" style="color:black;">Logout</a></button>
-                            <p class="logM">Hello, Username</p>
+                            <p class="logM">Hello, <?php echo $_SESSION['user'];?></p>
                         </form>
                     </div>
                 </div>
@@ -107,35 +107,33 @@
             </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-lg-0">
-            <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Technology</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Technology">Technology</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Music</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Music">Music</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Games</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Game">Game</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Politic</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Politic">Politic</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Arts</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Art">Art</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Automotive</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Automotive">Automotive</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Fashion</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Fashion">Fashion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Healty</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Health">Health</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Link</a>
                 <li class="nav-item logM" style="background:transparent;">
                     <a class="nav-link active" aria-current="page" href="#">About Us</a>
                 </li>
@@ -310,14 +308,14 @@
                     </a>
                     <h4 class="aside-heading mt-5">Popular Categories</h4>
                     <div class="badges w-100">
-                        <a href="link to categories">Technology</a>
-                        <a href="link to categories">Music</a>
-                        <a href="link to categories">Games</a>
-                        <a href="link to categories">Politic</a>
-                        <a href="link to categories">Arts</a>
-                        <a href="link to categories">Automotive</a>
-                        <a href="link to categories">Fashion</a>
-                        <a href="link to categories">Healty</a>
+                        <a href="kategoriNews_admin.php?category=Technology">Technology</a>
+                        <a href="kategoriNews_admin.php?category=Music">Music</a>
+                        <a href="kategoriNews_admin.php?category=Game">Game</a>
+                        <a href="kategoriNews_admin.php?category=Politic">Politic</a>
+                        <a href="kategoriNews_admin.php?category=Art">Art</a>
+                        <a href="kategoriNews_admin.php?category=Automotive">Automotive</a>
+                        <a href="kategoriNews_admin.php?category=Fashion">Fashion</a>
+                        <a href="kategoriNews_admin.php?category=Health">Health</a>
                     </div>
                 </div>
             </div>

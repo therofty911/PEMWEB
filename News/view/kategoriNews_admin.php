@@ -8,7 +8,8 @@
     // Fecth news
     // require_once  'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\controller\functions.php';
     include_once  '..\controller\functions.php';
-    $news = fetchNews();
+    $category  = $_GET['category'];
+    $news = fetchCategory($category);
     $newsHeadOne = newsHeadOne();
     $newsHeadSideBar = newsHeadSideBar();
 ?>
@@ -94,31 +95,29 @@
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Technology</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Technology">Technology</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Music</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Music">Music</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Games</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Game">Game</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Politic</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Politic">Politic</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Arts</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Art">Art</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Automotive</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Automotive">Automotive</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Fashion</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Fashion">Fashion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Healty</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Health">Health</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Link</a>
                 <li class="nav-item logM" style="background:transparent;">
                     <a class="nav-link active" aria-current="page" href="#">About Us</a>
                 </li>
@@ -254,14 +253,14 @@
                     </a>
                     <h4 class="aside-heading mt-5">Popular Categories</h4>
                     <div class="badges w-100">
-                        <a href="link to categories">Technology</a>
-                        <a href="link to categories">Music</a>
-                        <a href="link to categories">Games</a>
-                        <a href="link to categories">Politic</a>
-                        <a href="link to categories">Arts</a>
-                        <a href="link to categories">Automotive</a>
-                        <a href="link to categories">Fashion</a>
-                        <a href="link to categories">Healty</a>
+                        <a href="kategoriNews_admin.php?category=Technology">Technology</a>
+                        <a href="kategoriNews_admin.php?category=Music">Music</a>
+                        <a href="kategoriNews_admin.php?category=Game">Game</a>
+                        <a href="kategoriNews_admin.php?category=Politic">Politic</a>
+                        <a href="kategoriNews_admin.php?category=Art">Art</a>
+                        <a href="kategoriNews_admin.php?category=Automotive">Automotive</a>
+                        <a href="kategoriNews_admin.php?category=Fashion">Fashion</a>
+                        <a href="kategoriNews_admin.php?category=Health">Health</a>
                     </div>
                 </aside>
             </div>

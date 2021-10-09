@@ -10,6 +10,7 @@
     $news = fetchNews();
     $newsHeadOne = newsHeadOne();
     $newsHeadSideBar = newsHeadSideBar();
+    $popular = fetchPopular();
 ?>
 <!-- <?php
 //   include '..\controller\logout.php';
@@ -45,7 +46,7 @@
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>    
                     <li><a href="..\view\dashboard.php">Dashboard</a></li>    
-                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['level'];?></a></li>    
+                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['user'];?></a></li>    
                 </ul>
             </div>
             <div class="col-md-3">
@@ -53,7 +54,7 @@
                     <div class="text-center icon">
                         <form  method="post" style="display: inline;">
                             <button type="button" class="btn btn-light col-5 col-xxl-3 logD" name="logout"><a href="..\controller\logout.php" style="color:black;">Logout</a></button>
-                            <p class="logM">Hello, Username</p>
+                            <p class="logM">Hello, <?php echo $_SESSION['user'];?></p>
                         </form>
                     </div>
                 </div>
@@ -71,35 +72,33 @@
             </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-lg-0">
-            <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Technology</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Technology">Technology</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Music</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Music">Music</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Games</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Game">Game</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Politic</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Politic">Politic</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Arts</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Art">Art</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Automotive</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Automotive">Automotive</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Fashion</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Fashion">Fashion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Healty</a>
+                    <a class="nav-link active" href="kategoriNews_admin.php?category=Health">Health</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Link</a>
                 <li class="nav-item logM" style="background:transparent;">
                     <a class="nav-link active" aria-current="page" href="#">About Us</a>
                 </li>
@@ -117,7 +116,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <?php foreach ($newsHeadOne as $key => $headBig) :?>
-                    <a href="..\view\readNews.php?newsid=<?=$headBig->news_ID?>" class="link-popular">
+                    <a href="..\view\readNews_admin.php?newsid=<?=$headBig->news_ID?>" class="link-popular">
                         <div class="news-post shadow ">
                             <img class="img-fluid photo" src="https://cdn.discordapp.com/attachments/891579314401869864/894262194756255784/wp2622216-dodge-charger-wallpaper.jpg" alt="" style="max-width: 100%;height:685px;"></img>
                             <div class="news-post-badge text-center">
@@ -144,7 +143,7 @@
                 </div>
               <div class="col-lg-4 mt-3 mt-lg-0">
                         <?php foreach ($newsHeadSideBar as $key => $headSide) : ?>
-                    <a href="..\view\readNews.php?newsid=<?=$headSide->news_ID?>" class="link-popular">
+                    <a href="..\view\readNews_admin.php?newsid=<?=$headSide->news_ID?>" class="link-popular">
                         <div class="news-post shadow mb-3">
                             <img class="img-fluid photo" src="https://cdn.discordapp.com/attachments/868897795397005362/894847007892598784/unknown.png" alt="" style="max-width: 100%;height:335px;"></img>
                             <div class="news-post-badge text-center">
@@ -184,7 +183,7 @@
                                     <img src="https://cdn.discordapp.com/attachments/891579314401869864/894262234979663892/wallhaven-p81xve.png" alt="" class="img-fluid">
                                 </div>
                                 <div class="col-sm-8">
-                                    <a href="..\view\readNews.php?newsid=<?=$article->news_ID?>" class="link-popular">
+                                    <a href="..\view\readNews_admin.php?newsid=<?=$article->news_ID?>" class="link-popular">
                                         <h3 class="m-0 mt-2"><?= stripslashes($article->news_title) ?></h3>
                                         <p class="m-0 mb-2"><?= stripslashes($article->news_short_description) ?></p>    
                                         <span><strong>published on <?= date($article->news_published_on) ?> by <?= stripslashes($article->news_author) ?></strong></span> <br>
@@ -224,71 +223,29 @@
                         </div>
                     </div>
                     <h4 class="aside-heading mt-3">Popular Article</h4>
-                    <a href="" class="link-populer">
+                    <?php foreach ($popular as $key => $populars) : ?>
+                    <a href="..\view\readNews.php?newsid=<?=$populars->news_ID?>" class="link-populer">
                         <article class="row popular mb-3">
                             <div class="col-sm-4 my-2">
                                 <img src="https://cdn.discordapp.com/attachments/653643188258734108/894847997165334548/unknown.png" alt="" class="img-fluid">
                             </div>
                             <div class="col-sm-7 my-2">
-                                <h5 class="m-0">Judul news</h5>
-                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nostrum autem.</p>
+                                <h5 class="m-0" id="popshort"><?= stripslashes($populars->news_title) ?></h5>
+                                <p class="m-0" id="popshort"><?= stripslashes($populars->news_short_description) ?></p>
                             </div>
                         </article>
                     </a>
-                    <a href="" class="link-populer">
-                        <article class="row popular mb-3">
-                            <div class="col-sm-4 my-2">
-                                <img src="https://cdn.discordapp.com/attachments/653643188258734108/894847997165334548/unknown.png" alt="" class="img-fluid">
-                            </div>
-                            <div class="col-sm-7 my-2">
-                                <h5 class="m-0">Judul news</h5>
-                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nostrum autem.</p>
-                            </div>
-                        </article>
-                    </a>
-                    <a href="" class="link-populer">
-                        <article class="row popular mb-3">
-                            <div class="col-sm-4 my-2">
-                                <img src="https://cdn.discordapp.com/attachments/653643188258734108/894847997165334548/unknown.png" alt="" class="img-fluid">
-                            </div>
-                            <div class="col-sm-7 my-2">
-                                <h5 class="m-0">Judul news</h5>
-                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nostrum autem.</p>
-                            </div>
-                        </article>
-                    </a>
-                    <a href="" class="link-populer">
-                        <article class="row popular mb-3">
-                            <div class="col-sm-4 my-2">
-                                <img src="https://cdn.discordapp.com/attachments/653643188258734108/894847997165334548/unknown.png" alt="" class="img-fluid">
-                            </div>
-                            <div class="col-sm-7 my-2">
-                                <h5 class="m-0">Judul news</h5>
-                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nostrum autem.</p>
-                            </div>
-                        </article>
-                    </a>
-                    <a href="" class="link-populer">
-                        <article class="row popular mb-3">
-                            <div class="col-sm-4 my-2">
-                                <img src="https://cdn.discordapp.com/attachments/653643188258734108/894847997165334548/unknown.png" alt="" class="img-fluid">
-                            </div>
-                            <div class="col-sm-7 my-2">
-                                <h5 class="m-0">Judul news</h5>
-                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nostrum autem.</p>
-                            </div>
-                        </article>
-                    </a>
+                    <?php endforeach ?>
                     <h4 class="aside-heading mt-5">Popular Categories</h4>
                     <div class="badges w-100">
-                        <a href="link to categories">Technology</a>
-                        <a href="link to categories">Music</a>
-                        <a href="link to categories">Games</a>
-                        <a href="link to categories">Politic</a>
-                        <a href="link to categories">Arts</a>
-                        <a href="link to categories">Automotive</a>
-                        <a href="link to categories">Fashion</a>
-                        <a href="link to categories">Healty</a>
+                        <a href="kategoriNews_admin.php?category=Technology">Technology</a>
+                        <a href="kategoriNews_admin.php?category=Music">Music</a>
+                        <a href="kategoriNews_admin.php?category=Game">Game</a>
+                        <a href="kategoriNews_admin.php?category=Politic">Politic</a>
+                        <a href="kategoriNews_admin.php?category=Art">Art</a>
+                        <a href="kategoriNews_admin.php?category=Automotive">Automotive</a>
+                        <a href="kategoriNews_admin.php?category=Fashion">Fashion</a>
+                        <a href="kategoriNews_admin.php?category=Health">Health</a>
                     </div>
                 </aside>
             </div>
