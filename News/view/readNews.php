@@ -307,7 +307,7 @@
     </section>
 
     <!-- main block section -->
-    <!-- <div class="news-posts py-4">
+    <div class="news-posts py-4">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
@@ -349,7 +349,7 @@
             </div>
         </div>
 
-    </div> -->
+    </div>
     <!-- footer section -->
     <footer class="footer py-4">
         <div class="container">
