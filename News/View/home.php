@@ -10,6 +10,8 @@
     $news = fetchNews();
     $newsHeadOne = newsHeadOne();
     $newsHeadSideBar = newsHeadSideBar();
+
+    $popular = fetchPopular();
 ?>
 <?php
   //validatelogout();
@@ -33,6 +35,14 @@
     <script src="../assets/js/script.js"></script>
     <title>News Speedy UMN</title>
 </head>
+<style>
+    #popshort {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 75ch;
+    }
+</style>
 <body style="overflow-x: hidden;">
 
     <div class="info">
@@ -219,40 +229,19 @@
                         </div>
                     </div>
                     <h4 class="aside-heading mt-3">Popular Article</h4>
-                    <a href="" class="link-populer">
+                    <?php foreach ($popular as $key => $populars) : ?>
+                    <a href="..\view\readNews.php?newsid=<?=$populars->news_ID?>" class="link-populer">
                         <article class="row popular mb-3">
-                            <div class="col-4 col-sm-4 col-lg-4 my-2">
+                            <div class="col-sm-4 my-2">
                                 <img src="https://cdn.discordapp.com/attachments/653643188258734108/894847997165334548/unknown.png" alt="" class="img-fluid">
                             </div>
                             <div class="col-sm-7 my-2">
-                                <h5 class="m-0">Judul news</h5>
-                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nostrum autem.</p>
+                                <h5 class="m-0" id="popshort"><?= stripslashes($populars->news_title) ?></h5>
+                                <p class="m-0" id="popshort"><?= stripslashes($populars->news_short_description) ?></p>
                             </div>
                         </article>
                     </a>
-                    <a href="" class="link-populer">
-                        <article class="row popular mb-3">
-                            <div class="col-4 col-sm-4 col-lg-4 my-2">
-                                <img src="https://cdn.discordapp.com/attachments/653643188258734108/894847997165334548/unknown.png" alt="" class="img-fluid">
-                            </div>
-                            <div class="col-sm-7 my-2">
-                                <h5 class="m-0">Judul news</h5>
-                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nostrum autem.</p>
-                            </div>
-                        </article>
-                    </a>
-                    <a href="" class="link-populer">
-                        <article class="row popular mb-3">
-                            <div class="col-4 col-sm-4 col-lg-4 my-2">
-                                <img src="https://cdn.discordapp.com/attachments/653643188258734108/894847997165334548/unknown.png" alt="" class="img-fluid">
-                            </div>
-                            <div class="col-sm-7 my-2">
-                                <h5 class="m-0">Judul news</h5>
-                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nostrum autem.</p>
-                            </div>
-                        </article>
-                    </a>
-                    </a>
+                    <?php endforeach ?>
                     <h4 class="aside-heading mt-5">Popular Categories</h4>
                     <div class="badges w-100">
                         <a href="link to categories">Technology</a>
