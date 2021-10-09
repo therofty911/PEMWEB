@@ -1,4 +1,3 @@
-
 <?php
   include '..\..\News\controller\create.php';
   if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create'])){
