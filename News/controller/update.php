@@ -1,6 +1,5 @@
 <?php
 include '..\config\dbconnect.php';
-$pdo = pdo_connect_mysql();
 $msg = '';
 
 function update(){

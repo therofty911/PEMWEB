@@ -1,3 +1,10 @@
+<?php
+  include '..\..\News\controller\update.php';
+  if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])){
+    update();
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -165,20 +172,20 @@
                                 <div class="card">
                                     <div class="card-content">
                                         <div class="card-body">
-                                            <form class="form form-vertical" action="" method="">
+                                            <form class="form form-vertical" action="" method="post">
                                                 <div class="form-body">
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <label for=" news_title">Title</label>
-                                                                <input type="text" id=" news_title" class="form-control"
+                                                                <input type="text" id=" news_title" class="form-control" value="<?=$news_info['news_title']?>"
                                                                     name="news_title" placeholder="Title">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mt-3">
                                                             <div class="form-group">
                                                                 <label for="news_short_description">Short Description</label>
-                                                                <input type="text" id="news_short_description" class="form-control"
+                                                                <input type="text" id="news_short_description" class="form-control" value="<?=$news_info['news_short_description']?>"
                                                                     name="news_short_description" placeholder="Short Description">
                                                             </div>
                                                         </div>
@@ -190,7 +197,7 @@
                                                                 <div class="card-body">
                                                                     <div class="form-group mb-3">
                                                                         <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"placeholder="<?=$news_info['news_full_contest']?>"></textarea>
                                                                     </div>
                                                                 </div>
                                                             </div>
