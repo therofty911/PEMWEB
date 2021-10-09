@@ -436,6 +436,7 @@ input{
     .news-post .photo{
         height: auto !important;
     }
+    
 
 }
 
@@ -516,6 +517,12 @@ input{
     }
     .news-post .photo{
         height: auto !important;
+    }
+    #popshort {
+        white-space: nowrap;
+        width: 460px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
 }
