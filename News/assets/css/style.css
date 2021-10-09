@@ -391,10 +391,20 @@ input{
     .news-post .photo{
         height: auto !important;
     }
+    #popshort {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 75ch;
+    }
 }
 
 
 @media (max-width: 600px) {
+    h3{
+    font-size: 0.9rem;
+
+    }
     .logo1 .mobile {
         margin-top: 50px;
         display: block;
@@ -435,6 +445,12 @@ input{
     }
     .news-post .photo{
         height: auto !important;
+    }
+    #popshort {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 25ch;
     }
     
 
@@ -530,6 +546,12 @@ input{
 @media(max-width: 992px){
     .news-post .photo{
         height: auto !important;
+    }
+    #popshort {
+        white-space: nowrap;
+        width: 520px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
 
