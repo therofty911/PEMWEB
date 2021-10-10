@@ -15,6 +15,12 @@
 
     $comment = fetchcomment($id_article);
 ?>
+<?php
+    require '..\controller\comment.php';
+    if(isset($_POST['submitcomment'])){
+        submitcomment();
+    }
+?>
 </body>
 </html>
 <!DOCTYPE html>
@@ -169,13 +175,13 @@
                         <!-- for comment -->
                         <div class="card">
                         <div class="card-body">
-                            <form action="" method="">
+                            <form action="" method="post">
                                   <div class="mb-3 comment">
                                     <label for="comment" class="form-label">Write Your Comments</label>
-                                    <input type="text" class="form-control" id="comment" placeholder="Write Your Comments">
+                                    <input type="text" class="form-control" id="comment" placeholder="Write Your Comments" name="comment">
                                   </div>
                                   <div class="mb-3 comment">
-                                    <button type="submit" class="btn btn-primary" style="background-color: #142868;color: rgb(0, 255, 255);outline: none;border: none;"><a href="..\View\login.php">Submit</a></button>
+                                    <button type="submit" class="btn btn-primary" style="background-color: #142868;color: rgb(0, 255, 255);outline: none;border: none;">Submit</button>
                                   </div>
                             </form>
                         </div>
