@@ -1,9 +1,6 @@
 <?php
-    
     function register(){
-        include('../controller/functions.php');
-        // $pdo = connect_to_db();
-        // include __DIR__.'..\..\..\News\config\dbconnect.php'; 
+        include __DIR__.'..\..\..\News\modal\dbconnect.php'; 
         if(isset($_POST['Fname']))$Fname = $_POST['Fname'];
         if(isset($_POST['Lname']))$Lname = $_POST['Lname'];
         if(isset($_POST['user']))$user = $_POST['user'];
@@ -30,8 +27,5 @@
             // header("location: ../index.php");
             echo "<script>document.location.href = '../view/login.php';</script>";
         }
-
     }
-
-
 ?>

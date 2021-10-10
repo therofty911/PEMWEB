@@ -1,7 +1,5 @@
 <?php 
-    // include_once 'C:\xampp\htdocs\pemweb\PEMWEB UTS\PEMWEB\News\config\dbconnect.php'; 
-    include __DIR__.'..\..\..\News\config\dbconnect.php'; 
-
+    include __DIR__.'..\..\..\News\modal\dbconnect.php'; 
     function fetchNews()
     {
         $conn = connect_to_db();

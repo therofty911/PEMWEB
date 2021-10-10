@@ -1,6 +1,4 @@
 <?php
-// $posts = new Posts();
-// $post = $posts->editPost();
 session_start(); 
     if(empty($_SESSION)){
         echo "<script>alert('you haven't log in yet')</script>";
@@ -17,43 +15,40 @@ session_start();
         }
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Edit News - Admin Dashboard</title>
     
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/bootstrap.css">
-
-<link rel="stylesheet" href="../assets/vendors/fontawesome/all.min.css">
-<style>
-    .fontawesome-icons {
-        text-align: center;
-    }
-
-    article dl {
-        background-color: rgba(0, 0, 0, .02);
-        padding: 20px;
-    }
-
-    .fontawesome-icons .the-icon svg {
-        font-size: 24px;
-    }
-</style>
     
-<link rel="stylesheet" href="../assets/vendors/toastify/toastify.css">
-<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
-<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/vendors/toastify/toastify.css">
     <link rel="stylesheet" href="../assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="../assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/app.css">
     <link rel="shortcut icon" href="../assets/images/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/vendors/fontawesome/all.min.css">
+    
+    <style>
+        .fontawesome-icons {
+            text-align: center;
+        }
+
+        article dl {
+            background-color: rgba(0, 0, 0, .02);
+            padding: 20px;
+        }
+
+        .fontawesome-icons .the-icon svg {
+            font-size: 24px;
+        }
+    </style>
 </head>
 
 <body>
@@ -71,19 +66,15 @@ session_start();
         </div>
     </div>
     <div class="sidebar-menu">
-    <ul class="menu">
+        <ul class="menu">
             <li class="sidebar-title">Main Menu</li>
-            
-            <li
-                class="sidebar-item  ">
+            <li class="sidebar-item  ">
                 <a href="..\..\News\view\dashboard.php" class='sidebar-link'>
                     <i class="bi bi-grid-fill"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
-            
-            <li
-                class="sidebar-item  has-sub">
+            <li class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-stack"></i>
                     <span>Components</span>
@@ -94,15 +85,13 @@ session_start();
                     </li>
                 </ul>
             </li>
-            <li
-                class="sidebar-item  ">
+            <li class="sidebar-item  ">
                 <a href="..\..\News\view\create.php" class='sidebar-link'>
                     <i class="bi bi-pen-fill"></i>
                     <span>Create</span>
                 </a>
             </li>
-            <li
-                class="sidebar-item  ">
+            <li class="sidebar-item  ">
                 <a href="..\..\News\view\list_news.php" class='sidebar-link'>
                     <i class="bi bi-card-list"></i>
                     <span>List</span>
@@ -256,15 +245,12 @@ session_start();
 <!-- fontawesome-icons -->
 <script src="../assets/vendors/fontawesome/all.min.js"></script>
 
-
-
-    <!-- filepond validation -->
+<!-- filepond validation -->
 <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
 <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
 
 <!-- image editor -->
-<script
-    src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
 <script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>
 <script src="https://unpkg.com/filepond-plugin-image-filter/dist/filepond-plugin-image-filter.js"></script>
 <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
@@ -282,7 +268,6 @@ session_start();
         FilePondPluginFileValidateSize,
         // validates the file type...
         FilePondPluginFileValidateType,
-
         // calculates & dds cropping info based on the input image dimensions and the set crop ratio...
         FilePondPluginImageCrop,
         // preview the image file type...
@@ -314,5 +299,4 @@ session_start();
     
     <script src="../assets/js/mazer.js"></script>
 </body>
-
 </html>

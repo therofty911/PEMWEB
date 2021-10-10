@@ -1,6 +1,6 @@
 <?php 
 
-include '..\..\News\config\dbconnect.php';
+include '..\..\News\modal\dbconnect.php';
 
 // isi nama host, username mysql, dan password mysql anda
 $host = mysql_connect("localhost","root","");
@@ -13,7 +13,3 @@ $news = mysqli_connect($host, $user, $password, $db);
 $news = mysqli_query($news, "")
 
 ?>
-
-<?php
-
-$db
