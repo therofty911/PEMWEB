@@ -23,6 +23,7 @@
                 $salt = $db['salt'];
                 $hash = $db['pass'];
                 $id = $db['user_ID'];
+                $photo = $db['photo'];
                 
                 if(hash("md5",$pw . $salt)==$hash){
                     echo "<script>console.log('ACC');</script>";

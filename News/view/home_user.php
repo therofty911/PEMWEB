@@ -6,8 +6,8 @@
     $newsHeadSideBar = newsHeadSideBar();
     $popular = fetchPopular();
     $user_ID = '';
-    if(isset($_SESSION["user_ID"])){
-        $user_ID = $_SESSION["user_ID"];
+    if(isset($_SESSION["id"])){
+        $user_ID = $_SESSION["id"];
     }
 ?>
 <?php
@@ -46,13 +46,13 @@
                 <ul class="connect">
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>    
-                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['user'];?></a></li>
+                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['user'];?> <?php Get_user_avatar($user_ID, $pdo) ?></a></li>
                 </li>
                 <div class="avatar avatar-sm me-3">
-                    <?php echo Get_user_avatar($user_ID, $pdo); ?>
-                    <img src="../assets/images/faces/1.jpg" alt="" srcset="">
+                    
+                    <img src="./avatar/?php echo $path ?>" alt="" srcset="">
                 </div> 
-                <?php echo $_SESSION['photo'];?>   
+                <?php //echo $_SESSION['photo'];?>   
                     <li>
                         
                 </ul>
@@ -69,7 +69,6 @@
             </div>
         </div>
     </div>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 bg-body rounded">
         <div class="container-fluid">
         <a class="navbar-brand logo2" href="home_user.php"><img class="desktop" src="https://cdn.discordapp.com/attachments/891579314401869864/891681342994153512/news_logo.png" alt="News_Speedy_UMN" style="width: 250px;"></a>

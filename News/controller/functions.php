@@ -64,7 +64,7 @@
     }
 
     function make_avatar($character){
-        $path = "avatar/". time() . ".png";
+        $path = "../avatar/". time() . ".png";
         $image = imagecreate(200, 200);
         $red = rand(0, 255);
         $green = rand(0, 255);
@@ -79,22 +79,22 @@
         return $path;
     }
 
-    function Get_user_avatar($user_ID, $conn){
-        $conn = connect_to_db();
+    function Get_user_avatar($user_ID, $pdo){
+        $pdo = connect_to_db(); 
         $query = "
         SELECT photo FROM user 
         WHERE `user_ID` = '".$user_ID."' 
         ";
-        $statement = $conn->prepare($query);
+        $statement = $pdo->prepare($query);
 
         $statement->execute();
 
         $result = $statement->fetchAll();
 
         foreach($result as $row)
-        {
-            echo '<img src="'.$row["photo"].'" width="75" class="img-thumbnail img-circle" />';
-        }
+	{
+		echo '<img src="'.$row->photo.'" class="" style="width:30px;border-radius:50px;border:none;outline: 2px solid #fff;margin-left:5px;"/>';
+	}
         // $request = $conn->prepare("SELECT photo FROM user WHERE `user_ID` = '".$user_ID."' ") ;
         // return $request->execute() ? $request->fetchAll() : false;
     }
