@@ -1,28 +1,28 @@
 <?php 
-    include '..\controller\functions.php';
+    include_once '..\controller\functions.php';
     session_start();
 ?>
 <?php
     // get the database handler
-    $dbh = connect_to_db(); // function created in dbconnect, remember?
+    // function created in dbconnect, remember?
     $id_article = (int)$_GET['newsid'];
     if ( !empty($id_article) && $id_article > 0) {
         // Fecth news
-        $article = getAnArticle( $id_article, $dbh );
+        $article = getAnArticle( $id_article );
         $article = $article[0];
     }else{
         $article = false;
         echo "<strong>Wrong article!</strong>";
     }
-    $other_articles = getOtherArticles( $id_article, $dbh );
+    $other_articles = getOtherArticles( $id_article );
 
     $comment = fetchcomment($id_article);
 ?>
 <?php
-    require '..\controller\comment.php';
-    if(isset($_POST['submitcomment'])){
-        submitcomment();
-    }
+    // include_once '..\controller\comment.php';
+    // if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submitcomment'])){
+    //     submitcomment();
+    // }
 ?>
 </body>
 </html>
@@ -179,7 +179,7 @@
                                     <input type="text" class="form-control" id="comment" placeholder="Write Your Comments" name="comment">
                                   </div>
                                   <div class="mb-3 comment">
-                                    <button type="submit" class="btn btn-primary" style="background-color: #142868;color: rgb(0, 255, 255);outline: none;border: none;" name="submitcomment">Submit</button>
+                                    <button type="submit" class="btn btn-primary" style="background-color: #142868;color: rgb(0, 255, 255);outline: none;border: none;" name="submitcomment"><a href = "..\controller\comment.php">Submit</a></button>
                                   </div>
                             </form>
                         </div>

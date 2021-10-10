@@ -143,7 +143,7 @@
                 </div>
               <div class="col-lg-4 mt-3 mt-lg-0">
                         <?php foreach ($newsHeadSideBar as $key => $headSide) : ?>
-                    <a href="..\view\readNews_admin.php?newsid=<?=$headSide->news_ID?>" class="link-popular">
+                        <a href="..\view\readNews_admin.php?newsid=<?=$headSide->news_ID?>" class="link-popular">
                         <div class="news-post shadow mb-3">
                             <img class="img-fluid photo" src="https://cdn.discordapp.com/attachments/868897795397005362/894847007892598784/unknown.png" alt="" style="max-width: 100%;height:335px;"></img>
                             <div class="news-post-badge text-center">
