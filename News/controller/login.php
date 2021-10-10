@@ -14,7 +14,7 @@
             }
             else{
                 $conn = connect_to_db();
-                $query = $conn->prepare("SELECT username, pass, salt, `level` FROM user WHERE username='" . $user . "'");
+                $query = $conn->prepare("SELECT `user_ID`, username, pass, salt, `level` FROM user WHERE username='" . $user . "'");
                 $query->execute();
                 
                 $result = $query->rowCount();
@@ -28,6 +28,7 @@
                     $db = $query->fetch(PDO::FETCH_ASSOC);
                     $salt = $db['salt'];
                     $hash = $db['pass'];
+                    $id = $db['user_ID'];
                     
                     if(hash("md5",$pw . $salt)==$hash){
                         echo "<script>console.log('ACC');</script>";
@@ -36,6 +37,7 @@
                             // buat session login dan username
                             $_SESSION['user'] = $user;
                             $_SESSION['level'] = "admin";
+                            $_SESSION['id'] = $id;
                             // alihkan ke halaman dashboard admin
                             //header("location:..\index.php");
                             echo "<script>document.location.href = '../view/home_admin.php';</script>";
@@ -48,6 +50,7 @@
                             // buat session login dan username
                             $_SESSION['user'] = $user;
                             $_SESSION['level'] = "user";
+                            $_SESSION['id'] = $id;
                             // alihkan ke halaman dashboard pegawai
                             //header("location:..\News\index.php");
                             echo "<script>document.location.href = '../view/home_user.php';</script>";
