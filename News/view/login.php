@@ -12,12 +12,6 @@
     <link rel="stylesheet" href="../assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/app.css">
     <link rel="stylesheet" href="../assets/css/pages/auth.css">
-    <link rel="stylesheet" href="../assets/vendors/sweetalert2/sweetalert2.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.8.2/parsley.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/arrive/2.4.1/arrive.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"></script>
 </head>
 <style>
   #auth #auth-right{
@@ -43,21 +37,20 @@
 
             <form method="post" id="myform">
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="text" class="form-control form-control-xl" placeholder="Username" name="user" id="user" required>
+                    <input type="text" class="form-control form-control-xl" placeholder="Username" name="user" required>
                     <div class="form-control-icon">
                         <i class="bi bi-person"></i>
                     </div>
                 </div>
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="password" class="form-control form-control-xl" placeholder="Password" name="pw" id="pw" required>
+                    <input type="password" class="form-control form-control-xl" placeholder="Password" name="pw" required>
                     <div class="form-control-icon">
                         <i class="bi bi-shield-lock"></i>
                     </div>
                 </div>
-                <!-- <div class="g-recaptcha" data-sitekey="6LdFmmQcAAAAAGuC6N1MNLbDMeSLwB8n1PR512k8" style="margin-bottom: 10px;" require></div> -->
-                <div id="botvalidator"></div>
-                <div id="captchaerrors"></div>
-                <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" id="singin" style="background-color: #0D1A44;" name="signin">Log in</button>
+                <div class="g-recaptcha" data-sitekey="6LdFmmQcAAAAAGuC6N1MNLbDMeSLwB8n1PR512k8" style="margin-bottom: 10px;"></div>
+
+                <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" style="background-color: #0D1A44;" name="signin">Log in</button>
             </form>
             <div class="text-center mt-5 text-lg fs-4">
                 <p class="text-gray-600">Don't have an account? <a href="register.php" class="font-bold">Signup</a>.</p>
@@ -71,60 +64,6 @@
 </div>
 
     </div>
-<script src="../assets/js/extensions/sweetalert2.js"></script>
-<script src="../assets/vendors/sweetalert2/sweetalert2.all.min.js"></script>
-<script>
-var onloadCallback = function() {
-        if($("#botvalidator").length > 0) {
-            grecaptcha.render('botvalidator', {
-                'sitekey' : '6LdFmmQcAAAAAGuC6N1MNLbDMeSLwB8n1PR512k8',
-                'callback': cleanErrors
-            });
-            addCaptchaValidation();
-            $(document).arrive("#g-recaptcha-response", function() {
-                // 'this' refers to the newly created element
-                addCaptchaValidation();
-            });
-        }
-    };
-
-        /* ini akan menghilangkan semua pesan error. */
-    var cleanErrors = function() {
-        $("#captchaerrors").empty();
-    };
-    
-    var addCaptchaValidation = function() {
-        console.log("Adding captcha validation");
-        
-        cleanErrors();
-
-        $('#myform').parsley().destroy();
-
-        $('#g-recaptcha-response').attr('required', true);
-        // dibawah ini untu membuat sebuah attribute dari JSparsley validasi
-        $('#g-recaptcha-response').attr('data-parsley-captcha-validation', true);
-        $('#g-recaptcha-response').attr('data-parsley-error-message', "We know it, but we need you to confirm you are not a robot. Thanks.");
-        $('#g-recaptcha-response').attr('data-parsley-errors-container', "#captchaerrors");
-    $('#myform').parsley();
-    };
-    
-
-    /*dibawah ini untuk membuat/menambah sebuah parsley validasi baru
-    #g-recaptcha-response saat mengklik login button*/
-
-    window.Parsley.addValidator('captchaValidation', {
-
-            validateString: function(value) {
-                if(debug) console.log("Validating captcha", value);
-                if(value.length > 0) {
-                    return true;
-                } else {
-                    return false;
-                }                    
-            },
-            messages: {en: 'We know it, but we need you to confirm you are not a robot. Thanks.'}
-          });
-    </script>
 </body>
 </html>
 <?php
@@ -133,7 +72,6 @@ var onloadCallback = function() {
     verifiedlogin();
   }
 ?>
-
 
 
 

@@ -52,7 +52,7 @@
                 <div class="row">
                     <div class="text-center icon">
                         <form action="" method="POST" style="display: inline;">
-                            <button type="button" class="btn btn-light col-5 col-xxl-3 logD"><a href="..\controller\logout.php" target="_blank" style="color: black; text-decoration: none;">Logout</a></button>
+                            <button type="button" class="btn btn-light col-5 col-xxl-3 logD"><a href="..\controller\logout.php" style="color: black; text-decoration: none;">Logout</a></button>
                             <p class="logM">Hello, <?php echo $_SESSION['user'];?></p>
                         </form>
                     </div>
@@ -64,7 +64,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 bg-body rounded">
         <div class="container-fluid">
         <a class="navbar-brand logo2" href="#"><img class="desktop" src="https://cdn.discordapp.com/attachments/891579314401869864/891681342994153512/news_logo.png" alt="News_Speedy_UMN" style="width: 250px;"></a>
-        <button type="button" class="btn btn-light col-4 col-lg-2 float-start logM" style="transform: translateX(-80%);"><a href="..\controller\logout.php" target="_blank" style="color: white; text-decoration: none;">Logout</a></button>
+        <button type="button" class="btn btn-light col-4 col-lg-2 float-start logM" style="transform: translateX(-80%);"><a href="..\controller\logout.php"  style="color: white; text-decoration: none;">Logout</a></button>
             <button class="navbar-toggler mr-auto custom-toggler col-2 float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon" style="color: white;">
                 </span>

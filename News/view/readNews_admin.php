@@ -1,4 +1,7 @@
-<?php include '..\controller\functions.php'?>
+<?php 
+    include '..\controller\functions.php';
+    session_start();
+?>
 <?php
     // get the database handler
     $dbh = connect_to_db(); // function created in dbconnect, remember?
@@ -175,13 +178,13 @@
                         <!-- for comment -->
                         <div class="card">
                         <div class="card-body">
-                            <form action="" method="post">
+                            <form action="" method="">
                                   <div class="mb-3 comment">
                                     <label for="comment" class="form-label">Write Your Comments</label>
-                                    <input type="text" class="form-control" id="comment" placeholder="Write Your Comments" name="comment">
+                                    <input type="text" class="form-control" id="comment" placeholder="Write Your Comments">
                                   </div>
                                   <div class="mb-3 comment">
-                                    <button type="submit" class="btn btn-primary" style="background-color: #142868;color: rgb(0, 255, 255);outline: none;border: none;">Submit</button>
+                                    <button type="submit" class="btn btn-primary" style="background-color: #142868;color: rgb(0, 255, 255);outline: none;border: none;"><a href="..\View\login.php">Submit</a></button>
                                   </div>
                             </form>
                         </div>
