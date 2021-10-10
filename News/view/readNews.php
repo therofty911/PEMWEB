@@ -152,7 +152,7 @@
                         </div>
                         <div class="badges px-3">
                             <a href="link to categories"><?= stripslashes($article->news_category) ?></a>
-                            <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like (0)</button>
+                            <a href="..\View\login.php"><button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like (0)</button></a>
                         </div>
                         <div class="p-content px-3">
                             <p><?= stripslashes($article->news_full_content) ?></p> 
@@ -323,7 +323,7 @@
                 <div class="col-md-4">
                     <h4>Usefull Links</h4>
                     <ul>
-                        <li><a href="">Home</a></li>
+                        <li><a href="home.php">Home</a></li>
                         <li><a href="">Terms of Service</a></li>
                         <li><a href="">Privacy Policy</a></li>
                         <li><a href="">Contact Us</a></li>

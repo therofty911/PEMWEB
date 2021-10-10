@@ -132,7 +132,7 @@
                 <div class="col-sm-12">
                     <h1>CATEGORIES</h1>
                     <div class="badges-cat">
-                        <a href="#"><?= $category ?></a>
+                        <a href=""><?= $category ?></a>
                     </div>
                 </div>
             </div>
@@ -232,7 +232,7 @@
                 <div class="col-md-4">
                     <h4>Usefull Links</h4>
                     <ul>
-                        <li><a href="">Home</a></li>
+                        <li><a href="home.php">Home</a></li>
                         <li><a href="">Terms of Service</a></li>
                         <li><a href="">Privacy Policy</a></li>
                         <li><a href="">Contact Us</a></li>
