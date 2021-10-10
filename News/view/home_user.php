@@ -13,6 +13,12 @@
     $popular = fetchPopular();
 ?>
 <?php
+    $user_ID = '';
+    if(isset($_SESSION["user_ID"])){
+        $user_ID = $_SESSION["user_ID"];
+    }
+?>
+<?php
   //include '..\controller\logout.php';
 //   if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['logout'])){
 //     validatelogout();
@@ -45,7 +51,10 @@
                 <ul class="connect">
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>    
-                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['user'];?></a></li>    
+                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['user'];?></a></li>
+                    <div class="avatar me-3">
+                        <?php Get_user_avatar($user_ID, $pdo); ?>
+                    </div>    
                 </ul>
             </div>
             <div class="col-md-3">
