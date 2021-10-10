@@ -16,6 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.8.2/parsley.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/arrive/2.4.1/arrive.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"></script>
 </head>
 <style>
@@ -42,13 +43,13 @@
 
             <form method="post" id="myform">
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="text" class="form-control form-control-xl" placeholder="Username" name="user">
+                    <input type="text" class="form-control form-control-xl" placeholder="Username" name="user" id="user" required>
                     <div class="form-control-icon">
                         <i class="bi bi-person"></i>
                     </div>
                 </div>
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="password" class="form-control form-control-xl" placeholder="Password" name="pw">
+                    <input type="password" class="form-control form-control-xl" placeholder="Password" name="pw" id="pw" required>
                     <div class="form-control-icon">
                         <i class="bi bi-shield-lock"></i>
                     </div>
@@ -56,7 +57,7 @@
                 <!-- <div class="g-recaptcha" data-sitekey="6LdFmmQcAAAAAGuC6N1MNLbDMeSLwB8n1PR512k8" style="margin-bottom: 10px;" require></div> -->
                 <div id="botvalidator"></div>
                 <div id="captchaerrors"></div>
-                <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" style="background-color: #0D1A44;" name="signin">Log in</button>
+                <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" id="singin" style="background-color: #0D1A44;" name="signin">Log in</button>
             </form>
             <div class="text-center mt-5 text-lg fs-4">
                 <p class="text-gray-600">Don't have an account? <a href="register.php" class="font-bold">Signup</a>.</p>
@@ -70,8 +71,8 @@
 </div>
 
     </div>
-<script src="assets/js/extensions/sweetalert2.js"></script>
-<script src="assets/vendors/sweetalert2/sweetalert2.all.min.js"></script>
+<script src="../assets/js/extensions/sweetalert2.js"></script>
+<script src="../assets/vendors/sweetalert2/sweetalert2.all.min.js"></script>
 <script>
 var onloadCallback = function() {
         if($("#botvalidator").length > 0) {

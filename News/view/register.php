@@ -19,10 +19,10 @@
       background:linear-gradient(90deg,#f0f0f0,#f8f8f8);
     }
     .btn-check:focus + .btn-primary, .btn-primary:focus, .btn-primary:hover{
-      background-color: #3950a2;
-      border-color: #364b98;
-      color: #fff;
-    }
+    background-color: #3950a2;
+    border-color: #364b98;
+    color: #fff;
+  }
     .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     color: #ffffff;
     font-weight: 700;
@@ -35,7 +35,7 @@
     <div id="auth">
         
 <div class="row h-100" style="background-color: #0D1A44;">
-    <div class="col-lg-5 col-12">
+    <div class="col-lg-5 col-12 ">
         <div id="auth-left">
             <div class="auth-logo">
                 <a href="..\index.php"><img src="../assets/images/logo/logo2.png" alt="Logo" style="width: 250px;height: auto;"></a>
@@ -76,12 +76,21 @@
                         </select>
                     </fieldset>
                 </div>
-                <div class="form-group position-relative has-icon-left mb-2">
+                <!-- <div class="form-group position-relative has-icon-left mb-2">
                     <input type="date" class="form-control form-control-md" placeholder="DOB" name="birth">
+                    
                     <div class="form-control-icon">
                         <i class="bi bi-calendar3"></i>
                     </div>
+                </div> -->
+                <h6>Date of Birth</h6>
+                <div class="form-group position-relative has-icon-left">
+                    <input type="date" class="form-control" placeholder="DOB" name="birth">
+                    <div class="form-control-icon">
+                    <i class="bi bi-calendar3"></i>
+                    </div>
                 </div>
+                
                 <div class="col-12 col-md-12">
                     <div class="card">
                         <div class="card-content">

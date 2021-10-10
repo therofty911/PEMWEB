@@ -9,8 +9,9 @@
         if(isset($_POST['pw'])) $pw = $_POST['pw'];
         
         if($user == "" || $pw == ""){
-                echo "<script>console.log('error 14, empty email or password');</script>";
-                //echo "<script>document.location.href = '../index.php';</script>";
+                // echo "<script>console.log('error 14, empty email or password');</script>";
+                echo "<script>console.log('error 14, empty email or password');
+                alert('Please fill your username.email and password!!!')</script>";
             }
             else{
                 $conn = connect_to_db();
