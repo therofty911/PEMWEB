@@ -12,7 +12,6 @@
     $news = fetchCategory($category);
     $newsHeadOne = newsHeadOne();
     $newsHeadSideBar = newsHeadSideBar();
-    $popular = fetchPopular();
 ?>
 <?php
   //validatelogout();
@@ -60,7 +59,7 @@
 
 <div class="info">
         <div class="row">
-            <div class="col-md-2 logo1"><a href="home_admin.php"><img class="mobile" src="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png" alt="News_Speedy_UMN"></a></div>
+            <div class="col-md-2 logo1"><img class="mobile" src="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png" alt="News_Speedy_UMN"></div>
             <div class="col-md-7 mt-2 list">
                 <ul class="connect">
                     <li><a href="#">About Us</a></li>
@@ -84,7 +83,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 bg-body rounded">
         <div class="container-fluid">
-        <a class="navbar-brand logo2" href="home_admin.php"><img class="desktop" src="https://cdn.discordapp.com/attachments/891579314401869864/891681342994153512/news_logo.png" alt="News_Speedy_UMN" style="width: 250px;"></a>
+        <a class="navbar-brand logo2" href="#"><img class="desktop" src="https://cdn.discordapp.com/attachments/891579314401869864/891681342994153512/news_logo.png" alt="News_Speedy_UMN" style="width: 250px;"></a>
         <button type="button" class="btn btn-light col-4 col-lg-2 float-start logM" style="transform: translateX(-80%);" name="logout"><a   style="color: black; text-decoration: none;" >Logout</a></button>
             <button class="navbar-toggler mr-auto custom-toggler col-2 float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon" style="color: white;">
@@ -93,7 +92,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home_admin.php">Home</a>
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="kategoriNews_admin.php?category=Technology">Technology</a>
@@ -197,19 +196,61 @@
                         </div>
                     </div>
                     <h4 class="aside-heading mt-3">Popular Article</h4>
-                    <?php foreach ($popular as $key => $populars) : ?>
-                    <a href="..\view\readNews_admin.php?newsid=<?=$populars->news_ID?>" class="link-populer">
+                    <a href="" class="link-populer">
                         <article class="row popular mb-3">
                             <div class="col-sm-4 my-2">
                                 <img src="https://cdn.discordapp.com/attachments/653643188258734108/894847997165334548/unknown.png" alt="" class="img-fluid">
                             </div>
                             <div class="col-sm-7 my-2">
-                                <h5 class="m-0" id="popshort"><?= stripslashes($populars->news_title) ?></h5>
-                                <p class="m-0" id="popshort"><?= stripslashes($populars->news_short_description) ?></p>
+                                <h5 class="m-0">Judul news</h5>
+                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nostrum autem.</p>
                             </div>
                         </article>
                     </a>
-                    <?php endforeach ?>
+                    <a href="" class="link-populer">
+                        <article class="row popular mb-3">
+                            <div class="col-sm-4 my-2">
+                                <img src="https://cdn.discordapp.com/attachments/653643188258734108/894847997165334548/unknown.png" alt="" class="img-fluid">
+                            </div>
+                            <div class="col-sm-7 my-2">
+                                <h5 class="m-0">Judul news</h5>
+                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nostrum autem.</p>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="" class="link-populer">
+                        <article class="row popular mb-3">
+                            <div class="col-sm-4 my-2">
+                                <img src="https://cdn.discordapp.com/attachments/653643188258734108/894847997165334548/unknown.png" alt="" class="img-fluid">
+                            </div>
+                            <div class="col-sm-7 my-2">
+                                <h5 class="m-0">Judul news</h5>
+                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nostrum autem.</p>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="" class="link-populer">
+                        <article class="row popular mb-3">
+                            <div class="col-sm-4 my-2">
+                                <img src="https://cdn.discordapp.com/attachments/653643188258734108/894847997165334548/unknown.png" alt="" class="img-fluid">
+                            </div>
+                            <div class="col-sm-7 my-2">
+                                <h5 class="m-0">Judul news</h5>
+                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nostrum autem.</p>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="" class="link-populer">
+                        <article class="row popular mb-3">
+                            <div class="col-sm-4 my-2">
+                                <img src="https://cdn.discordapp.com/attachments/653643188258734108/894847997165334548/unknown.png" alt="" class="img-fluid">
+                            </div>
+                            <div class="col-sm-7 my-2">
+                                <h5 class="m-0">Judul news</h5>
+                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nostrum autem.</p>
+                            </div>
+                        </article>
+                    </a>
                     <h4 class="aside-heading mt-5">Popular Categories</h4>
                     <div class="badges w-100">
                         <a href="kategoriNews_admin.php?category=Technology">Technology</a>
@@ -237,7 +278,7 @@
                 <div class="col-md-4">
                     <h4>Usefull Links</h4>
                     <ul>
-                        <li><a href="home_admin.php">Home</a></li>
+                        <li><a href="">Home</a></li>
                         <li><a href="">Terms of Service</a></li>
                         <li><a href="">Privacy Policy</a></li>
                         <li><a href="">Contact Us</a></li>

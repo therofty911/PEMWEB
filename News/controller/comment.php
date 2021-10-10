@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    //session_start();
     date_default_timezone_set('Asia/Jakarta');
     function submitcomment(){
         include __DIR__.'..\..\..\News\config\dbconnect.php';

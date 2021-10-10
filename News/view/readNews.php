@@ -74,7 +74,7 @@
 
     <div class="info">
         <div class="row">
-            <div class="col-md-2 logo1"><a href="home.php"><img class="mobile" src="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png" alt="News_Speedy_UMN"></a></div>
+            <div class="col-md-2 logo1"><img class="mobile" src="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png" alt="News_Speedy_UMN"></div>
             <div class="col-md-7 mt-2 list">
                 <ul class="connect">
                     <li class="logD"><a href="#">About Us</a></li>
@@ -102,32 +102,34 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home.php">Home</a>
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="kategoriNews.php?category=Technology">Technology</a>
+                    <a class="nav-link active" href="#">Technology</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="kategoriNews.php?category=Music">Music</a>
+                    <a class="nav-link active" href="#">Music</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="kategoriNews.php?category=Game">Game</a>
+                    <a class="nav-link active" href="#">Games</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="kategoriNews.php?category=Politic">Politic</a>
+                    <a class="nav-link active" href="#">Politic</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="kategoriNews.php?category=Art">Art</a>
+                    <a class="nav-link active" href="#">Arts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="kategoriNews.php?category=Automotive">Automotive</a>
+                    <a class="nav-link active" href="#">Automotive</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="kategoriNews.php?category=Fashion">Fashion</a>
+                    <a class="nav-link active" href="#">Fashion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="kategoriNews.php?category=Health">Health</a>
+                    <a class="nav-link active" href="#">Healty</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Link</a>
                 <li class="nav-item logM" style="background:transparent;">
                     <a class="nav-link active" aria-current="page" href="#">About Us</a>
                 </li>
@@ -155,7 +157,7 @@
                         </div>
                         <div class="badges px-3">
                             <a href="link to categories"><?= stripslashes($article->news_category) ?></a>
-                            <a href="..\View\login.php"><button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like (0)</button></a>
+                            <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like (0)</button>
                         </div>
                         <div class="p-content px-3">
                             <p><?= stripslashes($article->news_full_content) ?></p> 
@@ -254,7 +256,51 @@
         </div>
     </section>
 
-    <!-- footer session -->
+    <!-- main block section -->
+    <!-- <div class="news-posts py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="" method="">
+                                <div class="mb-3 comment">
+                                    <label for="formGroupExampleInput" class="form-label">Enter Your Name</label>
+                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Your Name">
+                                  </div>
+                                  <div class="mb-3 comment">
+                                    <label for="comment" class="form-label">Write Your Comments</label>
+                                    <input type="text" class="form-control" id="comment" placeholder="Write Your Comments">
+                                  </div>
+                                  <div class="mb-3 comment">
+                                    <button type="submit" class="btn btn-primary" style="background-color: #142868;color: rgb(0, 255, 255);outline: none;border: none;"><a href="..\View\login.php">Submit</a></button>
+                                  </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card mt-3 card-comment shadow-lg">
+                        <?php foreach($comment as $key => $comments) : ?>
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card-header mb-0 pb-0">
+                                 Posted by : <?= $comments->username ?>
+                                 <p class="text-end" style="display: inline; float: right;"><?= $comments->date ?></p>
+                                </div>
+                                <div class="card-body">
+                                  <p class="card-text"><?= $comments->comment ?></p>
+                                  <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like (0)</button>
+                                </div>
+                              </div>
+                            </div>
+                        <?php endforeach ?>
+                    </div>
+                <aside class="col-md-4 px-4 mt-lg-0 mt-3">
+                </aside>
+            </div>
+        </div>
+
+    </div> -->
+    <!-- footer section -->
     <footer class="footer py-4">
         <div class="container">
             <div class="row">
@@ -264,7 +310,7 @@
                 <div class="col-md-4">
                     <h4>Usefull Links</h4>
                     <ul>
-                        <li><a href="home.php">Home</a></li>
+                        <li><a href="">Home</a></li>
                         <li><a href="">Terms of Service</a></li>
                         <li><a href="">Privacy Policy</a></li>
                         <li><a href="">Contact Us</a></li>
