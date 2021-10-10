@@ -11,9 +11,9 @@ if (isset($_GET['news_ID'])) {
     $stmt = $pdo->prepare('DELETE FROM news_info WHERE news_ID = ?');
     //$stmt->execute();
     $stmt->execute([$_GET['news_ID']]);
-    $news = $stmt->fetch(PDO::FETCH_ASSOC);
-    if (!$news) {
-        exit('News doesn\'t exist with that ID!');
+    // $news = $stmt->fetch(PDO::FETCH_ASSOC);
+    if($stmt){
+        header('Location: ..\..\News\view\list_news.php');
     }
     // Make sure the user confirms beore deletion
     // if (isset($_GET['confirm'])) {
