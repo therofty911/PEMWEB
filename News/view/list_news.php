@@ -1,5 +1,5 @@
 <?php
-    include '..\modal\dbconnect.php';
+    include '..\model\dbconnect.php';
     $conn = connect_to_db();
     $query = "SELECT * FROM news_info";
     $execute = $conn->prepare($query);

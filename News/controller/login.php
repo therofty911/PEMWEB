@@ -2,7 +2,7 @@
     $user = "";
     $pw = "";
     function verifiedlogin(){
-        include __DIR__.'..\..\..\News\modal\dbconnect.php'; 
+        include __DIR__.'..\..\..\News\model\dbconnect.php'; 
         if(isset($_POST['user'])) $user = $_POST['user'];
         if(isset($_POST['pw'])) $pw = $_POST['pw'];
         if($user == "" || $pw == ""){
