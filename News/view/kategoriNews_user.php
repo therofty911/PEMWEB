@@ -126,7 +126,7 @@
                 <div class="col-sm-12">
                     <h1>CATEGORIES</h1>
                     <div class="badges-cat">
-                        <a href="link to categories"><?= $category ?></a>
+                        <a href="#"><?= $category ?></a>
                     </div>
                 </div>
             </div>

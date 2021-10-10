@@ -153,7 +153,7 @@
                             <span>published on <?= date($article->news_published_on) ?> WIB by <?= stripslashes($article->news_author) ?></span>
                         </div>
                         <div class="badges px-3">
-                            <a href="link to categories"><?= stripslashes($article->news_category) ?></a>
+                            <a href="#"><?= stripslashes($article->news_category) ?></a>
                             <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like"><a href="login.php">Like (0)</a></button>
                         </div>
                         <div class="p-content px-3">
