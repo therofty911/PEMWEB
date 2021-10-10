@@ -235,7 +235,7 @@
                 <div class="col-md-4">
                     <h4>Usefull Links</h4>
                     <ul>
-                        <li><a href="">Home</a></li>
+                        <li><a href="home_user.php">Home</a></li>
                         <li><a href="">Terms of Service</a></li>
                         <li><a href="">Privacy Policy</a></li>
                         <li><a href="">Contact Us</a></li>
