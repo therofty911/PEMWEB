@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="form-group position-relative has-icon-left mb-2">
-                    <input type="text" class="form-control form-control-md" placeholder="Username / Email" name="user">
+                    <input type="text" class="form-control form-control-md" placeholder="Username" name="user">
                     <div class="form-control-icon">
                         <i class="bi bi-person"></i>
                     </div>
