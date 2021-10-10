@@ -64,7 +64,7 @@
     }
 
     function make_avatar($character){
-        $path = "../avatar/". time() . ".png";
+        $path = "avatar/". time() . ".png";
         $image = imagecreate(200, 200);
         $red = rand(0, 255);
         $green = rand(0, 255);

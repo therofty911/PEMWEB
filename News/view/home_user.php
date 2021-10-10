@@ -47,13 +47,6 @@
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>    
                     <li><a href="" class="logD">Hello, <?php echo $_SESSION['user'];?> <?php Get_user_avatar($user_ID, $pdo) ?></a></li>
-                </li>
-                <div class="avatar avatar-sm me-3">
-                    
-                    <img src="./avatar/?php echo $path ?>" alt="" srcset="">
-                </div> 
-                <?php //echo $_SESSION['photo'];?>   
-                    <li>
                         
                 </ul>
             </div>
