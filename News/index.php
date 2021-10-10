@@ -1,5 +1,5 @@
 <?php
     session_start();
-    require 'modal/dbconnect.php';    
+    require ('modal/dbconnect.php');    
     header('location:view/home.php');
 ?>

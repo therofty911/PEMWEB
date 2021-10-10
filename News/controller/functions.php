@@ -80,6 +80,7 @@
     }
 
     function Get_user_avatar($user_ID, $conn){
+        $conn = connect_to_db();
         $query = "
         SELECT photo FROM user 
         WHERE `user_ID` = '".$user_ID."' 

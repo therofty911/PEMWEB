@@ -47,9 +47,10 @@
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>    
                     <li><a href="" class="logD">Hello, <?php echo $_SESSION['user'];?></a></li>
-                    <div class="avatar me-3">
-                        <?php Get_user_avatar($user_ID, $pdo); ?>
-                    </div>    
+                    </li>
+                        <?php Get_user_avatar($user_ID, $pdo); ?>  
+                    <li>
+                        
                 </ul>
             </div>
             <div class="col-md-3">
@@ -75,7 +76,7 @@
             </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-lg-0">
-            <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="home_user.php">Home</href=>
                 </li>
                 <li class="nav-item">
