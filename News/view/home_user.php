@@ -5,12 +5,12 @@
     $newsHeadOne = newsHeadOne();
     $newsHeadSideBar = newsHeadSideBar();
     $popular = fetchPopular();
-?>
-<?php
     $user_ID = '';
     if(isset($_SESSION["user_ID"])){
         $user_ID = $_SESSION["user_ID"];
     }
+?>
+<?php
 ?>
 <?php
   //include '..\controller\logout.php';
@@ -47,8 +47,12 @@
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>    
                     <li><a href="" class="logD">Hello, <?php echo $_SESSION['user'];?></a></li>
-                    </li>
-                        <?php Get_user_avatar($user_ID, $pdo); ?>  
+                </li>
+                <div class="avatar avatar-sm me-3">
+                    <?php echo Get_user_avatar($user_ID, $pdo); ?>
+                    <img src="../assets/images/faces/1.jpg" alt="" srcset="">
+                </div> 
+                <?php echo $_SESSION['photo'];?>   
                     <li>
                         
                 </ul>
@@ -77,7 +81,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home_user.php">Home</href=>
+                    <a class="nav-link active" aria-current="page" href="home_user.php">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="kategoriNews_user.php?category=Technology">Technology</a>
@@ -108,6 +112,7 @@
                 </li>
                 <li class="nav-item logM" style="background:transparent;">
                     <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
+                
                 </li>
             </ul>
         </div>

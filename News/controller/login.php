@@ -32,6 +32,7 @@
                         $_SESSION['user'] = $user;
                         $_SESSION['level'] = "admin";
                         $_SESSION['id'] = $id;
+                        $_SESSION['photo'] = $photo;
                         // alihkan ke halaman dashboard admin
                         echo "<script>document.location.href = '../view/home_admin.php';</script>";
 
@@ -42,6 +43,7 @@
                         $_SESSION['user'] = $user;
                         $_SESSION['level'] = "user";
                         $_SESSION['id'] = $id;
+                        $_SESSION['photo'] = $photo;
                         // alihkan ke halaman dashboard pegawai
                         echo "<script>document.location.href = '../view/home_user.php';</script>";
                     }
