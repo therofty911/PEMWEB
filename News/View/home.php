@@ -43,7 +43,7 @@
 
     <div class="info">
         <div class="row">
-            <div class="col-md-2 logo1"><a href="home.php"><img class="mobile" src="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png" alt="News_Speedy_UMN"></a></div>
+            <div class="col-md-2 logo1"><img class="mobile" src="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png" alt="News_Speedy_UMN"></div>
             <div class="col-md-7 mt-2 list">
                 <ul class="connect">
                     <li><a href="#">About Us</a></li>
@@ -73,7 +73,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home.php">Home</a>
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="kategoriNews.php?category=Technology">Technology</a>
