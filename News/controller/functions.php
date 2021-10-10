@@ -92,22 +92,10 @@
         $result = $statement->fetchAll();
 
         foreach($result as $row)
-	{
-		echo '<img src="'.$row->photo.'" class="image-profile" style="width:30px;border-radius:50px;border:none;outline: 2px solid #fff;margin-left:5px;"/>';
-	}
+	    {
+		    echo '<img src="'.$row->photo.'" class="image-profile" style="width:30px;border-radius:50px;border:none;outline: 2px solid #fff;margin-left:5px;"/>';
+	    }
         // $request = $conn->prepare("SELECT photo FROM user WHERE `user_ID` = '".$user_ID."' ") ;
         // return $request->execute() ? $request->fetchAll() : false;
     }
-    
-
-    // function fetchNews()
-    // {
-    //     $conn = connect_to_db();
-    //     $request = $conn->prepare(" SELECT news_ID, news_title, news_short_description, news_author, news_published_on, news_category FROM news_info ORDER BY news_published_on LIMIT");
-    //     return $request->execute() ? $request->fetchAll() : false; 
-    // }
-
-  
-
-
-    
+?>
