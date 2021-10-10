@@ -1,5 +1,5 @@
 <?php
-    include '..\config\dbconnect.php';
+    include '..\modal\dbconnect.php';
     $conn = connect_to_db();
     $query = "SELECT * FROM news_info";
     $execute = $conn->prepare($query);
@@ -8,19 +8,26 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shorcut icon" href="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png"> 
     <title>List of News - Admin Dashboard</title>
     
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../assets/vendors/toastify/toastify.css">
+    <link rel="stylesheet" href="../assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="../assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="shortcut icon" href="../assets/images/favicon.svg" type="image/x-icon">
+    <link rel="shorcut icon" href="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
-
     <link rel="stylesheet" href="../assets/vendors/jquery-datatables/jquery.dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="../assets/vendors/fontawesome/all.min.css">
+    
     <style>
         table.dataTable td{
             padding: 15px 8px;
@@ -29,15 +36,6 @@
             font-size: 24px;
         }
     </style>
-    
-    <link rel="stylesheet" href="../assets/vendors/toastify/toastify.css">
-    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
-    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="../assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
-    <link rel="stylesheet" href="../assets/vendors/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" href="../assets/css/app.css">
-    <link rel="shortcut icon" href="../assets/images/favicon.svg" type="image/x-icon">
 </head>
 
 <body>
@@ -218,8 +216,8 @@
             </div>
         </div>
     </div>
-    <script src="../assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
 
 <!-- fontawesome-icons -->
 <script src="../assets/vendors/jquery/jquery.min.js"></script>
@@ -231,7 +229,6 @@
     // Jquery Datatable
     let jquery_datatable = $("#table1").DataTable()
 </script>
-    <script src="../assets/js/mazer.js"></script>
+<script src="../assets/js/mazer.js"></script>
 </body>
-
 </html>

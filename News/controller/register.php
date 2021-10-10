@@ -1,7 +1,6 @@
 <?php
-    
     function register(){
-        include __DIR__.'..\..\..\News\config\dbconnect.php'; 
+        include __DIR__.'..\..\..\News\modal\dbconnect.php'; 
         if(isset($_POST['Fname']))$Fname = $_POST['Fname'];
         if(isset($_POST['Lname']))$Lname = $_POST['Lname'];
         if(isset($_POST['user']))$user = $_POST['user'];
@@ -19,8 +18,5 @@
             echo "<script>alert('Sign Up Succesffully');</script>";
             header("location:index.php");
         }
-
     }
-
-
 ?>
