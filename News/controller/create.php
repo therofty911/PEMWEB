@@ -1,5 +1,5 @@
 <?php
-    include '..\modal\dbconnect.php';
+    include '..\model\dbconnect.php';
     function createData(){
         $pdo = connect_to_db();
         // Check if POST data is not empty

@@ -1,5 +1,5 @@
 <?php 
-    include __DIR__.'..\..\..\News\modal\dbconnect.php'; 
+    include __DIR__.'..\..\..\News\model\dbconnect.php'; 
     function fetchNews()
     {
         $conn = connect_to_db();
