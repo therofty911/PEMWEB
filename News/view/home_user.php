@@ -121,7 +121,7 @@
                         <div class="news-post shadow ">
                             <img class="img-fluid photo" src="upload/<?= stripslashes($headBig->image_name) ?>" alt="" style="max-width: 100%;height:685px;"></img>
                             <div class="news-post-badge text-center">
-                            <a href="kategoriNews_user.php?category=<?= stripslashes($headBig->news_category) ?>"><?= stripslashes($headBig->news_category) ?></a>
+                                <a href="kategoriNews_user.php?category=<?= stripslashes($headBig->news_category) ?>"><?= stripslashes($headBig->news_category) ?></a>
                             </div>
                             <div class="news-post-content">
                                 <div class="row">

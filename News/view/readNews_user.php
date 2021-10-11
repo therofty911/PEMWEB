@@ -225,13 +225,13 @@
                     </div>
                     <h4 class="aside-heading mt-3">Recommended Article</h4>
                     <?php foreach ($reco as $key => $recom) : ?>
-                    <a href="..\view\readNews.php?newsid=<?=$recom->news_ID?>" class="link-popular">
+                    <a href="..\view\readNews_user.php?newsid=<?=$recom->news_ID?>" class="link-popular">
                         <article class="news-post shadow mb-3">
                             <img class="img-fluid photo" src="upload/<?= stripslashes($recom->image_name) ?>" alt="" style="max-width: 100%;height:335px;"></img>
                             <div class="news-post-badge text-center">
-                                <a href="link to categories"><?= stripslashes($recom->news_category) ?></a>
+                                <a href="kategoriNews_user.php?category=<?= stripslashes($recom->news_category) ?>"><?= stripslashes($recom->news_category) ?></a>
                             </div>
-                            <a href="..\view\readNews.php?newsid=<?=$recom->news_ID?>" class="link-popular">
+                            <a href="..\view\readNews_user.php?newsid=<?=$recom->news_ID?>" class="link-popular">
                                 <div class="news-post-content">
                                     <div class="row">
                                         <div class="col-sm-12">

@@ -145,7 +145,7 @@
                                     <img src="upload/<?= stripslashes($article->image_name) ?>" alt="" class="img-fluid">
                                 </div>
                                 <div class="col-sm-8">
-                                    <a href="..\view\readNews.php?newsid=<?=$article->news_ID?>" class="link-popular">
+                                    <a href="..\view\readNews_admin.php?newsid=<?=$article->news_ID?>" class="link-popular">
                                         <h3 class="m-0 mt-2"><?= stripslashes($article->news_title) ?></h3>
                                         <p class="m-0 mb-2"><?= stripslashes($article->news_short_description) ?></p>    
                                         <span><strong>published on <?= date($article->news_published_on) ?> WIB by <?= stripslashes($article->news_author) ?></strong></span> <br>
@@ -184,7 +184,7 @@
                     </div>
                     <h4 class="aside-heading mt-3">Popular Article</h4>
                     <?php foreach ($popular as $key => $populars) : ?>
-                    <a href="..\view\readNews.php?newsid=<?=$populars->news_ID?>" class="link-populer">
+                    <a href="..\view\readNews_admin.php?newsid=<?=$populars->news_ID?>" class="link-populer">
                         <article class="row popular mb-3">
                             <div class="col-sm-4 my-2">
                                 <img src="upload/<?= stripslashes($populars->image_name) ?>" alt="" class="img-fluid">

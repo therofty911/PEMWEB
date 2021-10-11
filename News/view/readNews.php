@@ -154,7 +154,7 @@
                         </div>
                         <div class="badges px-3">
                             <a href="#"><?= stripslashes($article->news_category) ?></a>
-                            <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like"><a href="login.php">Like (0)</a></button>
+                            <button class="like"><a href="login.php">Like (<?= stripslashes($article->news_likes)?>)</a></button>
                         </div>
                         <div class="p-content px-3">
                             <p><?= stripslashes($article->news_full_content) ?></p> 
@@ -220,7 +220,7 @@
                         <article class="news-post shadow mb-3">
                             <img class="img-fluid photo" src="upload/<?= stripslashes($recom->image_name) ?>" alt="" style="max-width: 100%;height:335px;"></img>
                             <div class="news-post-badge text-center">
-                                <a href="link to categories"><?= stripslashes($recom->news_category) ?></a>
+                                <a href="kategoriNews.php?category=<?= stripslashes($recom->news_category) ?>"><?= stripslashes($recom->news_category) ?></a>
                             </div>
                             <a href="..\view\readNews.php?newsid=<?=$recom->news_ID?>" class="link-popular">
                                 <div class="news-post-content">

@@ -184,7 +184,7 @@
                     </div>
                     <h4 class="aside-heading mt-3">Popular Article</h4>
                     <?php foreach ($popular as $key => $populars) : ?>
-                    <a href="..\view\readNews.php?newsid=<?=$populars->news_ID?>" class="link-populer">
+                    <a href="..\view\readNews_user.php?newsid=<?=$populars->news_ID?>" class="link-populer">
                         <article class="row popular mb-3">
                             <div class="col-sm-4 my-2">
                                 <img src="upload/<?= stripslashes($populars->image_name) ?>" alt="" class="img-fluid">
