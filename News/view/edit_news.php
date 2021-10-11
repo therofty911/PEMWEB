@@ -25,7 +25,7 @@ session_start();
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="../assets/vendors/summernote/summernote-lite.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
     <link rel="stylesheet" href="../assets/vendors/toastify/toastify.css">
@@ -74,17 +74,6 @@ session_start();
                     <span>Dashboard</span>
                 </a>
             </li>
-            <li class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-stack"></i>
-                    <span>Components</span>
-                </a>
-                <ul class="submenu ">
-                    <li class="submenu-item ">
-                        <a href="component-alert.html">Alert</a>
-                    </li>
-                </ul>
-            </li>
             <li class="sidebar-item  ">
                 <a href="..\..\News\view\create.php" class='sidebar-link'>
                     <i class="bi bi-pen-fill"></i>
@@ -128,19 +117,14 @@ session_start();
                                         </div>
                                         <div class="user-img d-flex align-items-center">
                                             <div class="avatar avatar-md">
-                                                <img src="assets/images/faces/1.jpg">
+                                                <img src="../assets/images/faces/1.jpg">
                                             </div>
                                         </div>
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton" style="min-width: 11rem;">
                                     <li>
-                                        <h6 class="dropdown-header">Hello, John!</h6>
-                                    </li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#"><i
-                                                class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a></li>
+                                        <h6 class="dropdown-header">Hello, <?= $_SESSION['user']?></h6>
                                 </ul>
                             </div>
                         </div>
@@ -192,12 +176,17 @@ session_start();
                                                         </div>
                                                         <div class="col-12 mt-3">
                                                             <div class="card">
-                                                                <div class="card-header">
-                                                                    Default Textarea
-                                                                </div>
-                                                                <div class="card-body">
+                                                                <!-- <div class="card-body">
                                                                     <div class="form-group mb-3">
                                                                         <textarea class="form-control" id="news_full_content" rows="3"name="news_full_content" placeholder=""><?=stripslashes($contact->news_full_content)?></textarea>
+                                                                    </div>
+                                                                </div> -->
+                                                                <div class="card">
+                                                                    <div class="card-header">
+                                                                        <h4 class="card-title">Full Content</h4>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <textarea id="summernote" class="form-control" id="news_full_content" rows="3"name="news_full_content" placeholder=""><?=stripslashes($contact->news_full_content)?></textarea>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -224,11 +213,7 @@ session_start();
                 <footer>
                     <div class="footer clearfix mb-0 text-muted">
                         <div class="float-start">
-                            <p>2021 &copy; Mazer</p>
-                        </div>
-                        <div class="float-end">
-                            <p>Crafted with <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i></span>
-                                by <a href="https://ahmadsaugi.com">Saugi</a></p>
+                            <p>2021 &copy; Therofty Studio</p>
                         </div>
                     </div>
                 </footer>
@@ -297,6 +282,30 @@ session_start();
     tinymce.init({ selector: '#dark', toolbar: 'undo redo styleselect bold italic alignleft aligncenter alignright bullist numlist outdent indent code', plugins: 'code' });
 </script>
     
+<script src="../assets/vendors/jquery/jquery.min.js"></script>
+<script src="../assets/vendors/summernote/summernote-lite.min.js"></script>
+<script>
+    $('#summernote').summernote({
+        tabsize: 2,
+        height: 120,
+    })
+    $("#hint").summernote({
+        height: 100,
+        toolbar: false,
+        placeholder: 'type with apple, orange, watermelon and lemon',
+        hint: {
+            words: ['apple', 'orange', 'watermelon', 'lemon'],
+            match: /\b(\w{1,})$/,
+            search: function (keyword, callback) {
+                callback($.grep(this.words, function (item) {
+                    return item.indexOf(keyword) === 0;
+                }));
+            }
+        }
+    });
+
+</script>
+
     <script src="../assets/js/mazer.js"></script>
 </body>
 </html>

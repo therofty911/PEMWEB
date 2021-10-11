@@ -40,8 +40,8 @@
             <div class="col-md-2 logo1"><a href="home.php"><img class="mobile" src="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png" alt="News_Speedy_UMN"></a></div>
             <div class="col-md-7 mt-2 list">
                 <ul class="connect">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>      
+                    <li><a href="../view/aboutus.php">About Us</a></li>
+                    <li><a href="../view/contact.php">Contact Us</a></li>      
                 </ul>
             </div>
             <div class="col-md-3">

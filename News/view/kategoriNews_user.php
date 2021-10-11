@@ -7,7 +7,12 @@
     $newsHeadOne = newsHeadOne();
     $newsHeadSideBar = newsHeadSideBar();
     $popular = fetchPopular();
+    $user_ID = '';
+    if(isset($_SESSION["id"])){
+        $user_ID = $_SESSION["id"];
+    }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,9 +58,9 @@
             <div class="col-md-2 logo1"><a href="home_user.php"><img class="mobile" src="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png" alt="News_Speedy_UMN"></a></div>
             <div class="col-md-7 mt-2 list">
                 <ul class="connect">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>    
-                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['user'];?></a></li>    
+                <li><a href="../view/aboutus.php">About Us</a></li>
+                    <li><a href="../view/contact.php">Contact Us</a></li>       
+                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['user'];?> <?php Get_user_avatar($user_ID) ?></a></li></a></li>    
                 </ul>
             </div>
             <div class="col-md-3">
@@ -63,7 +68,7 @@
                     <div class="text-center icon">
                         <form action="" method="POST" style="display: inline;">
                             <button type="button" class="btn btn-light col-5 col-xxl-3 logD"><a href="..\controller\logout.php" target="_blank" style="color: black; text-decoration: none;">Logout</a></button>
-                            <p class="logM">Hello, <?php echo $_SESSION['user'];?></p>
+                            <p class="logM">Hello, <?php echo $_SESSION['user'];?> <?php Get_user_avatar($user_ID) ?></a></li></p>
                         </form>
                     </div>
                 </div>
@@ -139,7 +144,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <?php foreach ($news as $key => $article) :?>
-                    <article class="news-daily-post mb-3 shadow-lg">
+                    <article class="news-daily-post mb-3 shadow-lg" data-aos="fade-right">
                             <div class="row">
                                 <div class="col-sm-4">
                                     <img src="upload/<?= stripslashes($article->image_name) ?>" alt="" class="img-fluid">
@@ -185,7 +190,7 @@
                     <h4 class="aside-heading mt-3">Popular Article</h4>
                     <?php foreach ($popular as $key => $populars) : ?>
                     <a href="..\view\readNews_user.php?newsid=<?=$populars->news_ID?>" class="link-populer">
-                        <article class="row popular mb-3">
+                        <article class="row popular mb-3" data-aos="fade-left">
                             <div class="col-sm-4 my-2">
                                 <img src="upload/<?= stripslashes($populars->image_name) ?>" alt="" class="img-fluid">
                             </div>
@@ -197,7 +202,7 @@
                     </a>
                     <?php endforeach ?>
                     <h4 class="aside-heading mt-5">Popular Categories</h4>
-                    <div class="badges w-100">
+                    <div class="badges w-100" data-aos="fade-down">
                         <a href="kategoriNews_user.php?category=Technology">Technology</a>
                         <a href="kategoriNews_user.php?category=Music">Music</a>
                         <a href="kategoriNews_user.php?category=Game">Game</a>
@@ -244,5 +249,9 @@
     </footer>
 <script src="script.js" async defer></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 </body>
 </html>

@@ -78,8 +78,8 @@
             <div class="col-md-2 logo1"><a href="home.php"><img class="mobile" src="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png" alt="News_Speedy_UMN"></a></div>
             <div class="col-md-7 mt-2 list">
                 <ul class="connect">
-                    <li class="logD"><a href="#">About Us</a></li>
-                    <li class="logD"><a href="#">Contact Us</a></li>    
+                <li><a href="../view/aboutus.php">About Us</a></li>
+                    <li><a href="../view/contact.php">Contact Us</a></li>       
                 </ul>
             </div>
             <div class="col-md-3">
@@ -217,7 +217,7 @@
                     <h4 class="aside-heading mt-3">Recommended Article</h4>
                     <?php foreach ($reco as $key => $recom) : ?>
                     <a href="..\view\readNews.php?newsid=<?=$recom->news_ID?>" class="link-popular">
-                        <article class="news-post shadow mb-3">
+                        <article class="news-post shadow mb-3" data-aos="flip-down">
                             <img class="img-fluid photo" src="upload/<?= stripslashes($recom->image_name) ?>" alt="" style="max-width: 100%;height:335px;"></img>
                             <div class="news-post-badge text-center">
                                 <a href="kategoriNews.php?category=<?= stripslashes($recom->news_category) ?>"><?= stripslashes($recom->news_category) ?></a>
@@ -326,5 +326,9 @@
         });
     });
     </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 </body>
 </html>

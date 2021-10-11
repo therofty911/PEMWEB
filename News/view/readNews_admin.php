@@ -89,8 +89,8 @@
             <div class="col-md-2 logo1"><a href="home_admin.php"><img class="mobile" src="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png" alt="News_Speedy_UMN"></a></div>
             <div class="col-md-7 mt-2 list">
                 <ul class="connect">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>    
+                <li><a href="../view/aboutus.php">About Us</a></li>
+                    <li><a href="../view/contact.php">Contact Us</a></li>      
                     <li><a href="..\view\dashboard.php">Dashboard</a></li>    
                     <li><a href="" class="logD">Hello, <?php echo $_SESSION['user'];?></a></li>    
                 </ul>
@@ -193,7 +193,7 @@
                         <div class="card-body">
                             <div class="card">
                                 <div class="card-header mb-0 pb-0">
-                                 Posted by : <?= $comments->username ?> <?php Get_user_avatar($user_ID, $pdo) ?>
+                                 Posted by : <?= $comments->username ?> <img src="<?= $comments->photo ?>" class="image-profile" style="width:30px;border-radius:50px;border:none;outline: 5px solid #00FFFF;margin-left:5px;"/>
                                  <p class="text-end" style="display: inline; float: right;"><?= $comments->date ?></p>
                                 </div>
                                 <div class="card-body">
@@ -233,7 +233,7 @@
                     <h4 class="aside-heading mt-3">Recommended Article</h4>
                     <?php foreach ($reco as $key => $recom) : ?>
                     <a href="..\view\readNews_admin.php?newsid=<?=$recom->news_ID?>" class="link-popular">
-                        <article class="news-post shadow mb-3">
+                        <article class="news-post shadow mb-3" data-aos="flip-down">
                             <img class="img-fluid photo" src="upload/<?= stripslashes($recom->image_name) ?>" alt="" style="max-width: 100%;height:335px;"></img>
                             <div class="news-post-badge text-center">
                                 <a href="kategoriNews_admin.php?category=<?= stripslashes($recom->news_category) ?>"><?= stripslashes($recom->news_category) ?></a>
@@ -326,7 +326,10 @@
         }
     });
 </script>
-
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 <!-- like button -->
 </body>
 </html>

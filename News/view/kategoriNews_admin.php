@@ -15,7 +15,6 @@
     <meta content="text/html; charset=UTF-8; X-Content-Type-Options=nosniff" http-equiv="Content-Type" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>News Speedy UMN</title>
-    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -52,10 +51,10 @@
             <div class="col-md-2 logo1"><a href="home_admin.php"><img class="mobile" src="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png" alt="News_Speedy_UMN"></a></div>
             <div class="col-md-7 mt-2 list">
                 <ul class="connect">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>    
-                    <li><a href="..\view\dashboard.php">Dashboard</a></li>    
-                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['level'];?></a></li>    
+                <li><a href="../view/aboutus.php">About Us</a></li>
+                    <li><a href="../view/contact.php">Contact Us</a></li>     
+                    <li><a href="../view/dashboard.php">Dashboard</a></li>    
+                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['level'];?> <?php Get_user_avatar($user_ID, $pdo) ?></a></li>   
                 </ul>
             </div>
             <div class="col-md-3">
@@ -63,7 +62,7 @@
                     <div class="text-center icon">
                         <form  method="post" style="display: inline;">
                             <button type="button" class="btn btn-light col-5 col-xxl-3 logD" name="logout"><a href="..\controller\logout.php" style="color:black;">Logout</a></button>
-                            <p class="logM">Hello, Username</p>
+                            <p class="logM">Hello, <?php echo $_SESSION['level'];?> <?php Get_user_avatar($user_ID, $pdo) ?></p>
                         </form>
                     </div>
                 </div>
@@ -139,7 +138,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <?php foreach ($news as $key => $article) :?>
-                    <article class="news-daily-post mb-3 shadow-lg">
+                    <article class="news-daily-post mb-3 shadow-lg" data-aos="fade-right">
                             <div class="row">
                                 <div class="col-sm-4">
                                     <img src="upload/<?= stripslashes($article->image_name) ?>" alt="" class="img-fluid">
@@ -185,7 +184,7 @@
                     <h4 class="aside-heading mt-3">Popular Article</h4>
                     <?php foreach ($popular as $key => $populars) : ?>
                     <a href="..\view\readNews_admin.php?newsid=<?=$populars->news_ID?>" class="link-populer">
-                        <article class="row popular mb-3">
+                        <article class="row popular mb-3" data-aos="fade-left">
                             <div class="col-sm-4 my-2">
                                 <img src="upload/<?= stripslashes($populars->image_name) ?>" alt="" class="img-fluid">
                             </div>
@@ -197,7 +196,7 @@
                     </a>
                     <?php endforeach ?>
                     <h4 class="aside-heading mt-5">Popular Categories</h4>
-                    <div class="badges w-100">
+                    <div class="badges w-100" data-aos="fade-down">
                         <a href="kategoriNews_admin.php?category=Technology">Technology</a>
                         <a href="kategoriNews_admin.php?category=Music">Music</a>
                         <a href="kategoriNews_admin.php?category=Game">Game</a>
@@ -243,7 +242,11 @@
         </div>
     </footer>
 <script src="script.js" async defer></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>
+  AOS.init();
+</script>
 </body>
 </html>
