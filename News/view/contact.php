@@ -1,5 +1,5 @@
+<?php session_start();?>
 <?php
-
     include_once  '..\controller\functions.php';
     $news = fetchNews();
     $newsHeadOne = newsHeadOne();
@@ -48,7 +48,7 @@
 <body style="overflow-x: hidden;">
     <!-- news section -->
     <section class="news py-5">
-    <a class=" logo2 d-flex justify-content-center mb-3" href="home.php"><img class="desktop" src="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png" alt="News_Speedy_UMN" style="width: 550px;"></a>
+    <a class=" logo2 d-flex justify-content-center mb-3" href="../controller/validate.php"><img class="desktop" src="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png" alt="News_Speedy_UMN" style="width: 550px;"></a>
         <h2 class="d-flex justify-content-center" style="letter-spacing: 15px;">OUR LOCATION</h2>
         <div class="container">
             <div class="row">
