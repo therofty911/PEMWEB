@@ -174,7 +174,7 @@
                             <form action="" method="post">
                                   <div class="mb-3 comment">
                                     <label for="comment" class="form-label">Write Your Comments</label>
-                                    <input type="text" class="form-control" id="comment" placeholder="Write Your Comments" name="comment">
+                                    <input type="text" class="form-control" id="comment" placeholder="Write Your Comments" name="comment" required>
                                   </div>
                                   <div class="mb-3 comment">
                                     <button type="submit" class="btn btn-primary" style="background-color: #142868;color: rgb(0, 255, 255);outline: none;border: none;" name="submitcomment">Submit</button>
