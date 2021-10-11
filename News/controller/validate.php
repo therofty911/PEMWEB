@@ -11,5 +11,10 @@
         // header('../view/home_admin.php');
         echo "<script>document.location.href = '../view/home_admin.php';</script>";
 
+    }else{
+        echo "<script>document.location.href = '../view/home.php';</script>";
+        // header('../index.php');
+
+
     }
 ?>
