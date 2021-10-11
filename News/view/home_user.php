@@ -55,7 +55,7 @@
                     <div class="text-center icon">
                         <form action="" method="POST" style="display: inline;">
                             <button type="button" class="btn btn-light col-5 col-xxl-3 logD"><a href="..\controller\logout.php" style="color: black; text-decoration: none;">Logout</a></button>
-                            <p class="logM">Hello, <?php echo $_SESSION['user'];?></p>
+                            <p class="logM">Hello, <?php echo $_SESSION['user'];?><?php Get_user_avatar($user_ID, $pdo) ?></p>
                         </form>
                     </div>
                 </div>
