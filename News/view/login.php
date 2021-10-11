@@ -1,5 +1,5 @@
 <?php
-  include '..\controller\login.php';
+  include '../controller/login.php';
   if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signin'])){
     verifiedlogin();
   }
@@ -17,7 +17,10 @@
     <link rel="stylesheet" href="../assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/app.css">
     <link rel="stylesheet" href="../assets/css/pages/auth.css">
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.8.2/parsley.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/arrive/2.4.1/arrive.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 <style>
@@ -39,7 +42,7 @@
                         <a href="..\index.php"><img src="../assets/images/logo/logo.png" alt="Logo" style="width: 250px;height: auto;"></a>
                     </div>
                     <h1 class="auth-title" style="color: #0D1A44;">Log in.</h1>
-                    <p class="auth-subtitle mb-2">Silahkan Login ke News Speedy UMN</p>
+                    <p class="auth-subtitle mb-2">Silahkan Login To News Speedy UMN</p>
 
                     <form method="post" id="myform">
                         <div class="form-group position-relative has-icon-left mb-4">
@@ -70,7 +73,9 @@
             </div>
         </div>
     </div>
-    <script>
+    <script src="assets/js/extensions/sweetalert2.js"></script>
+<script src="assets/vendors/sweetalert2/sweetalert2.all.min.js"></script>
+<script>
 var onloadCallback = function() {
         if($("#botvalidator").length > 0) {
             grecaptcha.render('botvalidator', {

@@ -3,42 +3,42 @@
     function fetchNews()
     {
         $conn = connect_to_db();
-        $request = $conn->prepare(" SELECT news_ID, news_title, news_short_description, news_author, news_published_on, news_category FROM news_info ORDER BY news_published_on DESC ");
+        $request = $conn->prepare(" SELECT news_ID, news_title, news_short_description, news_author, news_published_on, news_category, image_name FROM news_info ORDER BY news_published_on DESC ");
         return $request->execute() ? $request->fetchAll() : false; 
     }
 
     function fetchCategory($category)
     {
         $conn = connect_to_db();
-        $request = $conn->prepare(" SELECT news_ID, news_title, news_short_description, news_author, news_published_on, news_category FROM news_info WHERE news_category = ? ");
+        $request = $conn->prepare(" SELECT news_ID, news_title, news_short_description, news_author, news_published_on, news_category, image_name FROM news_info WHERE news_category = ? ");
         return $request->execute(array($category)) ? $request->fetchAll() : false;
     }
 
     function newsHeadOne()
     {
         $conn = connect_to_db();
-        $request = $conn->prepare(" SELECT news_ID, news_title, news_category FROM news_info ORDER BY news_published_on DESC LIMIT 1 ");
+        $request = $conn->prepare(" SELECT news_ID, news_title, news_category, image_name FROM news_info ORDER BY news_published_on DESC LIMIT 1 ");
         return $request->execute() ? $request->fetchAll() : false; 
     }
 
     function newsHeadSideBar()
     {
         $conn = connect_to_db();
-        $request = $conn->prepare(" SELECT news_ID, news_title, news_category FROM news_info ORDER BY news_published_on DESC LIMIT 1,2 ");
+        $request = $conn->prepare(" SELECT news_ID, news_title, news_category, image_name FROM news_info ORDER BY news_published_on DESC LIMIT 1,2 ");
         return $request->execute() ? $request->fetchAll() : false; 
     }   
 
     function getAnArticle($id_article)
     {
         $conn = connect_to_db();
-        $request =  $conn->prepare(" SELECT news_ID,  news_title, news_full_content, news_short_description, news_author, news_published_on, news_category, news_likes FROM news_info  WHERE news_ID = ? ");
+        $request =  $conn->prepare(" SELECT news_ID,  news_title, news_full_content, news_short_description, news_author, news_published_on, news_category, news_likes, image_name FROM news_info  WHERE news_ID = ? ");
         return $request->execute(array($id_article)) ? $request->fetchAll() : false; 
     }
 
     function getOtherArticles($differ_id)
     {
         $conn = connect_to_db();
-        $request =  $conn->prepare(" SELECT news_ID,  news_title, news_short_description, news_full_content, news_author, news_published_on, news_category FROM news_info  WHERE news_ID != ? ");
+        $request =  $conn->prepare(" SELECT news_ID,  news_title, news_short_description, news_full_content, news_author, news_published_on, news_category, image_name FROM news_info  WHERE news_ID != ? ");
         return $request->execute(array($differ_id)) ? $request->fetchAll() : false; 
     }
    
@@ -52,14 +52,14 @@
     function fetchPopular()
     {
         $conn = connect_to_db();
-        $request = $conn->prepare(" SELECT news_ID, news_title, news_short_description FROM news_info ORDER BY news_likes DESC LIMIT 5");
+        $request = $conn->prepare(" SELECT news_ID, news_title, news_short_description, image_name FROM news_info ORDER BY news_likes DESC LIMIT 5");
         return $request->execute() ? $request->fetchAll() : false; 
     }
 
     function fetchReco()
     {
         $conn = connect_to_db();
-        $request = $conn->prepare(" SELECT news_ID, news_title, news_short_description, news_category FROM news_info ORDER BY news_published_on ASC LIMIT 5");
+        $request = $conn->prepare(" SELECT news_ID, news_title, news_short_description, news_category, image_name FROM news_info ORDER BY news_published_on ASC LIMIT 5");
         return $request->execute() ? $request->fetchAll() : false; 
     }
 

@@ -1,8 +1,8 @@
 <?php
-  include '..\..\News\controller\create.php';
-  if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create'])){
-    createData();
-  }
+//   include '..\..\News\controller\create.php';
+//   if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['create'])){
+//     createData();
+//   }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -175,7 +175,7 @@
                                 <div class="card">
                                     <div class="card-content">
                                         <div class="card-body">
-                                            <form class="form form-vertical" action="" method="POST" enctype="multipart/form-data">
+                                            <form class="form form-vertical" action="upload.php" method="POST" enctype="multipart/form-data">
                                                 <div class="form-body">
                                                     <div class="row">
                                                         <div class="col-12 col-md-12">
@@ -184,7 +184,8 @@
                                                                     <div class="card-body">
                                                                         <p class="card-text">Upload the Banner</p>
                                                                         <!-- Auto crop image file uploader -->
-                                                                        <input type="file" class="image-crop-filepond" image-crop-aspect-ratio="16:9">
+                                                                        <!-- <input type="file" name="image" class="image-crop-filepond" image-crop-aspect-ratio="16:9"> -->
+                                                                        <input type="file" name="image" class="form-control">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -293,7 +294,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-12 d-flex justify-content-start mt-3">
-                                                            <button type="submit" name="create" class="btn btn-success me-1 mb-1">Submit <i class="fas fa-paper-plane"></i></button>
+                                                            <button type="submit" name="upload" class="btn btn-success me-1 mb-1">Submit <i class="fas fa-paper-plane"></i></button>
                                                             <button type="reset"
                                                                 class="btn btn-light-secondary me-1 mb-1">Reset</button>
                                                         </div>

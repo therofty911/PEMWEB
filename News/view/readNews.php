@@ -148,7 +148,7 @@
           <div class="row">
                 <div class="col-lg-8 shadow content h-100">
                     <!-- Content -->
-                    <img src="https://cdn.discordapp.com/attachments/891579314401869864/894262194756255784/wp2622216-dodge-charger-wallpaper.jpg" alt="" class="img-fluid">
+                    <img src="upload/<?= stripslashes($article->image_name) ?>" alt="" class="img-fluid">
                     <div class="row p-3">
                         <div class="col-sm-12">
                             <h2><?= stripslashes($article->news_title) ?></h2>
@@ -220,7 +220,7 @@
                     <?php foreach ($reco as $key => $recom) : ?>
                     <a href="..\view\readNews.php?newsid=<?=$recom->news_ID?>" class="link-popular">
                         <article class="news-post shadow mb-3">
-                            <img class="img-fluid photo" src="https://cdn.discordapp.com/attachments/868897795397005362/894847007892598784/unknown.png" alt="" style="max-width: 100%;height:335px;"></img>
+                            <img class="img-fluid photo" src="upload/<?= stripslashes($recom->image_name) ?>" alt="" style="max-width: 100%;height:335px;"></img>
                             <div class="news-post-badge text-center">
                                 <a href="link to categories"><?= stripslashes($recom->news_category) ?></a>
                             </div>

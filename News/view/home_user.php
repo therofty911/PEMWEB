@@ -119,7 +119,7 @@
                     <?php foreach ($newsHeadOne as $key => $headBig) :?>
                     <a href="..\view\readNews_user.php?newsid=<?=$headBig->news_ID?>" class="link-popular">
                         <div class="news-post shadow ">
-                            <img class="img-fluid photo" src="https://cdn.discordapp.com/attachments/891579314401869864/894262194756255784/wp2622216-dodge-charger-wallpaper.jpg" alt="" style="max-width: 100%;height:685px;"></img>
+                            <img class="img-fluid photo" src="upload/<?= stripslashes($headBig->image_name) ?>" alt="" style="max-width: 100%;height:685px;"></img>
                             <div class="news-post-badge text-center">
                             <a href="link to categories"><?= stripslashes($headBig->news_category) ?></a>
                             </div>
@@ -141,7 +141,7 @@
                     <?php foreach ($newsHeadSideBar as $key => $headSide) : ?>
                     <a href="..\view\readNews_user.php?newsid=<?=$headSide->news_ID?>" class="link-popular">
                         <div class="news-post shadow mb-3">
-                            <img class="img-fluid photo" src="https://cdn.discordapp.com/attachments/868897795397005362/894847007892598784/unknown.png" alt="" style="max-width: 100%;height:335px;"></img>
+                            <img class="img-fluid photo" src="upload/<?= stripslashes($headSide->image_name) ?>" alt="" style="max-width: 100%;height:335px;"></img>
                             <div class="news-post-badge text-center">
                                 <a href="link to categories"><?= stripslashes($headSide->news_category) ?></a>
                             </div>
@@ -173,7 +173,7 @@
                     <article class="news-daily-post mb-3 shadow-lg">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <img src="https://cdn.discordapp.com/attachments/891579314401869864/894262234979663892/wallhaven-p81xve.png" alt="" class="img-fluid">
+                                    <img src="upload/<?= stripslashes($article->image_name) ?>" alt="" class="img-fluid">
                                 </div>
                                 <div class="col-sm-8">
                                     <a href="..\view\readNews_user.php?newsid=<?=$article->news_ID?>" class="link-popular">
@@ -220,7 +220,7 @@
                     <a href="..\view\readNews_user.php?newsid=<?=$populars->news_ID?>" class="link-populer">
                         <article class="row popular mb-3">
                             <div class="col-sm-4 my-2">
-                                <img src="https://cdn.discordapp.com/attachments/653643188258734108/894847997165334548/unknown.png" alt="" class="img-fluid">
+                                <img src="upload/<?= stripslashes($populars->image_name) ?>" alt="" class="img-fluid">
                             </div>
                             <div class="col-sm-7 my-2">
                                 <h5 class="m-0" id="popshort"><?= stripslashes($populars->news_title) ?></h5>

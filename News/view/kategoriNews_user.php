@@ -142,7 +142,7 @@
                     <article class="news-daily-post mb-3 shadow-lg">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <img src="https://cdn.discordapp.com/attachments/891579314401869864/894262234979663892/wallhaven-p81xve.png" alt="" class="img-fluid">
+                                    <img src="upload/<?= stripslashes($article->image_name) ?>" alt="" class="img-fluid">
                                 </div>
                                 <div class="col-sm-8">
                                     <a href="..\view\readNews_user.php?newsid=<?=$article->news_ID?>" class="link-popular">
@@ -187,7 +187,7 @@
                     <a href="..\view\readNews.php?newsid=<?=$populars->news_ID?>" class="link-populer">
                         <article class="row popular mb-3" data-aos="fade-left">
                             <div class="col-sm-4 my-2">
-                                <img src="https://cdn.discordapp.com/attachments/653643188258734108/894847997165334548/unknown.png" alt="" class="img-fluid">
+                                <img src="upload/<?= stripslashes($populars->image_name) ?>" alt="" class="img-fluid">
                             </div>
                             <div class="col-sm-7 my-2">
                                 <h5 class="m-0" id="popshort"><?= stripslashes($populars->news_title) ?></h5>
