@@ -167,7 +167,7 @@
                         <!-- for comment -->
                         <div class="card">
                         <div class="card-body">
-                            <form action="" method="">
+                            <form action="" method="post">
                                   <div class="mb-3 comment">
                                     <label for="comment" class="form-label">Write Your Comments</label>
                                     <input type="text" class="form-control" id="comment" placeholder="Write Your Comments">

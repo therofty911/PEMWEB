@@ -15,9 +15,14 @@
     $other_articles = getOtherArticles( $id_article );
 
     $comment = fetchcomment($id_article);
+    $reco = fetchReco();
 ?>
 <?php
-    $reco = fetchReco();
+    include_once '..\controller\comment.php';
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submitcomment'])){
+        submitcomment();
+        unset($_POST['submitcomment']);
+    }
 ?>
 </body>
 </html>
@@ -168,7 +173,7 @@
                                     <input type="text" class="form-control" id="comment" placeholder="Write Your Comments" name="comment">
                                   </div>
                                   <div class="mb-3 comment">
-                                    <button type="submit" class="btn btn-primary" style="background-color: #142868;color: rgb(0, 255, 255);outline: none;border: none;" name="submitcomment"><a href = "..\controller\comment.php">Submit</a></button>
+                                    <button type="submit" class="btn btn-primary" style="background-color: #142868;color: rgb(0, 255, 255);outline: none;border: none;" name="submitcomment">Submit</button>
                                   </div>
                             </form>
                         </div>

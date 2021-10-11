@@ -1,6 +1,6 @@
 <?php 
 
-include '..\..\News\modal\dbconnect.php';
+include '..\..\News\model\dbconnect.php';
 
 // isi nama host, username mysql, dan password mysql anda
 $host = mysql_connect("localhost","root","");
