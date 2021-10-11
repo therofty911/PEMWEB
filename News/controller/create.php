@@ -13,7 +13,7 @@
             
             $stmt = $pdo->prepare("INSERT INTO news_info (news_category, news_title, news_short_description, news_full_content, news_author, news_published_on) VALUES ( ?, ?, ?, ?, ?, ?)");
             $stmt->execute(array($category, $title, $sdesc, $content, $author, $published));
-            
+
             // Output message
             if($stmt){
                 echo("<script>console.log('Created Successfully!')</script>");

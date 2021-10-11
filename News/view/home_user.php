@@ -121,7 +121,7 @@
                         <div class="news-post shadow ">
                             <img class="img-fluid photo" src="https://cdn.discordapp.com/attachments/891579314401869864/894262194756255784/wp2622216-dodge-charger-wallpaper.jpg" alt="" style="max-width: 100%;height:685px;"></img>
                             <div class="news-post-badge text-center">
-                            <a href="link to categories"><?= stripslashes($headBig->news_category) ?></a>
+                            <a href="kategoriNews_user.php?category=<?= stripslashes($headBig->news_category) ?>"><?= stripslashes($headBig->news_category) ?></a>
                             </div>
                             <div class="news-post-content">
                                 <div class="row">
@@ -143,7 +143,7 @@
                         <div class="news-post shadow mb-3">
                             <img class="img-fluid photo" src="https://cdn.discordapp.com/attachments/868897795397005362/894847007892598784/unknown.png" alt="" style="max-width: 100%;height:335px;"></img>
                             <div class="news-post-badge text-center">
-                                <a href="link to categories"><?= stripslashes($headSide->news_category) ?></a>
+                                <a href="kategoriNews_user.php?category=<?= stripslashes($headBig->news_category) ?>"><?= stripslashes($headSide->news_category) ?></a>
                             </div>
                             <div class="news-post-content">
                                 <div class="row">
@@ -173,7 +173,7 @@
                     <article class="news-daily-post mb-3 shadow-lg">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <img src="https://cdn.discordapp.com/attachments/891579314401869864/894262234979663892/wallhaven-p81xve.png" alt="" class="img-fluid">
+                                    <a href="..\view\readNews_user.php?newsid=<?=$article->news_ID?>"><img src="https://cdn.discordapp.com/attachments/891579314401869864/894262234979663892/wallhaven-p81xve.png" alt="" class="img-fluid"></a>
                                 </div>
                                 <div class="col-sm-8">
                                     <a href="..\view\readNews_user.php?newsid=<?=$article->news_ID?>" class="link-popular">
@@ -182,7 +182,7 @@
                                         <span><strong>published on <?= date($article->news_published_on) ?> WIB by <?= stripslashes($article->news_author) ?></strong></span> <br>
                                     </a>
                                     <div class="badge mb-2" >
-                                        <a href="link to categories"><?= stripslashes($article->news_category) ?></a>
+                                        <a href="kategoriNews_user.php?category=<?= stripslashes($headBig->news_category) ?>"><?= stripslashes($article->news_category) ?></a>
                                     </div>
                                 </div>
                             </div>
