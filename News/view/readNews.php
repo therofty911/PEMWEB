@@ -1,5 +1,6 @@
 <?php 
     include_once '..\controller\functions.php'
+    
 ?>
 <?php
     $id_article = (int)$_GET['newsid'];
@@ -17,6 +18,10 @@
 ?>
 <?php
     $reco = fetchReco();
+    $user_ID = '';
+    if(isset($_SESSION["id"])){
+        $user_ID = $_SESSION["id"];
+    }
 ?>
 </body>
 </html>
