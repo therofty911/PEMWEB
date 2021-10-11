@@ -174,7 +174,7 @@
                         <div class="card-body">
                             <div class="card">
                                 <div class="card-header mb-0 pb-0">
-                                 Posted by : <?= $comments->username ?>
+                                 Posted by : <?= $comments->username ?><?php Get_user_avatar($user_ID, $pdo) ?>
                                  <p class="text-end" style="display: inline; float: right;"><?= $comments->date ?></p>
                                 </div>
                                 <div class="card-body">
