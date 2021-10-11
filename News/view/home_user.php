@@ -5,6 +5,18 @@
     $newsHeadOne = newsHeadOne();
     $newsHeadSideBar = newsHeadSideBar();
     $popular = fetchPopular();
+    $user_ID = '';
+    if(isset($_SESSION["id"])){
+        $user_ID = $_SESSION["id"];
+    }
+?>
+<?php
+?>
+<?php
+  //include '..\controller\logout.php';
+//   if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['logout'])){
+//     validatelogout();
+//   }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +46,8 @@
                 <ul class="connect">
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>    
-                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['user'];?></a></li>    
+                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['user'];?> <?php Get_user_avatar($user_ID, $pdo) ?></a></li>
+                        
                 </ul>
             </div>
             <div class="col-md-3">
@@ -49,7 +62,6 @@
             </div>
         </div>
     </div>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 bg-body rounded">
         <div class="container-fluid">
         <a class="navbar-brand logo2" href="home_user.php"><img class="desktop" src="https://cdn.discordapp.com/attachments/891579314401869864/891681342994153512/news_logo.png" alt="News_Speedy_UMN" style="width: 250px;"></a>
@@ -60,8 +72,8 @@
             </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-lg-0">
-            <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home_user.php">Home</href=>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="home_user.php">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="kategoriNews_user.php?category=Technology">Technology</a>
@@ -92,6 +104,7 @@
                 </li>
                 <li class="nav-item logM" style="background:transparent;">
                     <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
+                
                 </li>
             </ul>
         </div>
@@ -114,7 +127,7 @@
                                 <div class="row">
                                     <div class="col-sm-12 ms-2">
                                         <h3><?= stripslashes($headBig->news_title) ?></h3>
-                                        <a class="btn btn-primary ms-1 btn-sm" href="read-news.php" role="button">Read More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                        <a class="btn btn-primary ms-1 btn-sm" href="..\view\readNews_user.php?newsid=<?=$headBig->news_ID?>" role="button">Read More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
                                         <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                                         </svg></a>
                                     </div>
@@ -136,7 +149,7 @@
                                 <div class="row">
                                     <div class="col-sm-12 ms-2">
                                         <h3><?= stripslashes($headSide->news_title) ?></h3>
-                                        <a class="btn btn-primary ms-1 btn-sm" href="read-news.php" role="button">Read More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                        <a class="btn btn-primary ms-1 btn-sm" href="..\view\readNews_user.php?newsid=<?=$headSide->news_ID?>" role="button">Read More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
                                         <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                                         </svg></a>
                                     </div>

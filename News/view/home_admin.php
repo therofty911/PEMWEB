@@ -115,7 +115,7 @@
                                 <div class="row">
                                     <div class="col-sm-12 ms-2">
                                         <h3><?= stripslashes($headBig->news_title) ?></h3>
-                                        <a class="btn btn-primary ms-1 btn-sm" href="read-news.php" role="button">Read More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                        <a class="btn btn-primary ms-1 btn-sm" href="..\view\readNews_admin.php?newsid=<?=$headBig->news_ID?>" role="button">Read More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
                                         <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                                         </svg></a>
                                     </div>
@@ -137,7 +137,7 @@
                                 <div class="row">
                                     <div class="col-sm-12 ms-2">
                                         <h3><?= stripslashes($headSide->news_title) ?></h3>
-                                        <a class="btn btn-primary ms-1 btn-sm" href="read-news.php" role="button">Read More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                        <a class="btn btn-primary ms-1 btn-sm" href="..\view\readNews_admin.php?newsid=<?=$headSide->news_ID?>" role="button">Read More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
                                         <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                                         </svg></a>
                                     </div>

@@ -62,4 +62,40 @@
         $request = $conn->prepare(" SELECT news_ID, news_title, news_short_description, news_category FROM news_info ORDER BY news_published_on ASC LIMIT 5");
         return $request->execute() ? $request->fetchAll() : false; 
     }
+
+    function make_avatar($character){
+        $path = "avatar/". time() . ".png";
+        $image = imagecreate(200, 200);
+        $red = rand(0, 255);
+        $green = rand(0, 255);
+        $blue = rand(0, 255);
+        imagecolorallocate($image, $red, $green, $blue);  
+        $textcolor = imagecolorallocate($image, 255,255,255); 
+
+        imagettftext($image, 100, 0, 55, 150, $textcolor, '../font/arial.ttf', $character);
+        // header('Content-type: image/png');
+        imagepng($image, $path);
+        imagedestroy($image);
+        return $path;
+    }
+
+    function Get_user_avatar($user_ID, $pdo){
+        $pdo = connect_to_db(); 
+        $query = "
+        SELECT photo FROM user 
+        WHERE `user_ID` = '".$user_ID."' 
+        ";
+        $statement = $pdo->prepare($query);
+
+        $statement->execute();
+
+        $result = $statement->fetchAll();
+
+        foreach($result as $row)
+	    {
+		    echo '<img src="'.$row->photo.'" class="image-profile" style="width:30px;border-radius:50px;border:none;outline: 2px solid #00FFFF;margin-left:5px;"/>';
+	    }
+        // $request = $conn->prepare("SELECT photo FROM user WHERE `user_ID` = '".$user_ID."' ") ;
+        // return $request->execute() ? $request->fetchAll() : false;
+    }
 ?>

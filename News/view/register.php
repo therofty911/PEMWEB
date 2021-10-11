@@ -89,18 +89,6 @@
                             <i class="bi bi-calendar3"></i>
                             </div>
                         </div>
-                        <div class="col-12 col-md-12">
-                            <div class="card">
-                                <div class="card-content">
-                                    <div class="card-body">
-                                        <p class="card-text">Upload your image profile, Recommanded use 360px X 360px
-                                        </p>
-                                        <!-- Auto crop image file uploader -->
-                                        <input type="file" class="image-crop-filepond" image-crop-aspect-ratio="1:1">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" name="register">Sign Up</button>
                     </form>
                     <div class="text-center mt-5 text-lg fs-4">
