@@ -6,6 +6,9 @@
     $newsHeadOne = newsHeadOne();
     $newsHeadSideBar = newsHeadSideBar();
     $popular = fetchPopular();
+    if(isset($_SESSION["id"])){
+        $user_ID = $_SESSION["id"];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +57,7 @@
                 <li><a href="../view/aboutus.php">About Us</a></li>
                     <li><a href="../view/contact.php">Contact Us</a></li>     
                     <li><a href="../view/dashboard.php">Dashboard</a></li>    
-                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['level'];?> <?php Get_user_avatar($user_ID, $pdo) ?></a></li>   
+                    <li><a href="" class="logD">Hello, <?php echo $_SESSION['level'];?> <?php Get_user_avatar($user_ID) ?></a></li>   
                 </ul>
             </div>
             <div class="col-md-3">
@@ -62,7 +65,7 @@
                     <div class="text-center icon">
                         <form  method="post" style="display: inline;">
                             <button type="button" class="btn btn-light col-5 col-xxl-3 logD" name="logout"><a href="..\controller\logout.php" style="color:black;">Logout</a></button>
-                            <p class="logM">Hello, <?php echo $_SESSION['level'];?> <?php Get_user_avatar($user_ID, $pdo) ?></p>
+                            <p class="logM">Hello, <?php echo $_SESSION['level'];?> <?php Get_user_avatar($user_ID) ?></p>
                         </form>
                     </div>
                 </div>
