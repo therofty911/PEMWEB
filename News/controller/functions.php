@@ -3,7 +3,7 @@
     function fetchNews()
     {
         $conn = connect_to_db();
-        $request = $conn->prepare(" SELECT news_ID, news_title, news_short_description, news_author, news_published_on, news_category, image_name FROM news_info ORDER BY news_published_on DESC ");
+        $request = $conn->prepare(" SELECT news_ID, news_title, news_short_description, news_author, news_published_on, news_category, image_name FROM news_info ORDER BY news_published_on DESC LIMIT 3,50 ");
         return $request->execute() ? $request->fetchAll() : false; 
     }
 

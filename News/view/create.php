@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/vendors/summernote/summernote-lite.min.css">
 
     <link rel="shorcut icon" href="https://cdn.discordapp.com/attachments/891579314401869864/891681330180522014/news_logo_ts.png"> 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -273,9 +274,17 @@
                                                         </div>
                                                         <div class="col-12 mt-3">
                                                             <div class="card">
-                                                                <div class="card-body">
+                                                                <!-- <div class="card-body">
                                                                     <label for="fullcontent">Full content</label>
                                                                     <textarea id="dark" cols="30" rows="10" name="news_full_content"></textarea>
+                                                                </div> -->
+                                                                <div class="card">
+                                                                    <div class="card-header">
+                                                                        <h4 class="card-title">Default Editor</h4>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                        <textarea id="summernote" name="news_full_content"></textarea>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -382,11 +391,36 @@
         })
     });
 </script>
+
 <script>
     tinymce.init({ selector: '#default' });
     tinymce.init({ selector: '#dark', toolbar: 'undo redo styleselect bold italic alignleft aligncenter alignright bullist numlist outdent indent code', plugins: 'code' });
 </script>
-    
+
+<script src="../assets/vendors/jquery/jquery.min.js"></script>
+<script src="../assets/vendors/summernote/summernote-lite.min.js"></script>
+<script>
+    $('#summernote').summernote({
+        tabsize: 2,
+        height: 120,
+    })
+    $("#hint").summernote({
+        height: 100,
+        toolbar: false,
+        placeholder: 'type with apple, orange, watermelon and lemon',
+        hint: {
+            words: ['apple', 'orange', 'watermelon', 'lemon'],
+            match: /\b(\w{1,})$/,
+            search: function (keyword, callback) {
+                callback($.grep(this.words, function (item) {
+                    return item.indexOf(keyword) === 0;
+                }));
+            }
+        }
+    });
+
+</script>
+
     <script src="../assets/js/mazer.js"></script>
 </body>
 </html>
