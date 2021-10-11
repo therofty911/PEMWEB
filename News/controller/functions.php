@@ -45,7 +45,7 @@
     function fetchcomment($id_article)
     {
         $conn = connect_to_db();
-        $request =  $conn->prepare(" SELECT comment_ID, 'user_ID', comment, comment_likes, `date`, (SELECT username FROM user WHERE user.user_ID = comment.user_ID) AS `username` FROM comment  WHERE news_ID = ? ");
+        $request =  $conn->prepare(" SELECT comment_ID, 'user_ID', comment, comment_likes, `date`, (SELECT username FROM user WHERE user.user_ID = comment.user_ID) AS `username`, (SELECT photo FROM user WHERE user.user_ID = comment.user_ID) AS `photo` FROM comment  WHERE news_ID = ? ");
         return $request->execute(array($id_article)) ? $request->fetchAll() : false; 
     }
 
@@ -79,7 +79,7 @@
         return $path;
     }
 
-    function Get_user_avatar($user_ID, $pdo){
+    function Get_user_avatar($user_ID){
         $pdo = connect_to_db(); 
         $query = "
         SELECT photo FROM user 
