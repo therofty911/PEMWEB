@@ -115,7 +115,7 @@
                             <!-- <img class="img-fluid photo" src="upload/<?php stripslashes($headBig->image_name)?>" alt="" style="max-width: 100%;height:685px;"></img> -->
                             <img class="img-fluid photo" src="upload/<?= stripslashes($headBig->image_name) ?>" alt="" style="max-width: 100%;height:685px;">
                             <div class="news-post-badge text-center">
-                            <a href="link to categories"><?= stripslashes($headBig->news_category) ?></a>
+                            <a href="kategoriNews.php?category=<?= stripslashes($headBig->news_category) ?>"><?= stripslashes($headBig->news_category) ?></a>
                             </div>
                             <div class="news-post-content">
                                 <div class="row">
@@ -137,7 +137,7 @@
                         <div class="news-post shadow mb-3" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="500">
                             <img class="img-fluid photo" src="upload/<?= stripslashes($headSide->image_name) ?>" alt="" style="max-width: 100%;height:335px;"></img>
                             <div class="news-post-badge text-center">
-                                <a href="link to categories"><?= stripslashes($headSide->news_category) ?></a>
+                                <a href="kategoriNews.php?category=<?= stripslashes($headBig->news_category) ?>"><?= stripslashes($headSide->news_category) ?></a>
                             </div>
                             <div class="news-post-content">
                                 <div class="row">
@@ -175,7 +175,7 @@
                                         <span><strong>published on <?= date($article->news_published_on) ?> WIB by <?= stripslashes($article->news_author) ?></strong></span> <br>
                                     </a>
                                     <div class="badge mb-2" >
-                                        <a href="link to categories"><?= stripslashes($article->news_category) ?></a>
+                                        <a href="kategoriNews.php?category=<?= stripslashes($headBig->news_category) ?>"><?= stripslashes($article->news_category) ?></a>
                                     </div>
                                 </div>
                             </div>

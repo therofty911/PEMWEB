@@ -147,7 +147,7 @@
                                         <span><strong>published on <?= date($article->news_published_on) ?> WIB by <?= stripslashes($article->news_author) ?></strong></span> <br>
                                     </a>
                                     <div class="badge mb-2" >
-                                        <a href="link to categories"><?= stripslashes($article->news_category) ?></a>
+                                        <a href="#"><?= stripslashes($article->news_category) ?></a>
                                     </div>
                                 </div>
                             </div>

@@ -82,7 +82,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home_admin.php">Home</href=>
+                    <a class="nav-link active" aria-current="page" href="home_admin.php">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="kategoriNews_admin.php?category=Technology">Technology</a>
@@ -126,7 +126,7 @@
                 <div class="col-sm-12">
                     <h1>CATEGORIES</h1>
                     <div class="badges-cat">
-                        <a href="link to categories">Technology</a>
+                        <a href="#"><?= $category ?></a>
                     </div>
                 </div>
             </div>
@@ -151,7 +151,7 @@
                                         <span><strong>published on <?= date($article->news_published_on) ?> WIB by <?= stripslashes($article->news_author) ?></strong></span> <br>
                                     </a>
                                     <div class="badge mb-2" >
-                                        <a href="link to categories"><?= stripslashes($article->news_category) ?></a>
+                                        <a href="#"><?= stripslashes($article->news_category) ?></a>
                                     </div>
                                 </div>
                             </div>
@@ -185,7 +185,7 @@
                     <h4 class="aside-heading mt-3">Popular Article</h4>
                     <?php foreach ($popular as $key => $populars) : ?>
                     <a href="..\view\readNews.php?newsid=<?=$populars->news_ID?>" class="link-populer">
-                        <article class="row popular mb-3" data-aos="fade-left">
+                        <article class="row popular mb-3">
                             <div class="col-sm-4 my-2">
                                 <img src="upload/<?= stripslashes($populars->image_name) ?>" alt="" class="img-fluid">
                             </div>

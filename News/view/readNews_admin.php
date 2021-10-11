@@ -174,10 +174,10 @@
                             <form action="" method="post">
                                   <div class="mb-3 comment">
                                     <label for="comment" class="form-label">Write Your Comments</label>
-                                    <input type="text" class="form-control" id="comment" placeholder="Write Your Comments">
+                                    <input type="text" class="form-control" id="comment" placeholder="Write Your Comments" name="comment">
                                   </div>
                                   <div class="mb-3 comment">
-                                    <button type="submit" class="btn btn-primary" style="background-color: #142868;color: rgb(0, 255, 255);outline: none;border: none;"><a href="..\controller\comment.php">Submit</a></button>
+                                    <button type="submit" class="btn btn-primary" style="background-color: #142868;color: rgb(0, 255, 255);outline: none;border: none;" name="submitcomment">Submit</button>
                                   </div>
                             </form>
                         </div>
@@ -191,7 +191,7 @@
                                 </div>
                                 <div class="card-body">
                                   <p class="card-text"><?= $comments->comment ?></p>
-                                  <button class="like"><a href="login.php">Like (<?= stripslashes($article->news_likes)?>)</a></button>
+                                  <button class="like"><a href="..\controller\likes_comment.php?newsid=<?=$article->news_ID?>&commentid=<?=$comments->comment_ID?>">Like (<?= stripslashes($comments->comment_likes)?>)</a></button>
                                 </div>
                               </div>
                             </div>

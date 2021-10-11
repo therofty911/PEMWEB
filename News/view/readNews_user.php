@@ -191,7 +191,7 @@
                                 </div>
                                 <div class="card-body">
                                   <p class="card-text"><?= $comments->comment ?></p>
-                                  <button class="like"><a href="login.php">Like (<?= stripslashes($article->news_likes)?>)</a></button>
+                                  <button class="like"><a href="..\controller\likes_comment.php?newsid=<?=$article->news_ID?>&commentid=<?=$comments->comment_ID?>">Like (<?= stripslashes($comments->comment_likes)?>)</a></button>
                                 </div>
                               </div>
                             </div>

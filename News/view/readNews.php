@@ -106,31 +106,29 @@
                     <a class="nav-link active" aria-current="page" href="home.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Technology</a>
+                    <a class="nav-link active" href="kategoriNews.php?category=Technology">Technology</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Music</a>
+                    <a class="nav-link active" href="kategoriNews.php?category=Music">Music</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Games</a>
+                    <a class="nav-link active" href="kategoriNews.php?category=Game">Game</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Politic</a>
+                    <a class="nav-link active" href="kategoriNews.php?category=Politic">Politic</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Arts</a>
+                    <a class="nav-link active" href="kategoriNews.php?category=Art">Art</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Automotive</a>
+                    <a class="nav-link active" href="kategoriNews.php?category=Automotive">Automotive</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Fashion</a>
+                    <a class="nav-link active" href="kategoriNews.php?category=Fashion">Fashion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Healty</a>
+                    <a class="nav-link active" href="kategoriNews.php?category=Health">Health</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Link</a>
                 <li class="nav-item logM" style="background:transparent;">
                     <a class="nav-link active" aria-current="page" href="#">About Us</a>
                 </li>
@@ -184,7 +182,7 @@
                                 </div>
                                 <div class="card-body">
                                   <p class="card-text"><?= $comments->comment ?></p>
-                                  <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like (0)</button>
+                                  <button class="like"><a href="login.php">Like (<?= stripslashes($comments->comment_likes)?>)</a></button>
                                 </div>
                               </div>
                             </div>
