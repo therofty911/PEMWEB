@@ -93,7 +93,7 @@
 
         foreach($result as $row)
 	    {
-		    echo '<img src="'.$row->photo.'" class="image-profile" style="width:30px;border-radius:50px;border:none;outline: 2px solid #fff;margin-left:5px;"/>';
+		    echo '<img src="'.$row->photo.'" class="image-profile" style="width:30px;border-radius:50px;border:none;outline: 2px solid #00FFFF;margin-left:5px;"/>';
 	    }
         // $request = $conn->prepare("SELECT photo FROM user WHERE `user_ID` = '".$user_ID."' ") ;
         // return $request->execute() ? $request->fetchAll() : false;

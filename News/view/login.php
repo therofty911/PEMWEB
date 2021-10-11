@@ -54,8 +54,9 @@
                                 <i class="bi bi-shield-lock"></i>
                             </div>
                         </div>
-                        <div class="g-recaptcha" data-sitekey="6LdFmmQcAAAAAGuC6N1MNLbDMeSLwB8n1PR512k8" style="margin-bottom: 10px;"></div>
-
+                        <!--<div class="g-recaptcha" data-sitekey="6LdFmmQcAAAAAGuC6N1MNLbDMeSLwB8n1PR512k8" style="margin-bottom: 10px;"></div>-->
+                        <div id="botvalidator"></div>
+                        <div id="captchaerrors"></div>
                         <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" style="background-color: #0D1A44;" name="signin">Log in</button>
                     </form>
                     <div class="text-center mt-5 text-lg fs-4">
@@ -69,5 +70,57 @@
             </div>
         </div>
     </div>
+    <script>
+var onloadCallback = function() {
+        if($("#botvalidator").length > 0) {
+            grecaptcha.render('botvalidator', {
+                'sitekey' : '6LdFmmQcAAAAAGuC6N1MNLbDMeSLwB8n1PR512k8',
+                'callback': cleanErrors
+            });
+            addCaptchaValidation();
+            $(document).arrive("#g-recaptcha-response", function() {
+                // 'this' refers to the newly created element
+                addCaptchaValidation();
+            });
+        }
+    };
+
+        /* ini akan menghilangkan semua pesan error. */
+    var cleanErrors = function() {
+        $("#captchaerrors").empty();
+    };
+    
+    var addCaptchaValidation = function() {
+        console.log("Adding captcha validation");
+        
+        cleanErrors();
+
+        $('#myform').parsley().destroy();
+
+        $('#g-recaptcha-response').attr('required', true);
+        // dibawah ini untu membuat sebuah attribute dari JSparsley validasi
+        $('#g-recaptcha-response').attr('data-parsley-captcha-validation', true);
+        $('#g-recaptcha-response').attr('data-parsley-error-message', "We know it, but we need you to confirm you are not a robot. Thanks.");
+        $('#g-recaptcha-response').attr('data-parsley-errors-container', "#captchaerrors");
+    $('#myform').parsley();
+    };
+    
+
+    /*dibawah ini untuk membuat/menambah sebuah parsley validasi baru
+    #g-recaptcha-response saat mengklik login button*/
+
+    window.Parsley.addValidator('captchaValidation', {
+
+            validateString: function(value) {
+                if(debug) console.log("Validating captcha", value);
+                if(value.length > 0) {
+                    return true;
+                } else {
+                    return false;
+                }                    
+            },
+            messages: {en: 'Hmmm....Are u a robot?!!!'}
+          });
+    </script>
 </body>
 </html>
