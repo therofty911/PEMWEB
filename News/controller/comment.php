@@ -12,8 +12,8 @@
         $execute->execute(array($id_article,$uid,$comment,$likes,$date));
         $url="../view/readNews_user.php?newsid=$id_article";
         $url=str_replace(PHP_EOL, '', $url);
-        $url2="../view/readNews_amin.php?newsid=$id_article";
-        $url2=str_replace(PHP_EOL, '', $url);
+        $url2="../view/readNews_admin.php?newsid=$id_article";
+        $url2=str_replace(PHP_EOL, '', $url2);
         if($execute){
             //echo "<script>alert('comment added succesfully');</script>";
             if($_SESSION['user'] = "user"){

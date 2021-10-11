@@ -159,7 +159,7 @@
                         </div>
                         <div class="badges px-3">
                             <a href="#"><?= stripslashes($article->news_category) ?></a>
-                            <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like"><a href="login.php">Like (0)</a></button>
+                            <button class="like" name="like"><a href="..\controller\likes.php?newsid=<?=$article->news_ID?>">Like (<?= stripslashes($article->news_likes)?>)</a></button>
                         </div>
                         <div class="p-content px-3">
                             <p><?= stripslashes($article->news_full_content) ?></p> 
@@ -187,7 +187,7 @@
                                 </div>
                                 <div class="card-body">
                                   <p class="card-text"><?= $comments->comment ?></p>
-                                  <button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like (0)</button>
+                                  <button class="like"><a href="login.php">Like (<?= stripslashes($article->news_likes)?>)</a></button>
                                 </div>
                               </div>
                             </div>
@@ -317,19 +317,5 @@
 </script>
 
 <!-- like button -->
-<script type="text/javascript">
-    $(".like").click(function(){
-        let button = $(this)
-        let post_id = $(button).data('postid')
-        $.post("index.php",
-        {
-            'like' : post_id
-        },
-        function(data, status){
-            $(button).html("Like (" + ($(button).data('likes')+1) + ")")
-            $(button).data('likes', $(button).data('likes')+1)
-        });
-    });
-    </script>
 </body>
 </html>

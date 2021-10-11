@@ -1,6 +1,6 @@
 <?php
     function register(){
-        include __DIR__.'..\..\..\News\model\dbconnect.php'; 
+        //include __DIR__.'..\..\..\News\model\dbconnect.php'; 
         // include __DIR__.'..\..\..\News\modal\dbconnect.php'; 
         include ('../controller/functions.php');
         if(isset($_POST['Fname']))$Fname = $_POST['Fname'];
