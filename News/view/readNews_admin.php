@@ -1,6 +1,10 @@
 <?php 
     include_once '..\controller\functions.php';
     session_start();
+    $user_ID = '';
+    if(isset($_SESSION["id"])){
+        $user_ID = $_SESSION["id"];
+    }
 ?>
 <?php
     $id_article = (int)$_GET['newsid'];
