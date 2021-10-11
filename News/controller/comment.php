@@ -16,13 +16,13 @@
         $url2=str_replace(PHP_EOL, '', $url2);
         if($execute){
             //echo "<script>alert('comment added succesfully');</script>";
-            if($_SESSION['user'] = "user"){
+            if($_SESSION['level'] = "user"){
                 //echo "<script>document.location.href ='..\view\readNews_user.php?newsid=1';</script>";
                 //header("location:..\view\readNews_user.php?newsid='$id_article'");
                 header("location: $url");
                 return true;
             }
-            else{
+            else if($_SESSION['level'] = "admin"){
                 header("location: $url2");
                 return true;
             }
