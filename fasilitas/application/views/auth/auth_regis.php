@@ -48,20 +48,17 @@
         </div>
         <hr style="width:50%; margin-left:25% !important; margin-right:25% !important;" />
         <div class="card-body">
-            <form class="row g-3">
+            <form class="row g-3" method="post" action="<?= base_url('auth/registration'); ?>">
                 <div class="col-md-6">
                     <label for="fname" class="form-label">First Name</label>
                     <input type="text" class="form-control" id="fname" name="fname">
+                    <?= form_error('name'); ?>
                 </div>
                 <div class="col-md-6">
                     <label for="lname" class="form-label">Last Name</label>
                     <input type="text" class="form-control" id="lname" name="lname">
                 </div>
-                <div class="col-md-6">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username">
-                </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control" id="email" name="lnaemailme">
                 </div>
@@ -73,7 +70,7 @@
                 <div id="captchaerrors"></div>
                 <div class="form-group text-right">
                     <button type="button" class="btn btn-primary col-lg-2 col-sm-4 my-3 float-start"><a href="<?= base_url('auth'); ?>" style="color:white;text-decoration:none;">Back to page</a></button>
-                    <button type="button" class="btn btn-primary col-lg-2 col-sm-4 my-3 float-end" style="background-color: #BAA360;">Register</button>
+                    <button type="submit" class="btn btn-primary col-lg-2 col-sm-4 my-3 float-end" style="background-color: #BAA360;">Register</button>
                 </div>
             </form>
 
