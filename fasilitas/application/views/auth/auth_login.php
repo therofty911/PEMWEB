@@ -48,20 +48,25 @@
         </div>
         <hr style="width:50%; margin-left:25% !important; margin-right:25% !important;" />
         <div class="card-body">
-            <form action="<?= base_url('auth/login') ?>" method="post">
+            <?= $this->session->flashdata('message'); ?>
+            <form method="post" action="<?= base_url('auth/login'); ?>">
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                    <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
+
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
+
                 </div>
                 <div id="botvalidator" class="my-2"></div>
                 <div id="captchaerrors"></div>
                 <div class="form-group text-right">
                     <button type="button" class="btn btn-primary col-lg-2 col-sm-4 my-3 float-start"><a href="<?= base_url('auth'); ?>" style="color:white;text-decoration:none;">Back to page</a></button>
-                    <button type="button" class="btn btn-primary col-lg-2 col-sm-4 my-3 float-end" style="background-color: #BAA360;">Login</button>
+                    <button type="submit" class="btn btn-primary col-lg-2 col-sm-4 my-3 float-end" style="background-color: #BAA360;">Login</button>
                 </div>
         </div>
     </div>

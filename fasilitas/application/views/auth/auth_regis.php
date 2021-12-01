@@ -51,20 +51,24 @@
             <form class="row g-3" method="post" action="<?= base_url('auth/registration'); ?>">
                 <div class="col-md-6">
                     <label for="fname" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="fname" name="fname">
-                    <?= form_error('name'); ?>
+                    <input type="text" class="form-control" id="fname" name="fname" value="<?= set_value('fname'); ?>">
+                    <?= form_error('fname', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="col-md-6">
                     <label for="lname" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="lname" name="lname">
+                    <input type="text" class="form-control" id="lname" name="lname" value="<?= set_value('lname'); ?>">
+                    <?= form_error('lname', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="col-md-12">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="lnaemailme">
+                    <input type="email" class="form-control" id="email" name="email" value="<?= set_value('email'); ?>">
+                    <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="col-md-12">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password">
+                    <input type="password" class="form-control" id="password" name="password">
+                    <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
+
                 </div>
                 <div id="botvalidator" class="my-2"></div>
                 <div id="captchaerrors"></div>
