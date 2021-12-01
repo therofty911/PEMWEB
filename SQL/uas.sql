@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2021 at 02:39 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Generation Time: Dec 01, 2021 at 07:10 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,6 +35,14 @@ CREATE TABLE `account` (
   `Password` varchar(255) NOT NULL,
   `Role` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`Account_ID`, `First_Name`, `Last_Name`, `Email`, `Password`, `Role`) VALUES
+(1, 'ca', 'ca', 'caca@umn.ac.id', '$2y$10$gmTe4cY25QJ5JK0Soo/X2OT4fH9kW3OBlV09Ot3U5QMAc80gS7fcW', 'user'),
+(5, 'rul', 'rek', 'rulrek@gmail.com', '$2y$10$SpjNOrCGsn0WhNV1Lk1qGOm6t8eumCheo/kb/KZOdZxkCnVevbeIG', 'admin\r\n');
 
 -- --------------------------------------------------------
 
@@ -125,7 +133,7 @@ ALTER TABLE `request_listing`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `Account_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Account_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `booking_listing`
