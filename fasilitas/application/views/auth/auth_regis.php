@@ -69,9 +69,11 @@
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password">
                 </div>
+                <div id="botvalidator" class="my-2"></div>
+                <div id="captchaerrors"></div>
                 <div class="form-group text-right">
-                    <button type="button" class="btn btn-primary col-sm-2 my-3 float-start"><a href="<?= base_url('auth'); ?>" style="color:white;text-decoration:none;">Back to page</a></button>
-                    <button type="button" class="btn btn-primary col-sm-2 my-3 float-end" style="background-color: #BAA360;">Register</button>
+                    <button type="button" class="btn btn-primary col-lg-2 col-sm-4 my-3 float-start"><a href="<?= base_url('auth'); ?>" style="color:white;text-decoration:none;">Back to page</a></button>
+                    <button type="button" class="btn btn-primary col-lg-2 col-sm-4 my-3 float-end" style="background-color: #BAA360;">Register</button>
                 </div>
             </form>
 
@@ -104,6 +106,62 @@
                 total: 40
             });
         }
+    </script>
+
+    <!-- recaptcha -->
+    <script>
+        var onloadCallback = function() {
+            if ($("#botvalidator").length > 0) {
+                grecaptcha.render('botvalidator', {
+                    'sitekey': '6Lch8G4dAAAAAOby9rovwyoaQKmPfv8FKbDWEMcJ',
+                    'callback': cleanErrors
+                });
+                addCaptchaValidation();
+                $(document).arrive("#g-recaptcha-response", function() {
+                    // 'this' refers to the newly created element
+                    addCaptchaValidation();
+                });
+            }
+        };
+
+        /* ini akan menghilangkan semua pesan error. */
+        var cleanErrors = function() {
+            $("#captchaerrors").empty();
+        };
+
+        var addCaptchaValidation = function() {
+            console.log("Adding captcha validation");
+
+            cleanErrors();
+
+            $('#myform').parsley().destroy();
+
+            $('#g-recaptcha-response').attr('required', true);
+            // dibawah ini untu membuat sebuah attribute dari JSparsley validasi
+            $('#g-recaptcha-response').attr('data-parsley-captcha-validation', true);
+            $('#g-recaptcha-response').attr('data-parsley-error-message', "Saya mengerti tapi, kamu harus tetap melakukan recaptcha");
+            $('#g-recaptcha-response').attr('data-parsley-errors-container', "#captchaerrors");
+            $('#myform').parsley();
+        };
+
+
+        /*dibawah ini untuk membuat/menambah sebuah parsley validasi baru
+        #g-recaptcha-response saat mengklik login button*/
+
+        window.Parsley.addValidator('captchaValidation', {
+
+            validateString: function(value) {
+                if (debug) console.log("Validating captcha", value);
+                if (value.length > 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+            messages: {
+                en: 'HMMM KAMU ROBOT YA..(HMM YOU ARE A ROBOT?)'
+            }
+        });
     </script>
 </body>
 

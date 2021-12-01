@@ -49,8 +49,8 @@
         <hr style="width:50%; margin-left:25% !important; margin-right:25% !important;" />
         <div class="card-body">
             <div class="text-center">
-                <button type="button" class="btn btn-primary col-sm-2 mx-lg-4 mx-xs-3" style="background-color: #BAA360;"><a href="<?= base_url('auth/login'); ?>" style="color:white;text-decoration:none;">Login</a></button>
-                <button type="button" class="btn btn-primary col-sm-2 mx-lg-4 mx-xs-3"><a href="<?= base_url('auth/register'); ?>" style="color:white;text-decoration:none;">Register</a></button>
+                <button type="button" class="btn btn-primary col-lg-2 col-sm-4 mx-lg-4 mx-xs-3" style="background-color: #BAA360;"><a href="<?= base_url('auth/login'); ?>" style="color:white;text-decoration:none;">Login</a></button>
+                <button type="button" class="btn btn-primary col-lg-2 col-sm-4 mx-lg-4 mx-xs-3"><a href="<?= base_url('auth/register'); ?>" style="color:white;text-decoration:none;">Register</a></button>
             </div>
         </div>
     </div>
