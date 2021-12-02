@@ -13,6 +13,18 @@ class Home extends CI_Controller
 
     public function index()
     {
+        // ntar di ubah lagi aja
+        // if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'management') {
+        // $data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();
+        // // echo "sudah masuk kah? " . $data['user']['Email'];
+
+        // $data['title'] = 'Hotel UMN Facility';
+        // $data['css'] = $this->load->view('include/css', NULL, TRUE);
+        // $data['js'] = $this->load->view('include/js', NULL, TRUE);
+        // $this->load->view('template/header', $data);
+        // $this->load->view('pages/home_facilityDash');
+        // $this->load->view('template/footer');
+        // } else {
         $data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();
         // echo "sudah masuk kah? " . $data['user']['Email'];
 
@@ -22,7 +34,9 @@ class Home extends CI_Controller
         $this->load->view('template/header', $data);
         $this->load->view('pages/home_main');
         $this->load->view('template/footer');
+        // }
     }
+
 
     public function facilityDetail()
     {
@@ -47,6 +61,19 @@ class Home extends CI_Controller
         $data['js'] = $this->load->view('include/js', NULL, TRUE);
         $this->load->view('template/header', $data);
         $this->load->view('pages/home_book');
+        $this->load->view('template/footer');
+    }
+
+    public function facilityDash()
+    {
+        $data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();
+        // echo "sudah masuk kah? " . $data['user']['Email'];
+
+        $data['title'] = 'Hotel UMN Facility';
+        $data['css'] = $this->load->view('include/css', NULL, TRUE);
+        $data['js'] = $this->load->view('include/js', NULL, TRUE);
+        $this->load->view('template/header', $data);
+        $this->load->view('pages/home_facilityDash');
         $this->load->view('template/footer');
     }
 }
