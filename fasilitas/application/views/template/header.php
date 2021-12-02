@@ -84,6 +84,7 @@ if (!isset($_SESSION['email'])) {
             border-color: rgb(255, 255, 255);
         }
 
+
         @media (max-width: 600px) {
             .logo-img {
                 width: 140px;
@@ -103,46 +104,45 @@ if (!isset($_SESSION['email'])) {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        
-                        <?php if($_SESSION['role']=="admin"){ //buat role admin?>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#" style="color: #BAA360;">Users</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" style="color: #BAA360;">Facilities</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" style="color: #BAA360;">Request</a>
-                        </li>
-                        <?php }?>
 
-                        <?php if($_SESSION['role']=="user"){ //buat role user?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" style="color: #BAA360;">Facilities</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" style="color: #BAA360;">Request</a>
-                        </li>
-                        <?php }?>
+                        <?php if ($_SESSION['role'] == "admin") { //buat role admin
+                        ?>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#" style="color: #BAA360;">Users</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" style="color: #BAA360;">Facilities</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" style="color: #BAA360;">Request</a>
+                            </li>
+                        <?php } ?>
 
-                        <?php if($_SESSION['role']=="management"){ //buat role management?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" style="color: #BAA360;">Facilities</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" style="color: #BAA360;">Request</a>
-                        </li>
-                        <?php }?>
+                        <?php if ($_SESSION['role'] == "user") { //buat role user
+                        ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" style="color: #BAA360;">Facilities</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" style="color: #BAA360;">Request</a>
+                            </li>
+                        <?php } ?>
+
+                        <?php if ($_SESSION['role'] == "management") { //buat role management
+                        ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" style="color: #BAA360;">Facilities</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" style="color: #BAA360;">Request</a>
+                            </li>
+                        <?php } ?>
                     </ul>
-                    <div class="d-flex">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" style="color: #BAA360;">Hello, <?php echo $_SESSION["fname"]; ?></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= base_url('auth/logout'); ?>" style=" color: #BAA360;">Logout</a>
-                        </li>
-                    </div>
+                    <form class="d-flex">
+                        <button class="btn disabled"><a class="nav-link right" href="#" style="color: #BAA360;">Hello, <?php echo $_SESSION["fname"]; ?></a></button>
+                        <button class="btn" type="button"><a class="nav-link right" href="<?= base_url('auth/logout'); ?>" style=" color: #BAA360;">Logout</a></button>
+                    </form>
                 </div>
             </div>
         </nav>
-<?php } ?>
+    <?php } ?>
