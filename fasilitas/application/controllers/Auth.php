@@ -48,9 +48,9 @@ class Auth extends CI_Controller
         if ($user) {
             if (password_verify($password, $user['Password'])) {
                 $data = [
-                    'lname' => $user['Last_Name'],
+                    'fname' => $user['Fast_Name'],
                     'email' => $user['Email'],
-                    'Role' => $user['Role']
+                    'role' => $user['Role']
                 ];
                 $this->session->set_userdata($data);
                 redirect('home');
@@ -127,6 +127,7 @@ class Auth extends CI_Controller
 
     public function logout()
     {
+        $this->session->unset_userdata('fname');
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role');
         $this->session->set_flashdata('message_login', '<div class="alert alert-success" role="alert">you have been logged out</div>');
