@@ -24,7 +24,29 @@ class Home extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    public function a()
+    public function facilityDetail()
     {
+        $data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();
+        // echo "sudah masuk kah? " . $data['user']['Email'];
+
+        $data['title'] = 'Detail | Hotel UMN Facility';
+        $data['css'] = $this->load->view('include/css', NULL, TRUE);
+        $data['js'] = $this->load->view('include/js', NULL, TRUE);
+        $this->load->view('template/header', $data);
+        $this->load->view('pages/home_detail');
+        $this->load->view('template/footer');
+    }
+
+    public function book()
+    {
+        $data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();
+        // echo "sudah masuk kah? " . $data['user']['Email'];
+
+        $data['title'] = 'Book | Hotel UMN Facility';
+        $data['css'] = $this->load->view('include/css', NULL, TRUE);
+        $data['js'] = $this->load->view('include/js', NULL, TRUE);
+        $this->load->view('template/header', $data);
+        $this->load->view('pages/home_book');
+        $this->load->view('template/footer');
     }
 }

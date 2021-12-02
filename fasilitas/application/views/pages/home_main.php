@@ -11,7 +11,7 @@
                 </div>
                 <h3><a href="#" class="mt-2" style="color: #FFD14B;">What is Lorem Ipsum?</a></h3>
                 <p class="text-light">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-                <a href="#" class="btn btn-sm btn-danger float-right">Read more >></a>
+                <a href="<?= base_url('home/facilityDetail'); ?>" class="btn btn-sm btn-danger float-right">Read more >></a>
             </div>
         </div>
 
