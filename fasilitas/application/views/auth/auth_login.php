@@ -129,7 +129,7 @@
             $('#g-recaptcha-response').attr('required', true);
             // dibawah ini untu membuat sebuah attribute dari JSparsley validasi
             $('#g-recaptcha-response').attr('data-parsley-captcha-validation', true);
-            $('#g-recaptcha-response').attr('data-parsley-error-message', "Saya mengerti tapi, kamu harus tetap melakukan recaptcha");
+            $('#g-recaptcha-response').attr('data-parsley-error-message', "We know it, but we need you to confirm you are not a robot. Thanks.");
             $('#g-recaptcha-response').attr('data-parsley-errors-container', "#captchaerrors");
             $('#myform').parsley();
         };
