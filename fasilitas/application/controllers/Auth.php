@@ -51,7 +51,7 @@ class Auth extends CI_Controller
                     'Role' => $user['Role']
                 ];
                 $this->session->set_userdata($data);
-                redirect('home_user');
+                redirect('home');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">wrong email n password</div>');
                 redirect('auth/login');

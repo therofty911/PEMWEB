@@ -52,7 +52,7 @@
             <form method="post" action="<?= base_url('auth/login'); ?>">
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                     <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
 
                 </div>
