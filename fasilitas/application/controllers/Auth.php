@@ -36,6 +36,7 @@ class Auth extends CI_Controller
     private function _login()
     {
         $email = $this->input->post('email');
+        $lname = $this->input->post('lname');
         $password = $this->input->post('password');
         $user = $this->db->get_where('account', ['Email' => $email])->row_array();
         // $user = $this->db->get_where('account', array('status' => 'active', 'Email' => $email));
@@ -47,6 +48,7 @@ class Auth extends CI_Controller
         if ($user) {
             if (password_verify($password, $user['Password'])) {
                 $data = [
+                    'lname' => $user['Last_Name'],
                     'email' => $user['Email'],
                     'Role' => $user['Role']
                 ];

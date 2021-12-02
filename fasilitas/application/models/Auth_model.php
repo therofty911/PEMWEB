@@ -22,6 +22,7 @@ class Auth_model extends CI_model
         return $result;
     }
 
+
     // function get_dosen()
     // {
     //     $query = $this->db->query("SELECT * FROM dosen");
