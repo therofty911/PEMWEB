@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2021 at 07:10 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Generation Time: Dec 02, 2021 at 03:46 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `theroft1_uas`
+-- Database: `uas`
 --
 
 -- --------------------------------------------------------
@@ -42,7 +42,8 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`Account_ID`, `First_Name`, `Last_Name`, `Email`, `Password`, `Role`) VALUES
 (1, 'ca', 'ca', 'caca@umn.ac.id', '$2y$10$gmTe4cY25QJ5JK0Soo/X2OT4fH9kW3OBlV09Ot3U5QMAc80gS7fcW', 'user'),
-(5, 'rul', 'rek', 'rulrek@gmail.com', '$2y$10$SpjNOrCGsn0WhNV1Lk1qGOm6t8eumCheo/kb/KZOdZxkCnVevbeIG', 'admin\r\n');
+(5, 'rul', 'rek', 'rulrek@gmail.com', '$2y$10$SpjNOrCGsn0WhNV1Lk1qGOm6t8eumCheo/kb/KZOdZxkCnVevbeIG', 'admin\r\n'),
+(6, 'George', 'Marcellino Jo', 'georgemarcellin00@gmail.com', '$2y$10$xZslrBrMSE6ZSqS0rBt8S.4753FouOAeXnz1tU5D.YlSRo7eHXkPi', 'user');
 
 -- --------------------------------------------------------
 
@@ -83,7 +84,7 @@ CREATE TABLE `facility_listing` (
 
 CREATE TABLE `request_listing` (
   `Request_ID` int(11) NOT NULL,
-  `Requester` varchar(255) NOT NULL,
+  `Status` varchar(255) NOT NULL,
   `Requested_Facility` varchar(255) NOT NULL,
   `Date` date NOT NULL,
   `Start_Time` time NOT NULL,
@@ -133,7 +134,7 @@ ALTER TABLE `request_listing`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `Account_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Account_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `booking_listing`
