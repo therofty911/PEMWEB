@@ -49,7 +49,7 @@
         <hr style="width:50%; margin-left:25% !important; margin-right:25% !important;" />
         <div class="card-body">
             <?= $this->session->flashdata('message'); ?>
-            <form method="post" action="<?= base_url('auth/login'); ?>">
+            <form method="post" action="<?= base_url('auth/login'); ?>" id="myform">
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Email">
@@ -139,8 +139,7 @@
         #g-recaptcha-response saat mengklik login button*/
 
         window.Parsley.addValidator('captchaValidation', {
-
-            validateString: function(value) {
+             validateString :function(value) {
                 if (debug) console.log("Validating captcha", value);
                 if (value.length > 0) {
                     return true;

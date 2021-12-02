@@ -8,5 +8,7 @@
 <script src="<?php echo base_url('assets/firefly/jquery.firefly-0.7.js'); ?>"></script>
 
 <!-- recaptcha -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.8.2/parsley.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/arrive/2.4.1/arrive.min.js"></script>
 <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
