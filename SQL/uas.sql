@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2021 at 03:46 PM
+-- Generation Time: Dec 02, 2021 at 03:48 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -48,24 +48,6 @@ INSERT INTO `account` (`Account_ID`, `First_Name`, `Last_Name`, `Email`, `Passwo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `booking_listing`
---
-
-CREATE TABLE `booking_listing` (
-  `Booking_ID` int(11) NOT NULL,
-  `Requester` varchar(255) NOT NULL,
-  `Requested_Facility` varchar(255) NOT NULL,
-  `Date` date NOT NULL,
-  `Start_Time` time NOT NULL,
-  `End_Time` time NOT NULL,
-  `Facility_ID` int(11) NOT NULL,
-  `Account_ID` int(11) NOT NULL,
-  `Request_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `facility_listing`
 --
 
@@ -104,15 +86,6 @@ ALTER TABLE `account`
   ADD PRIMARY KEY (`Account_ID`);
 
 --
--- Indexes for table `booking_listing`
---
-ALTER TABLE `booking_listing`
-  ADD PRIMARY KEY (`Booking_ID`),
-  ADD KEY `Account_ID` (`Account_ID`),
-  ADD KEY `Facility_ID` (`Facility_ID`),
-  ADD KEY `Request_ID` (`Request_ID`);
-
---
 -- Indexes for table `facility_listing`
 --
 ALTER TABLE `facility_listing`
@@ -137,12 +110,6 @@ ALTER TABLE `account`
   MODIFY `Account_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `booking_listing`
---
-ALTER TABLE `booking_listing`
-  MODIFY `Booking_ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `facility_listing`
 --
 ALTER TABLE `facility_listing`
@@ -157,14 +124,6 @@ ALTER TABLE `request_listing`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `booking_listing`
---
-ALTER TABLE `booking_listing`
-  ADD CONSTRAINT `booking_listing_ibfk_1` FOREIGN KEY (`Account_ID`) REFERENCES `account` (`Account_ID`),
-  ADD CONSTRAINT `booking_listing_ibfk_2` FOREIGN KEY (`Facility_ID`) REFERENCES `facility_listing` (`Facility_ID`),
-  ADD CONSTRAINT `booking_listing_ibfk_3` FOREIGN KEY (`Request_ID`) REFERENCES `request_listing` (`Request_ID`);
 
 --
 -- Constraints for table `request_listing`
