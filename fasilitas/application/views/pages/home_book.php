@@ -6,23 +6,23 @@
         <div class="col-md-6 col-lg-6  position-absolute top-50 start-50 translate-middle card-box">
             <form class="row g-3" method="post" action="<?= base_url('auth/registration'); ?>">
                 <div class="col-md-12">
-                    <label for="lname" class="form-label text-light">Facility ID</label>
-                    <input type="text" class="form-control" id="lname" name="lname" value="<?= set_value('lname'); ?>">
+                    <label for="id" class="form-label text-light">Facility ID</label>
+                    <input type="text" class="form-control" id="id" name="id" value="<?= set_value('lname'); ?>">
                     <?= form_error('lname', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="col-md-12">
-                    <label for="lname" class="form-label text-light">Reservation Date</label>
-                    <input type="date" class="form-control" id="lname" name="lname" value="<?= set_value('lname'); ?>">
+                    <label for="reservasi" class="form-label text-light">Reservation Date</label>
+                    <input type="date" class="form-control" id="reservasi" name="reservasi" value="<?= set_value('reservasi'); ?>">
                     <?= form_error('lname', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="col-md-12">
-                    <label for="email" class="form-label text-light">Start Time</label>
-                    <input type="time" class="form-control" id="email" name="email" value="<?= set_value('email'); ?>">
+                    <label for="stime" class="form-label text-light">Start Time</label>
+                    <input type="time" class="form-control" id="stime" name="stime" value="<?= set_value('email'); ?>">
                     <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="col-md-12">
-                    <label for="email" class="form-label text-light">End Time</label>
-                    <input type="time" class="form-control" id="email" name="email" value="<?= set_value('email'); ?>">
+                    <label for="etime" class="form-label text-light">End Time</label>
+                    <input type="time" class="form-control" id="etime" name="etime" value="<?= set_value('email'); ?>">
                     <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="form-group text-right">

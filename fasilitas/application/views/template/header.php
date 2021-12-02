@@ -108,23 +108,23 @@ if (!isset($_SESSION['email'])) {
                         <?php if ($_SESSION['role'] == "admin") { //buat role admin
                         ?>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#" style="color: #BAA360;">Users</a>
+                                <a class="nav-link active" aria-current="page" href="<?= base_url('home/userlist'); ?>" style="color: #BAA360;">Users</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" style="color: #BAA360;">Facilities</a>
+                                <a class="nav-link" href="<?= base_url('home/facilityDash'); ?>" style="color: #BAA360;">Facilities</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" style="color: #BAA360;">Request</a>
+                                <a class="nav-link" href="<?= base_url('home/reqUser'); ?>" style="color: #BAA360;">Request</a>
                             </li>
                         <?php } ?>
 
                         <?php if ($_SESSION['role'] == "user") { //buat role user
                         ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" style="color: #BAA360;">Facilities</a>
+                                <a class="nav-link" href="<?= base_url('home/facilityDash'); ?>" style="color: #BAA360;">Facilities</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" style="color: #BAA360;">Request</a>
+                                <a class="nav-link" href="<?= base_url('home/reqUser'); ?>" style="color: #BAA360;">Request</a>
                             </li>
                         <?php } ?>
 

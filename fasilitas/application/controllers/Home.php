@@ -64,6 +64,8 @@ class Home extends CI_Controller
         $this->load->view('template/footer');
     }
 
+
+    // ADMIN PAGE FUNCTION
     public function facilityDash()
     {
         $data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();
@@ -74,6 +76,45 @@ class Home extends CI_Controller
         $data['js'] = $this->load->view('include/js', NULL, TRUE);
         $this->load->view('template/header', $data);
         $this->load->view('pages/home_facilityDash');
+        $this->load->view('template/footer');
+    }
+
+    public function userlist()
+    {
+        $data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();
+        // echo "sudah masuk kah? " . $data['user']['Email'];
+
+        $data['title'] = 'Hotel UMN Facility';
+        $data['css'] = $this->load->view('include/css', NULL, TRUE);
+        $data['js'] = $this->load->view('include/js', NULL, TRUE);
+        $this->load->view('template/header', $data);
+        $this->load->view('pages/home_userList');
+        $this->load->view('template/footer');
+    }
+
+    public function reqUser()
+    {
+        $data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();
+        // echo "sudah masuk kah? " . $data['user']['Email'];
+
+        $data['title'] = 'Hotel UMN Facility';
+        $data['css'] = $this->load->view('include/css', NULL, TRUE);
+        $data['js'] = $this->load->view('include/js', NULL, TRUE);
+        $this->load->view('template/header', $data);
+        $this->load->view('pages/home_req');
+        $this->load->view('template/footer');
+    }
+
+    public function addFacilities()
+    {
+        $data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();
+        // echo "sudah masuk kah? " . $data['user']['Email'];
+
+        $data['title'] = 'Hotel UMN Facility';
+        $data['css'] = $this->load->view('include/css', NULL, TRUE);
+        $data['js'] = $this->load->view('include/js', NULL, TRUE);
+        $this->load->view('template/header', $data);
+        $this->load->view('pages/home_add');
         $this->load->view('template/footer');
     }
 }
