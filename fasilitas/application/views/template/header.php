@@ -136,7 +136,7 @@ if (!isset($_SESSION['email'])) {
                     </ul>
                     <div class="d-flex">
                         <li class="nav-item">
-                            <a class="nav-link" href="#" style="color: #BAA360;">Hello, <?php echo $user["First_Name"]; ?></a>
+                            <a class="nav-link" href="#" style="color: #BAA360;">Hello, <?php echo $_SESSION["fname"]; ?></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= base_url('auth/logout'); ?>" style=" color: #BAA360;">Logout</a>
