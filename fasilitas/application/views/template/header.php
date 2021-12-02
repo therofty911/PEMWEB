@@ -138,10 +138,16 @@ if (!isset($_SESSION['email'])) {
                             </li>
                         <?php } ?>
                     </ul>
-                    <form class="d-flex">
-                        <button class="btn disabled"><a class="nav-link right" href="#" style="color: #BAA360;">Hello, <?php echo $_SESSION["fname"]; ?></a></button>
-                        <button class="btn" type="button"><a class="nav-link right" href="<?= base_url('auth/logout'); ?>" style=" color: #BAA360;">Logout</a></button>
-                    </form>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style="color: #BAA360;Cursor:text;">Hello, <?php echo $_SESSION["fname"]; ?></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= base_url('auth/logout'); ?>" style=" color: #BAA360;">Logout</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
