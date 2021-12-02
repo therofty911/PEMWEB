@@ -55,11 +55,11 @@ class Auth extends CI_Controller
                 $this->session->set_userdata($data);
                 redirect('home');
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">wrong email n password</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">wrong email or password</div>');
                 redirect('auth/login');
             }
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">wrong email n password</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">wrong email or password</div>');
             redirect('auth/login');
         }
     }
