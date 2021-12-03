@@ -25,7 +25,7 @@ class Home extends CI_Controller
         // $this->load->view('pages/home_facilityDash');
         // $this->load->view('template/footer');
         // } else {
-        $data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();
+        $data['data'] = $this->Auth_model->get_facility();
         // echo "sudah masuk kah? " . $data['user']['Email'];
 
         $data['title'] = 'Hotel UMN Facility';

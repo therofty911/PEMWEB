@@ -16,7 +16,7 @@ class Add extends CI_Controller
 
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
         $this->form_validation->set_rules('img', 'Image', 'callback_validate_image');
-        $this->form_validation->set_rules('detail', 'Detail', 'required|trim');
+        $this->form_validation->set_rules('detail', 'Detail', 'required');
 
         if ($this->form_validation->run() == false) {
             // $data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();

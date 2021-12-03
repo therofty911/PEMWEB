@@ -25,20 +25,6 @@
     }
 </script>
 
-<script>
-    $(document).ready(function() {
-
-        $('#example').DataTable();
-    });
-</script>
-
-<script>
-    $('#example').DataTable({
-        responsive = true,
-        scrollX = false,
-        fixedHeader = true
-    });
-</script>
 
 </body>
 

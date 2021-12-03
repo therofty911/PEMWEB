@@ -56,7 +56,11 @@ class Auth extends CI_Controller
                     'role' => $user->Role
                 );
                 $this->session->set_userdata($data);
-                redirect('home');
+                if ($user->Role == 'admin' || $user->Role == 'management') {
+                    redirect('home/facilityDash');
+                } else {
+                    redirect('home');
+                }
             } else {
                 $this->session->set_flashdata('message_login', '<div class="alert alert-danger" role="alert">wrong email n password</div>');
                 redirect('auth/login');
