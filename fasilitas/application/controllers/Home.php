@@ -38,11 +38,11 @@ class Home extends CI_Controller
     }
 
 
-    public function facilityDetail()
+    public function facilityDetail($id)
     {
-        $data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();
+        //$data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();
         // echo "sudah masuk kah? " . $data['user']['Email'];
-
+        $data['data'] = $this->Auth_model->facility_detail($id);
         $data['title'] = 'Detail | Hotel UMN Facility';
         $data['css'] = $this->load->view('include/css', NULL, TRUE);
         $data['js'] = $this->load->view('include/js', NULL, TRUE);

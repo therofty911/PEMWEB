@@ -28,8 +28,14 @@ class Auth_model extends CI_model
     function get_facility() //buat table facility, nantinya pake session buat yg ditampilinnya dari controller
     {
         $query = $this->db->query("SELECT * FROM facility_listing");
-
         return $query->result_array();
+    }
+
+    function facility_detail($id)
+    {
+        $this->db->where('Facility_ID', $id);
+        $result = $this->db->get('facility_listing');
+        return $result->row();
     }
 
     function updateReq($data)
