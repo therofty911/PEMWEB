@@ -69,7 +69,7 @@ class Home extends CI_Controller
     public function facilityDash()
     {
         $data['data'] = $this->Auth_model->get_facility();
-        $data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();
+        //$data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('fname')])->row_array();
         // echo "sudah masuk kah? " . $data['user']['Email'];
 
         $data['title'] = 'Hotel UMN Facility';
@@ -82,9 +82,10 @@ class Home extends CI_Controller
 
     public function userlist()
     {
-        $data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();
+        //$data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('fname')])->row_array();
         // echo "sudah masuk kah? " . $data['user']['Email'];
 
+        $data['data'] = $this->Auth_model->get_user();
         $data['title'] = 'Hotel UMN Facility';
         $data['css'] = $this->load->view('include/css', NULL, TRUE);
         $data['js'] = $this->load->view('include/js', NULL, TRUE);
@@ -95,7 +96,7 @@ class Home extends CI_Controller
 
     public function reqUser()
     {
-        $data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();
+        //$data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('fname')])->row_array();
         // echo "sudah masuk kah? " . $data['user']['Email'];
 
         $data['title'] = 'Hotel UMN Facility';
@@ -115,11 +116,11 @@ class Home extends CI_Controller
         $result = $this->Auth_model->updateReq($data);
         if($result){
             //kasi massege kalo berhasil
-            redirect('reqUser');
+            redirect('home/reqUser');
         }
         else{
             //kasi massege kalo gagal
-            redirect('reqUser');
+            redirect('home/reqUser');
         }
     }
 
@@ -132,11 +133,20 @@ class Home extends CI_Controller
         $result = $this->Auth_model->updateReq($data);
         if($result){
             //kasi massege kalo berhasil
-            redirect('reqUser');
+            redirect('home/reqUser');
         }
         else{
             //kasi massege kalo gagal
-            redirect('reqUser');
+            redirect('home/reqUser');
+        }
+    }
+
+    public function deleteUser($id)
+    {
+        $result = $this->Auth_model->delete_user($id);
+        if($result){
+            //kasi massege kalo berhasil
+            redirect('home/userlist');
         }
     }
 

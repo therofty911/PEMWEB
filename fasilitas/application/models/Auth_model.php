@@ -40,10 +40,12 @@ class Auth_model extends CI_model
         return true;
     }
 
-    
 
     function get_user() //buat table user nanti di admin
     {
+        $result = $this->db->get('account');
+        $result = $result->result();
+        return $result;
     }
 
     function new_facility($values)
@@ -63,8 +65,12 @@ class Auth_model extends CI_model
     {
     }
 
-    function delete_user()
+    function delete_user($id)
     {
+        $this->db->where('Account_ID', $id);
+        $this->db->delete('account');
+
+        return true;
     }
 
 
