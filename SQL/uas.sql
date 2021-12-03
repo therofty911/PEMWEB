@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2021 at 03:48 PM
+-- Generation Time: Dec 03, 2021 at 07:53 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -41,9 +41,10 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`Account_ID`, `First_Name`, `Last_Name`, `Email`, `Password`, `Role`) VALUES
-(1, 'ca', 'ca', 'caca@umn.ac.id', '$2y$10$gmTe4cY25QJ5JK0Soo/X2OT4fH9kW3OBlV09Ot3U5QMAc80gS7fcW', 'user'),
-(5, 'rul', 'rek', 'rulrek@gmail.com', '$2y$10$SpjNOrCGsn0WhNV1Lk1qGOm6t8eumCheo/kb/KZOdZxkCnVevbeIG', 'admin\r\n'),
-(6, 'George', 'Marcellino Jo', 'georgemarcellin00@gmail.com', '$2y$10$xZslrBrMSE6ZSqS0rBt8S.4753FouOAeXnz1tU5D.YlSRo7eHXkPi', 'user');
+(1, 'Admin', 'Luffy', 'admin@umn.ac.id', '$2y$10$Jrmf0BQeskfdxRuYxAiwWOsDjGUPCtFJY3VcHr5.ZuU6dQUcES14m', 'admin'),
+(2, 'Management', 'Core', 'management@umn.ac.id', '$2y$10$4mnnTy21dUgCl2X2ZUGoM.fINRbHvJ4GEqHEdAFfoFnNgXwCbqSH.', 'management'),
+(3, 'Caca', 'Opium', 'caca@umn.ac.id', '$2y$10$9KaJ3.4kdubyr9/kBPXkx.52Vb3l6mdwwbgKb6vLXL/To2B0u1Wwm', 'user'),
+(4, 'George', 'Marcellino Jo', 'georgemarcellin00@gmail.com', '$2y$10$lrZHLOwNK1PnxOWXf0udyOtQxTpMluz2ey1qUIVVgkjLas0FP8xYK', 'user');
 
 -- --------------------------------------------------------
 
@@ -58,6 +59,14 @@ CREATE TABLE `facility_listing` (
   `Detail` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `facility_listing`
+--
+
+INSERT INTO `facility_listing` (`Facility_ID`, `Name`, `Image`, `Detail`) VALUES
+(1, 'hotel mantap', 'assets/poster/room22.jpg', 'Ruangan ini memiliki sebuah kursi dan juga meja yang menggunakan dari baja, kemudian untuk gelas nya sendiri terbuat dari plastik GG'),
+(2, 'meeting room', 'assets/poster/meeting-room1.jpg', 'meeting room memiliki dinding yang berlapis plastik, kemudian lantai nya menggunakan semen 3 roda GG');
+
 -- --------------------------------------------------------
 
 --
@@ -67,13 +76,19 @@ CREATE TABLE `facility_listing` (
 CREATE TABLE `request_listing` (
   `Request_ID` int(11) NOT NULL,
   `Status` varchar(255) NOT NULL,
-  `Requested_Facility` varchar(255) NOT NULL,
   `Date` date NOT NULL,
   `Start_Time` time NOT NULL,
   `End_Time` time NOT NULL,
   `Facility_ID` int(11) NOT NULL,
   `Account_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `request_listing`
+--
+
+INSERT INTO `request_listing` (`Request_ID`, `Status`, `Date`, `Start_Time`, `End_Time`, `Facility_ID`, `Account_ID`) VALUES
+(1, 'Pending', '2021-12-04', '01:03:00', '01:07:00', 2, 4);
 
 --
 -- Indexes for dumped tables
@@ -96,6 +111,8 @@ ALTER TABLE `facility_listing`
 --
 ALTER TABLE `request_listing`
   ADD PRIMARY KEY (`Request_ID`),
+  ADD UNIQUE KEY `Facility_ID_2` (`Facility_ID`),
+  ADD UNIQUE KEY `Account_ID_2` (`Account_ID`),
   ADD KEY `Facility_ID` (`Facility_ID`),
   ADD KEY `Account_ID` (`Account_ID`);
 
@@ -107,19 +124,19 @@ ALTER TABLE `request_listing`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `Account_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Account_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `facility_listing`
 --
 ALTER TABLE `facility_listing`
-  MODIFY `Facility_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Facility_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `request_listing`
 --
 ALTER TABLE `request_listing`
-  MODIFY `Request_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Request_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
