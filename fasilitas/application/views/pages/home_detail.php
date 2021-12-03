@@ -5,9 +5,9 @@
         </div>
         <div class="col-md-12 col-lg-12">
             <!-- Bootstrap 5 card box -->
-            <div class="card-box">
+            <div class="card-box text-center">
                 <div class="card-thumbnail">
-                    <img src="<?php echo  base_url() . $data->Image?>" class="img-fluid" alt="">
+                    <img src="<?php echo  base_url() . $data->Image ?>" class="img-fluid" alt="">
                 </div>
                 <h3><a href="#" class="mt-2" style="color: #FFD14B;"><?php echo $data->Name ?></a></h3>
                 <p class="text-light"><?php echo $data->Detail ?></p>
