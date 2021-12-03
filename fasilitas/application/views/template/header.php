@@ -95,7 +95,7 @@ if (!isset($_SESSION['email'])) {
     <body>
         <div id="firefly"></div>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="background-color: #0D1A44 !important;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark navbar-fixed-top" style="background-color: #0D1A44 !important;">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#"><img src="https://cdn.discordapp.com/attachments/692662918562578513/915571133854658581/rem.png" alt="" class="logo-img"></a>
                 <button class="navbar-toggler mr-auto custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

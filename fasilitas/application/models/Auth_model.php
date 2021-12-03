@@ -16,45 +16,45 @@ class Auth_model extends CI_model
 
     function get_email($email) //function login
     {
-        $email = $this->db->escape($email);
+        // $email = $this->db->escape($email);
+        // $this->db->where('Email', $email);
+        // $result = $this->db->get('account')->row();
+        // return $result;
         $this->db->where('Email', $email);
         $result = $this->db->get('account')->row();
         return $result;
     }
 
-    function get_facility()//buat table facility, nantinya pake session buat yg ditampilinnya dari controller
+    function get_facility() //buat table facility, nantinya pake session buat yg ditampilinnya dari controller
     {
+        $query = $this->db->query("SELECT * FROM facility_listing");
 
+        return $query->result_array();
     }
 
-    function get_user()//buat table user nanti di admin
+    function get_user() //buat table user nanti di admin
     {
-
     }
 
-    function new_facility()
+    function new_facility($values)
     {
-
+        $this->db->insert('facility_listing', $values);
     }
 
     function update_facility()
     {
-
     }
 
     function delete_facility()
     {
-
     }
 
     function edit_users()
     {
-
     }
 
     function delete_user()
     {
-        
     }
 
 

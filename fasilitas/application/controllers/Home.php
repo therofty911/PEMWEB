@@ -68,6 +68,7 @@ class Home extends CI_Controller
     // ADMIN PAGE FUNCTION
     public function facilityDash()
     {
+        $data['data'] = $this->Auth_model->get_facility();
         $data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();
         // echo "sudah masuk kah? " . $data['user']['Email'];
 
@@ -105,16 +106,5 @@ class Home extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    public function addFacilities()
-    {
-        $data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();
-        // echo "sudah masuk kah? " . $data['user']['Email'];
-
-        $data['title'] = 'Hotel UMN Facility';
-        $data['css'] = $this->load->view('include/css', NULL, TRUE);
-        $data['js'] = $this->load->view('include/js', NULL, TRUE);
-        $this->load->view('template/header', $data);
-        $this->load->view('pages/home_add');
-        $this->load->view('template/footer');
-    }
+    // add facilities berada di controller Add.php
 }

@@ -36,30 +36,33 @@ class Auth extends CI_Controller
     private function _login()
     {
         $email = $this->input->post('email');
-        $lname = $this->input->post('lname');
         $password = $this->input->post('password');
-        $user = $this->db->get_where('account', ['Email' => $email])->row_array();
-        // $user = $this->db->get_where('account', array('status' => 'active', 'Email' => $email));
-        // $user = $this->Auth_model->get_email($email);
+        // $user = $this->db->get_where('account', ['Email' => $email])->row_array();
+        $user = $this->Auth_model->get_email($email, $password);
 
         // var_dump($user);
         // die;
 
         if ($user) {
-            if (password_verify($password, $user['Password'])) {
-                $data = [
-                    'fname' => $user['First_Name'],
-                    'email' => $user['Email'],
-                    'role' => $user['Role']
-                ];
+            if (password_verify($password, $user->Password)) {
+                // $data = [
+                //     'username' => $user['username'],
+                //     'role_id' => $user['role_id']
+                // ];
+                // $this->session->set_userdata($data);
+                $data = array(
+                    'email' => $user->Email,
+                    'fname' => $user->First_Name,
+                    'role' => $user->Role
+                );
                 $this->session->set_userdata($data);
                 redirect('home');
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">wrong email or password</div>');
+                $this->session->set_flashdata('message_login', '<div class="alert alert-danger" role="alert">wrong email n password</div>');
                 redirect('auth/login');
             }
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">wrong email or password</div>');
+            $this->session->set_flashdata('message_login', '<div class="alert alert-danger" role="alert">wrong email n password</div>');
             redirect('auth/login');
         }
     }

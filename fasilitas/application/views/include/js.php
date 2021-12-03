@@ -12,3 +12,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/arrive/2.4.1/arrive.min.js"></script>
 <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
+
+<!-- data table -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
