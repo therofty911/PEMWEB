@@ -46,7 +46,26 @@ class Auth_model extends CI_model
         return true;
     }
 
+    function book($data)
+    {
+        $this->db->select('*');
+        $this->db->from('request_listing');
+        $this->db->join('account', 'account.Account_ID = request_listing.Account_ID');
+        $this->db->join('facility_listing', 'facility_listing.Facility_ID = request_listing.Facility_ID');
+        $this->db->insert('request_listing',$data);
+        
+    }
 
+    function get_req()
+    {
+        $query = $this -> db-> select('*') 
+                            -> from('request_listing') 
+                            -> join('account', 'account.Account_ID = request_listing.Account_ID') 
+                            -> join('facility_listing', 'facility_listing.Facility_ID = request_listing.Facility_ID')
+                            -> get();
+        $query = $query->result();
+        return $query;                                                                                                  
+    }
     function get_user() //buat table user nanti di admin
     {
         $result = $this->db->get('account');

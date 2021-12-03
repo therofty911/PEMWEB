@@ -53,7 +53,8 @@ class Auth extends CI_Controller
                 $data = array(
                     'email' => $user->Email,
                     'fname' => $user->First_Name,
-                    'role' => $user->Role
+                    'role' => $user->Role,
+                    'id' => $user->Account_ID
                 );
                 $this->session->set_userdata($data);
                 if ($user->Role == 'admin' || $user->Role == 'management') {

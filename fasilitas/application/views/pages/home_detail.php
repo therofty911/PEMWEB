@@ -1,3 +1,4 @@
+
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -13,7 +14,7 @@
                 <p class="text-light"><?php echo $data->Detail ?></p>
                 <div class="text-center">
                     <a href="<?= base_url('home'); ?>" class="btn btn-sm btn-danger float-right mx-2">Back to list</a>
-                    <a href="<?= base_url('home/book'); ?>" class="btn btn-sm btn-danger float-right mx-2">Book</a>
+                    <a href="<?= base_url("home/book/$data->Facility_ID"); ?>" class="btn btn-sm btn-danger float-right mx-2">Book</a>
                 </div>
             </div>
         </div>

@@ -24,12 +24,13 @@
                     </thead>
                     <tbody>
                         <tr class="text-center">
+                            <?php foreach($data as $req) {?>
                             <th scope="row">1</th>
-                            <td>Kijang juana</td>
-                            <td>Aula Hotel</td>
-                            <td>2021/25/25</td>
-                            <td>25:00</td>
-                            <td>45:00</td>
+                            <td><?php echo $req->First_Name ?></td>
+                            <td><?php echo $req->Name ?></td>
+                            <td><?php echo $req->Date ?></td>
+                            <td><?php echo $req->Start_Time ?></td>
+                            <td><?php echo $req->End_Time ?></td>
                             <td>
                                 <?php if($_SESSION['role'] == "management"){?>
                                 <a href="<?= base_url("home/accReq"); ?>" class="btn btn-sm btn-success">Approve</a>
@@ -41,9 +42,10 @@
                                 <?php }?>
 
                                 <?php if($_SESSION['role'] == "user"){?>
-                                Nunggu status hubungan kita
+                                    <?php echo $req->Status ?>
                                 <?php }?>
                             </td>
+                            <?php } ?>
                         </tr>
                     </tbody>
                 </table>

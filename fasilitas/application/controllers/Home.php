@@ -51,17 +51,36 @@ class Home extends CI_Controller
         $this->load->view('template/footer');
     }
 
-    public function book()
+    public function book($id)
     {
-        $data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();
+        //$data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('lname')])->row_array();
         // echo "sudah masuk kah? " . $data['user']['Email'];
-
-        $data['title'] = 'Book | Hotel UMN Facility';
-        $data['css'] = $this->load->view('include/css', NULL, TRUE);
-        $data['js'] = $this->load->view('include/js', NULL, TRUE);
-        $this->load->view('template/header', $data);
-        $this->load->view('pages/home_book');
-        $this->load->view('template/footer');
+        $this->form_validation->set_rules('reservasi', 'Date', 'required');
+        $this->form_validation->set_rules('stime', 'Start_Time', 'required');
+        $this->form_validation->set_rules('etime', 'End_Time', 'required');
+        if($this->form_validation->run() == false){
+            $data['data'] = $this->Auth_model->facility_detail($id);
+            $data['title'] = 'Book | Hotel UMN Facility';
+            $data['css'] = $this->load->view('include/css', NULL, TRUE);
+            $data['js'] = $this->load->view('include/js', NULL, TRUE);
+            $this->load->view('template/header', $data);
+            $this->load->view('pages/home_book');
+            $this->load->view('template/footer');
+        }
+        else{
+            $data = [
+                'Facility_ID' => $id,
+                'Date' => htmlspecialchars($this->input->post('reservasi', true)),
+                'Start_Time' => htmlspecialchars($this->input->post('stime', true)),
+                'End_Time' => htmlspecialchars($this->input->post('etime',true)),
+                'Status' => "Pending",
+                'Account_ID' => $_SESSION['id']
+            ];
+            
+            //$this->db->insert('request_listing',$data);
+            $this->Auth_model->book($data);
+            redirect('home/reqUser');
+        }
     }
 
 
@@ -98,7 +117,7 @@ class Home extends CI_Controller
     {
         //$data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('fname')])->row_array();
         // echo "sudah masuk kah? " . $data['user']['Email'];
-
+        $data['data'] = $this->Auth_model->get_req();
         $data['title'] = 'Hotel UMN Facility';
         $data['css'] = $this->load->view('include/css', NULL, TRUE);
         $data['js'] = $this->load->view('include/js', NULL, TRUE);
