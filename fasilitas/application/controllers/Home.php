@@ -58,7 +58,7 @@ class Home extends CI_Controller
         $this->form_validation->set_rules('reservasi', 'Date', 'required');
         $this->form_validation->set_rules('stime', 'Start_Time', 'required');
         $this->form_validation->set_rules('etime', 'End_Time', 'required');
-        if($this->form_validation->run() == false){
+        if ($this->form_validation->run() == false) {
             $data['data'] = $this->Auth_model->facility_detail($id);
             $data['title'] = 'Book | Hotel UMN Facility';
             $data['css'] = $this->load->view('include/css', NULL, TRUE);
@@ -66,17 +66,16 @@ class Home extends CI_Controller
             $this->load->view('template/header', $data);
             $this->load->view('pages/home_book');
             $this->load->view('template/footer');
-        }
-        else{
+        } else {
             $data = [
                 'Facility_ID' => $id,
                 'Date' => htmlspecialchars($this->input->post('reservasi', true)),
                 'Start_Time' => htmlspecialchars($this->input->post('stime', true)),
-                'End_Time' => htmlspecialchars($this->input->post('etime',true)),
+                'End_Time' => htmlspecialchars($this->input->post('etime', true)),
                 'Status' => "Pending",
                 'Account_ID' => $_SESSION['id']
             ];
-            
+
             //$this->db->insert('request_listing',$data);
             $this->Auth_model->book($data);
             redirect('home/reqUser');
@@ -133,28 +132,26 @@ class Home extends CI_Controller
             'status' => "Accepted"
         );
         $result = $this->Auth_model->updateReq($data);
-        if($result){
+        if ($result) {
             //kasi massege kalo berhasil
             redirect('home/reqUser');
-        }
-        else{
+        } else {
             //kasi massege kalo gagal
             redirect('home/reqUser');
         }
     }
 
-    public function decReq()
+    public function decReq($id)
     {
         $data = array(
             'id' => $id,
             'status' => "Declined"
         );
         $result = $this->Auth_model->updateReq($data);
-        if($result){
+        if ($result) {
             //kasi massege kalo berhasil
             redirect('home/reqUser');
-        }
-        else{
+        } else {
             //kasi massege kalo gagal
             redirect('home/reqUser');
         }
@@ -163,7 +160,7 @@ class Home extends CI_Controller
     public function deleteUser($id)
     {
         $result = $this->Auth_model->delete_user($id);
-        if($result){
+        if ($result) {
             //kasi massege kalo berhasil
             redirect('home/userlist');
         }
