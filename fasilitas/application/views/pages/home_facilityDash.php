@@ -16,9 +16,9 @@
                 </tr>
             </thead>
             <tbody>
+                <?php $i = 1; ?>
                 <?php
                 foreach ($data as $row) {
-                    $i = 1;
                     $id = $row['Facility_ID'];
                     $foto = $row['Image'];
                     $nama = $row['Name'];
@@ -29,8 +29,11 @@
                     echo "<td class='text-center'>" . $nama . "</td>";
                     echo "<td class='text-center'><a href='" . base_url("home/$id") . "' class='btn btn-sm btn-success mx-2'>Edit</a><a href='" . base_url("home/$id") . "' class='btn btn-sm btn-danger my-2'>Delete</a>";
                     echo "</tr>";
+                    $i++;
                 }
+
                 ?>
+                <?php $i++; ?>
             </tbody>
         </table>
     </div>
