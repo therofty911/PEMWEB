@@ -14,7 +14,12 @@
                             <th scope="col">Date</th>
                             <th scope="col">Start Time</th>
                             <th scope="col">End Time</th>
+                            <?php if($_SESSION['role'] == "management" || $_SESSION['role'] == "admin"){?>
                             <th scope="col">Operation</th>
+                            <?php }?>
+                            <?php if($_SESSION['role'] == "user"){?>
+                            <th scope="col">Status</th>
+                            <?php }?>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,8 +31,18 @@
                             <td>25:00</td>
                             <td>45:00</td>
                             <td>
-                                <a href="<?= base_url('home/reqUser'); ?>" class="btn btn-sm btn-success">Approve</a>
-                                <a href="<?= base_url('home/reqUser'); ?>" class="btn btn-sm btn-danger my-2">Delete</a>
+                                <?php if($_SESSION['role'] == "management"){?>
+                                <a href="<?= base_url("home/accReq"); ?>" class="btn btn-sm btn-success">Approve</a>
+                                <a href="<?= base_url("home/decReq"); ?>" class="btn btn-sm btn-danger my-2">Delete</a>
+                                <?php }?>
+
+                                <?php if($_SESSION['role'] == "admin"){?>
+                                <a href="<?= base_url("home/decReq"); ?>" class="btn btn-sm btn-danger my-2">Delete</a>
+                                <?php }?>
+
+                                <?php if($_SESSION['role'] == "user"){?>
+                                Nunggu status hubungan kita
+                                <?php }?>
                             </td>
                         </tr>
                     </tbody>

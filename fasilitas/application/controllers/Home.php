@@ -106,5 +106,39 @@ class Home extends CI_Controller
         $this->load->view('template/footer');
     }
 
+    public function accReq($id)
+    {
+        $data = array(
+            'id' => $id,
+            'status' => "Accepted"
+        );
+        $result = $this->Auth_model->updateReq($data);
+        if($result){
+            //kasi massege kalo berhasil
+            redirect('reqUser');
+        }
+        else{
+            //kasi massege kalo gagal
+            redirect('reqUser');
+        }
+    }
+
+    public function decReq()
+    {
+        $data = array(
+            'id' => $id,
+            'status' => "Declined"
+        );
+        $result = $this->Auth_model->updateReq($data);
+        if($result){
+            //kasi massege kalo berhasil
+            redirect('reqUser');
+        }
+        else{
+            //kasi massege kalo gagal
+            redirect('reqUser');
+        }
+    }
+
     // add facilities berada di controller Add.php
 }

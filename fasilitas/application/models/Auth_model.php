@@ -32,6 +32,16 @@ class Auth_model extends CI_model
         return $query->result_array();
     }
 
+    function updateReq($data)
+    {
+        extract($data);
+        $this->db->where('Request_ID', $id);
+        $this->db->update('request_listing',array('Status' => $status));
+        return true;
+    }
+
+    
+
     function get_user() //buat table user nanti di admin
     {
     }
