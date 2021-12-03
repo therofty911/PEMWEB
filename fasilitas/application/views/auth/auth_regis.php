@@ -48,7 +48,7 @@
         </div>
         <hr style="width:50%; margin-left:25% !important; margin-right:25% !important;" />
         <div class="card-body">
-            <form class="row g-3" method="post" action="<?= base_url('auth/registration'); ?>">
+            <form class="row g-3" method="post" action="<?= base_url('auth/registration'); ?>" id="myform">
                 <div class="col-md-6">
                     <label for="fname" class="form-label">First Name</label>
                     <input type="text" class="form-control" id="fname" name="fname" value="<?= set_value('fname'); ?>">
