@@ -15,12 +15,12 @@
         if (getWidth() < 400) $.firefly({
             minPixel: 1,
             maxPixel: 5,
-            total: 20
+            total: 40
         });
         else $.firefly({
             minPixel: 1,
             maxPixel: 5,
-            total: 40
+            total: 70
         });
     }
 </script>

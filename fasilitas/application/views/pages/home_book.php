@@ -7,7 +7,7 @@
             <form class="row g-3" method="post" action="<?= base_url('auth/registration'); ?>">
                 <div class="col-md-12">
                     <label for="id" class="form-label text-light">Facility ID</label>
-                    <input type="text" class="form-control" id="id" name="id" value="<?= set_value('lname'); ?>">
+                    <input type="text" class="form-control" id="id" name="id" disabled>
                     <?= form_error('lname', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="col-md-12">
