@@ -61,7 +61,7 @@ class Auth_model extends CI_model
             ->from('request_listing')
             ->join('account', 'account.Account_ID = request_listing.Account_ID')
             ->join('facility_listing', 'facility_listing.Facility_ID = request_listing.Facility_ID')
-            ->where('Account_ID',$id)
+            ->where('request_listing.Account_ID',$id)
             ->get();
         $query = $query->result();
         return $query;
