@@ -55,16 +55,37 @@ class Auth_model extends CI_model
         $this->db->insert('request_listing', $data);
     }
 
-    function get_req()
+    function get_req($id)
     {
         $query = $this->db->select('*')
             ->from('request_listing')
             ->join('account', 'account.Account_ID = request_listing.Account_ID')
             ->join('facility_listing', 'facility_listing.Facility_ID = request_listing.Facility_ID')
+            ->where('Account_ID',$id)
             ->get();
         $query = $query->result();
         return $query;
     }
+
+    function get_req_admin()
+    {
+        $query = $this->db->select('*')
+            ->from('request_listing')
+            ->join('account', 'account.Account_ID = request_listing.Account_ID')
+            ->join('facility_listing', 'facility_listing.Facility_ID = request_listing.Facility_ID')
+            ->where('Status',"Pending")
+            ->get();
+        $query = $query->result();
+        return $query;
+    }
+
+    function delete_req($id)
+    {
+        $this->db->get_where('Request_ID', $id);
+        $this->db->delete('request_listing');
+        return true;
+    }
+
     function get_user() //buat table user nanti di admin
     {
         $result = $this->db->get('account');
@@ -111,7 +132,6 @@ class Auth_model extends CI_model
     {
         $this->db->get_where('Account_ID', $id);
         $this->db->delete('account');
-
         return true;
     }
 

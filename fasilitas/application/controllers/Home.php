@@ -119,13 +119,25 @@ class Home extends CI_Controller
     {
         //$data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('fname')])->row_array();
         // echo "sudah masuk kah? " . $data['user']['Email'];
-        $data['data'] = $this->Auth_model->get_req();
-        $data['title'] = 'Hotel UMN Facility';
-        $data['css'] = $this->load->view('include/css', NULL, TRUE);
-        $data['js'] = $this->load->view('include/js', NULL, TRUE);
-        $this->load->view('template/header', $data);
-        $this->load->view('pages/home_req');
-        $this->load->view('template/footer');
+        if($_SESSION['role'] == "management" || $_SESSION['role'] == "admin"){
+            $data['data'] = $this->Auth_model->get_req_admin();
+            $data['title'] = 'Hotel UMN Facility';
+            $data['css'] = $this->load->view('include/css', NULL, TRUE);
+            $data['js'] = $this->load->view('include/js', NULL, TRUE);
+            $this->load->view('template/header', $data);
+            $this->load->view('pages/home_req');
+            $this->load->view('template/footer');
+        }
+        else if($_SESSION['role'] == "user"){
+            $id = $_SESSION['id']; 
+            $data['data'] = $this->Auth_model->get_req($id);
+            $data['title'] = 'Hotel UMN Facility';
+            $data['css'] = $this->load->view('include/css', NULL, TRUE);
+            $data['js'] = $this->load->view('include/js', NULL, TRUE);
+            $this->load->view('template/header', $data);
+            $this->load->view('pages/home_req');
+            $this->load->view('template/footer');
+        }
     }
 
     public function accReq($id)
@@ -151,6 +163,18 @@ class Home extends CI_Controller
             'status' => "Declined"
         );
         $result = $this->Auth_model->updateReq($data);
+        if ($result) {
+            //kasi massege kalo berhasil
+            redirect('home/reqUser');
+        } else {
+            //kasi massege kalo gagal
+            redirect('home/reqUser');
+        }
+    }
+
+    public function deleteReq($id)
+    {    
+        $result = $this->Auth_model->updateReq($id);
         if ($result) {
             //kasi massege kalo berhasil
             redirect('home/reqUser');
