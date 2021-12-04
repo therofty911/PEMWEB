@@ -132,20 +132,20 @@ class Edit extends CI_Controller
     }
 
 
-    public function editUser($id = NULL)
+    public function editUser($id)
     {
-        $where = array('Account_ID' => $id);
+       
         if ($this->form_validation->run() == false) {
-            $data['data'] = $this->Auth_model->edit_user($where, 'account')->result();
+            $data['data'] = $this->Auth_model->user_detail($id);
             $data['title'] = 'Edit user | Hotel UMN Facility';
             $data['css'] = $this->load->view('include/css', NULL, TRUE);
             $data['js'] = $this->load->view('include/js', NULL, TRUE);
-            $data['account'] = $id;
+            $data['id'] = $id;
             $this->load->view('template/header', $data);
             $this->load->view('pages/edit_userList');
             $this->load->view('template/footer');
         } else {
-            $id = $this->input->post('Account_ID');
+        
             $values = array(
                 'Account_ID' => $this->input->post('accountid', TRUE),
                 'First_Name' => $this->input->post('fname', TRUE),

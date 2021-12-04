@@ -6,32 +6,32 @@
                     <h2 class="mt-4 mb-4" style="color: #BAA360;">Edit User</h2>
                 </div>
                 <div>
-                    <?php foreach ($data as $use) {
-                        // echo form_open_multipart('edit/editUser');
+                    <?php //foreach ($data as $use) {
+                        echo form_open_multipart("edit/editUser/$id");
                     ?>
                         <form class="row g-3 p-3" id="myform" method="post" action="<?= base_url('edit/editUser'); ?>">
                             <div class="col-md-12">
                                 <label for="accountid" class="form-label">Account ID</label>
-                                <input type="text" class="form-control" id="accountid" name="accountid" value="<?php echo $use->Account_ID; ?>" readonly>
+                                <input type="text" class="form-control" id="accountid" name="accountid" value="<?php echo $data->Account_ID; ?>" readonly>
                             </div>
                             <div class="col-md-12">
                                 <label for="fname" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="fname" name="fname" value="<?php echo $use->First_Name; ?>">
+                                <input type="text" class="form-control" id="fname" name="fname" value="<?php echo $data->First_Name; ?>">
                                 <?= form_error('fname', '<small class="text-danger">', '</small>'); ?>
                             </div>
                             <div class="col-md-12">
                                 <label for="lname" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="lname" name="lname" value="<?php echo $use->Last_Name; ?>">
+                                <input type="text" class="form-control" id="lname" name="lname" value="<?php echo $data->Last_Name; ?>">
                                 <?= form_error('lname', '<small class="text-danger">', '</small>'); ?>
                             </div>
                             <div class="col-md-12">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" value="<?php echo $use->Email; ?>">
+                                <input type="email" class="form-control" id="email" name="email" value="<?php echo $data->Email; ?>">
                                 <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
                             </div>
                             <div class="col-md-12">
                                 <label for="role" class="form-label">Role</label>
-                                <input type="text" class="form-control" id="role" name="role" value="<?php echo $use->Role; ?>">
+                                <input type="text" class="form-control" id="role" name="role" value="<?php echo $data->Role; ?>">
                                 <?= form_error('role', '<small class="text-danger">', '</small>'); ?>
                             </div>
                             <div class=" form-group text-right">
@@ -39,7 +39,7 @@
                                 <button type="submit" class="btn btn-primary col-lg-2 col-sm-4 my-3 float-end" style="background-color: #BAA360;">Edit</button>
                             </div>
                         </form>
-                    <?php } ?>
+                    <?php // } ?>
                 </div>
             </div>
         </div>

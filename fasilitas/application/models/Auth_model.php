@@ -93,17 +93,24 @@ class Auth_model extends CI_model
         return $result;
     }
 
-    function edit_user($where, $table)
+    // function edit_user($where, $table)
+    // {
+    //     return $this->db->get_where($table, $where);
+    // }
+
+    function user_detail($id)
     {
-        return $this->db->get_where($table, $where);
+        $this->db->where('Account_ID', $id);
+        $result = $this->db->get('account');
+        return $result->row();
     }
 
     function update_user($id, $values)
     {
         $this->db->where('Account_ID', $id);
-        $this->db->replace('account', $values);
+        $this->db->update('account', $values);
     }
-
+    
     function new_facility($values)
     {
         $this->db->insert('facility_listing', $values);
