@@ -96,7 +96,21 @@ if (!isset($_SESSION['email'])) {
 
         <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="background-color: #0D1A44 !important;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="https://cdn.discordapp.com/attachments/692662918562578513/915571133854658581/rem.png" alt="" class="logo-img"></a>
+                <?php if ($_SESSION['role'] == "admin") { //buat role admin
+                ?>
+                    <a class="navbar-brand" href="<?= base_url('home/facilityDash'); ?>"><img src="https://cdn.discordapp.com/attachments/692662918562578513/915571133854658581/rem.png" alt="" class="logo-img"></a>
+
+                <?php } ?>
+                <?php if ($_SESSION['role'] == "management") { //buat role admin
+                ?>
+                    <a class="navbar-brand" href="<?= base_url('home/facilityDash'); ?>"><img src="https://cdn.discordapp.com/attachments/692662918562578513/915571133854658581/rem.png" alt="" class="logo-img"></a>
+
+                <?php } ?>
+                <?php if ($_SESSION['role'] == "user") { //buat role admin
+                ?>
+                    <a class="navbar-brand" href="<?= base_url('home'); ?>"><img src="https://cdn.discordapp.com/attachments/692662918562578513/915571133854658581/rem.png" alt="" class="logo-img"></a>
+
+                <?php } ?>
                 <button class="navbar-toggler mr-auto custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon" style="color: white;">
                     </span>

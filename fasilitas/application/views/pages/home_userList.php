@@ -9,7 +9,13 @@ if ($_SESSION['role'] != "admin") {
         <div class="title" style="margin: 5px;">
             <h3 style="color: #BAA360;">User Listing</h3>
         </div>
-
+        <?php
+        if ($this->session->flashdata('success_editUser')) {
+            echo '<div >' . $this->session->flashdata('success_editUser') . '</div>';
+        } else if ($this->session->flashdata('success_editUser')) {
+            echo '<div >' . $this->session->flashdata('success_editUser') . '</div>';
+        }
+        ?>
         <table class="table table-light">
             <thead>
                 <tr class="text-center">

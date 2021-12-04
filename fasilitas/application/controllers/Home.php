@@ -131,7 +131,7 @@ class Home extends CI_Controller
     {
         //$data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('fname')])->row_array();
         // echo "sudah masuk kah? " . $data['user']['Email'];
-        if($_SESSION['role'] == "management" || $_SESSION['role'] == "admin"){
+        if ($_SESSION['role'] == "management" || $_SESSION['role'] == "admin") {
             $data['data'] = $this->Auth_model->get_req_admin();
             $data['title'] = 'Hotel UMN Facility';
             $data['css'] = $this->load->view('include/css', NULL, TRUE);
@@ -139,9 +139,8 @@ class Home extends CI_Controller
             $this->load->view('template/header', $data);
             $this->load->view('pages/home_req');
             $this->load->view('template/footer');
-        }
-        else if($_SESSION['role'] == "user"){
-            $id = $_SESSION['id']; 
+        } else if ($_SESSION['role'] == "user") {
+            $id = $_SESSION['id'];
             $data['data'] = $this->Auth_model->get_req($id);
             $data['title'] = 'Hotel UMN Facility';
             $data['css'] = $this->load->view('include/css', NULL, TRUE);
@@ -185,7 +184,7 @@ class Home extends CI_Controller
     }
 
     public function deleteReq($id)
-    {    
+    {
         $result = $this->Auth_model->delete_req($id);
         if ($result) {
             //kasi massege kalo berhasil
@@ -201,6 +200,8 @@ class Home extends CI_Controller
         $result = $this->Auth_model->delete_user($id);
         if ($result) {
             //kasi massege kalo berhasil
+            $this->session->set_flashdata('success_editUser', '<div class="alert alert-warning alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>success!</strong> Your data has been deleted </div>');
+
             redirect('home/userlist');
         }
     }

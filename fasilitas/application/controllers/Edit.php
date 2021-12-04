@@ -138,7 +138,7 @@ class Edit extends CI_Controller
         $this->form_validation->set_rules('fname', 'First_Name', 'callback_validate_edit_image');
         $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('role', 'Role', 'required|trim');
-       
+
         if ($this->form_validation->run() == false) {
             $data['data'] = $this->Auth_model->user_detail($id);
             $data['title'] = 'Edit user | Hotel UMN Facility';
@@ -148,8 +148,7 @@ class Edit extends CI_Controller
             $this->load->view('template/header', $data);
             $this->load->view('pages/edit_userList');
             $this->load->view('template/footer');
-        } 
-        else {
+        } else {
             $values = array(
                 'Account_ID' => $this->input->post('accountid', TRUE),
                 'First_Name' => $this->input->post('fname', TRUE),
@@ -158,6 +157,7 @@ class Edit extends CI_Controller
                 'Role' => $this->input->post('role', TRUE)
             );
             $this->Auth_model->update_user($id, $values);
+            $this->session->set_flashdata('success_editUser', '<div class="alert alert-success alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>success!</strong> Your user data has been updated </div>');
             redirect('home/userlist');
         }
     }
