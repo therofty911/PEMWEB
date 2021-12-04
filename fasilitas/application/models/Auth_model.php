@@ -125,6 +125,9 @@ class Auth_model extends CI_model
     function delete_facility($id)
     {
         $this->db->where('Facility_ID', $id);
+        $this->db->delete('request_listing');
+        
+        $this->db->where('Facility_ID', $id);
         $this->db->delete('facility_listing');
         return true;
     }
