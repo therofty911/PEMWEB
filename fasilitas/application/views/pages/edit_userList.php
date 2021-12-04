@@ -9,7 +9,7 @@
                     <?php //foreach ($data as $use) {
                         echo form_open_multipart("edit/editUser/$id");
                     ?>
-                        <form class="row g-3 p-3" id="myform" method="post" action="<?= base_url('edit/editUser'); ?>">
+                        <form class="row g-3 p-3" id="myform" >
                             <div class="col-md-12">
                                 <label for="accountid" class="form-label">Account ID</label>
                                 <input type="text" class="form-control" id="accountid" name="accountid" value="<?php echo $data->Account_ID; ?>" readonly>

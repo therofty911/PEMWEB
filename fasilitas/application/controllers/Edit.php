@@ -134,6 +134,10 @@ class Edit extends CI_Controller
 
     public function editUser($id)
     {
+        $this->form_validation->set_rules('accountid', 'Account_ID', 'required|trim');
+        $this->form_validation->set_rules('fname', 'First_Name', 'callback_validate_edit_image');
+        $this->form_validation->set_rules('email', 'Email', 'required');
+        $this->form_validation->set_rules('role', 'Role', 'required|trim');
        
         if ($this->form_validation->run() == false) {
             $data['data'] = $this->Auth_model->user_detail($id);
@@ -144,14 +148,14 @@ class Edit extends CI_Controller
             $this->load->view('template/header', $data);
             $this->load->view('pages/edit_userList');
             $this->load->view('template/footer');
-        } else {
-        
+        } 
+        else {
             $values = array(
                 'Account_ID' => $this->input->post('accountid', TRUE),
                 'First_Name' => $this->input->post('fname', TRUE),
                 'Last_Name' => $this->input->post('lname', TRUE),
                 'Email' => $this->input->post('email', TRUE),
-                'Role' => $this->input->post('role', TRUE),
+                'Role' => $this->input->post('role', TRUE)
             );
             $this->Auth_model->update_user($id, $values);
             redirect('home/userlist');
