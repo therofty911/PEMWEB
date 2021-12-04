@@ -23,32 +23,30 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
-                        $i = 1;
-                        foreach($data as $req) :?>
-                            <tr class="text-center">
-                                <th scope="row"> <?php echo $i ?> </th>
-                                <td><?php echo $req->First_Name ?></td>
-                                <td><?php echo $req->Name ?></td>
-                                <td><?php echo $req->Date ?></td>
-                                <td><?php echo $req->Start_Time ?></td>
-                                <td><?php echo $req->End_Time ?></td>
-                                <td>
-                                    <?php if($_SESSION['role'] == "management"){?>
-                                    <a href="<?= base_url("home/accReq/$req->Account_ID"); ?>" class="btn btn-sm btn-success">Approve</a>
-                                    <a href="<?= base_url("home/decReq/$req->Account_ID"); ?>" class="btn btn-sm btn-danger my-2">Decline</a>
-                                    <?php }?>
+                        <tr class="text-center">
+                            <?php foreach($data as $req) {?>
+                            <th scope="row">1</th>
+                            <td><?php echo $req->First_Name ?></td>
+                            <td><?php echo $req->Name ?></td>
+                            <td><?php echo $req->Date ?></td>
+                            <td><?php echo $req->Start_Time ?></td>
+                            <td><?php echo $req->End_Time ?></td>
+                            <td>
+                                <?php if($_SESSION['role'] == "management"){?>
+                                <a href="<?= base_url("home/accReq"); ?>" class="btn btn-sm btn-success">Approve</a>
+                                <a href="<?= base_url("home/decReq"); ?>" class="btn btn-sm btn-danger my-2">Delete</a>
+                                <?php }?>
 
-                                    <?php if($_SESSION['role'] == "admin"){?>
-                                    <a href="<?= base_url("home/deleteReq/$req->Account_ID"); ?>" class="btn btn-sm btn-danger my-2">Delete</a>
-                                    <?php }?>
+                                <?php if($_SESSION['role'] == "admin"){?>
+                                <a href="<?= base_url("home/decReq"); ?>" class="btn btn-sm btn-danger my-2">Delete</a>
+                                <?php }?>
 
-                                    <?php if($_SESSION['role'] == "user"){?>
-                                        <?php echo $req->Status ?>
-                                    <?php }?>
-                                </td>
-                            </tr>
-                        <?php $i++; endforeach ?>
+                                <?php if($_SESSION['role'] == "user"){?>
+                                    <?php echo $req->Status ?>
+                                <?php }?>
+                            </td>
+                            <?php } ?>
+                        </tr>
                     </tbody>
                 </table>
             </div>
