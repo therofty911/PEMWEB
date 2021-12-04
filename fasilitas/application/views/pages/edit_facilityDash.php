@@ -19,7 +19,7 @@
                             <input type="text" class="form-control" id="name" name="name" value="<?php echo $data->Name; ?>">
                             <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12 mb-2">
                             <label for="img" class="form-label">Image</label>
                             <input type="file" class="form-control" id="img" name="img" size="20">
                             <?= form_error('img', '<small class="text-danger">', '</small>'); ?>
