@@ -63,11 +63,11 @@ class Auth extends CI_Controller
                     redirect('home');
                 }
             } else {
-                $this->session->set_flashdata('message_login', '<div class="alert alert-danger" role="alert">wrong email n password</div>');
+                $this->session->set_flashdata('error_log', '<div class="alert alert-danger alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>Warning!</strong>Wrong password or email</div>');
                 redirect('auth/login');
             }
         } else {
-            $this->session->set_flashdata('message_login', '<div class="alert alert-danger" role="alert">wrong email n password</div>');
+            $this->session->set_flashdata('error_log', '<div class="alert alert-danger alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>Warning!</strong>Wrong password or email</div>');
             redirect('auth/login');
         }
     }
@@ -129,7 +129,7 @@ class Auth extends CI_Controller
             // $this->Auth_model->regis($data);
             $this->db->insert('account', $data);
 
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Your accout has been created!</div>');
+            $this->session->set_flashdata('success_reg', '<div class="alert alert-success alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>success!</strong> Nice, you are now registered </div>');
             redirect('auth/login');
         }
     }
@@ -140,8 +140,7 @@ class Auth extends CI_Controller
         $this->session->unset_userdata('fname');
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role');
-        $this->session->sess_destroy();
-        $this->session->set_flashdata('message_login', '<div class="alert alert-success" role="alert">you have been logged out</div>');
+        $this->session->set_flashdata('success_logout', '<div class="alert alert-success alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>success!</strong> You have been logged out, see you soon</div>');
 
         redirect('auth/login');
     }
