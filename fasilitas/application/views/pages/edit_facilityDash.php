@@ -6,17 +6,17 @@
                     <h2 class="mt-4 mb-4" style="color: #BAA360;">Edit Facilities</h2>
                 </div>
                 <div>
-                    <?php foreach ($data as $fac) {
-                        echo form_open_multipart('edit/editFacility');
+                    <?php //foreach ($data as $fac) {
+                        echo form_open_multipart("edit/editFacility/$id");
                     ?>
                         <form class="row g-3 p-3" id="myform">
                             <div class="col-md-12">
                                 <label for="facilityid" class="form-label">Facilites ID</label>
-                                <input type="text" class="form-control" id="facilityid" name="facilityid" value="<?php echo $fac->Facility_ID; ?>" readonly>
+                                <input type="text" class="form-control" id="facilityid" name="facilityid" value="<?php echo $data->Facility_ID; ?>" readonly>
                             </div>
                             <div class="col-md-12">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="name" name="name" value="<?php echo $fac->Name; ?>">
+                                <input type="text" class="form-control" id="name" name="name" value="<?php echo $data->Name; ?>">
                                 <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
                             </div>
                             <div class="col-md-12">
@@ -26,7 +26,7 @@
                             </div>
                             <div class="col-md-12">
                                 <label for="detail" class="form-label">Detail</label>
-                                <textarea type="detail" class="form-control" id="detail" name="detail" placeholder="<?php echo $fac->Detail; ?>"></textarea>
+                                <textarea type="detail" class="form-control" id="detail" name="detail" placeholder=""><?php echo $data->Detail; ?></textarea>
                                 <?= form_error('detail', '<small class="text-danger">', '</small>'); ?>
                             </div>
                             <div class=" form-group text-right">
@@ -34,7 +34,7 @@
                                 <button type="submit" class="btn btn-primary col-lg-2 col-sm-4 my-3 float-end" style="background-color: #BAA360;">Edit</button>
                             </div>
                         </form>
-                    <?php } ?>
+                    <?php //} ?>
                 </div>
             </div>
         </div>

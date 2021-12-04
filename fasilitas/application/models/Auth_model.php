@@ -112,13 +112,15 @@ class Auth_model extends CI_model
     function update_facility($id, $values)
     {
         $this->db->where('Facility_ID', $id);
-        $this->db->replace('facility_listing', $values);
+        $this->db->update('facility_listing', $values);
     }
 
-    function edit_facility($where, $table)
-    {
-        return $this->db->get_where($table, $where);
-    }
+    // function edit_facility($id)
+    // {
+    //     $this->db->where('Facility_ID', $id);
+    //     $result = $this->db->get('facility_listing');
+    //     return $result->row();
+    // }
 
     function delete_facility($id)
     {

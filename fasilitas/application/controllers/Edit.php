@@ -15,23 +15,22 @@ class Edit extends CI_Controller
     {
     }
 
-    public function editFacility($id = NULL)
+    public function editFacility($id)
     {
-        $where = array('Facility_ID' => $id);
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
         $this->form_validation->set_rules('img', 'Image', 'callback_validate_edit_image');
         $this->form_validation->set_rules('detail', 'Detail', 'required');
         if ($this->form_validation->run() == false) {
-            $data['data'] = $this->Auth_model->edit_facility($where, 'facility_listing')->result();
+            $data['data'] = $this->Auth_model->facility_detail($id);
             $data['title'] = 'Hotel UMN Facility';
             $data['css'] = $this->load->view('include/css', NULL, TRUE);
             $data['js'] = $this->load->view('include/js', NULL, TRUE);
-            $data['facility'] = $id;
+            $data['id'] = $id;
             $this->load->view('template/header', $data);
             $this->load->view('pages/edit_facilityDash');
             $this->load->view('template/footer');
         } else {
-            $id = $this->input->post('Facility_ID');
+            //$id = $this->input->post('Facility_ID');
             $config['upload_path']          = './assets/poster/';
             $config['allowed_types']        = 'gif|jpg|png|PNG';
             $config['max_size']             = 10000;

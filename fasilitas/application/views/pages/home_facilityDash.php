@@ -33,7 +33,7 @@
                 }
 
                 ?>
-                <?php $i++; ?>
+                
             </tbody>
         </table>
     </div>
