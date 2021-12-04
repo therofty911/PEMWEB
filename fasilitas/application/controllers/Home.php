@@ -78,6 +78,8 @@ class Home extends CI_Controller
 
             //$this->db->insert('request_listing',$data);
             $this->Auth_model->book($data);
+            $this->session->set_flashdata('success_book', '<div class="alert alert-success alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>Success!</strong> Your facility has been booking </div>');
+
             redirect('home/reqUser');
         }
     }
@@ -116,11 +118,13 @@ class Home extends CI_Controller
     {
         $result = $this->Auth_model->delete_facility($id);
         if ($result) {
-            //kasi massege kalo berhasil
+            $this->session->set_flashdata('success_deleteFacility', '<div class="alert alert-warning alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>success!</strong> Your facility has been deleted </div>');
+
             redirect('home/facilityDash');
         } else {
-            //kasi massege kalo gagal
+            $this->session->set_flashdata('success_deleteFacility', '<div class="alert alert-warning alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>Error!</strong> Your facility cant be delete </div>');
             redirect('home/facilityDash');
+            $this->session->unset_userdata('success_deleteFacility');
         }
     }
 
@@ -159,10 +163,13 @@ class Home extends CI_Controller
         );
         $result = $this->Auth_model->updateReq($data);
         if ($result) {
-            //kasi massege kalo berhasil
+            $this->session->set_flashdata('success_acc', '<div class="alert alert-success alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>success!</strong> The request has been approve </div>');
+
             redirect('home/reqUser');
+            $this->session->unset_userdata('success_acc');
         } else {
-            //kasi massege kalo gagal
+            $this->session->set_flashdata('success_acc', '<div class="alert alert-warning alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>Error!</strong> The request cant be approve </div>');
+
             redirect('home/reqUser');
         }
     }
@@ -175,10 +182,13 @@ class Home extends CI_Controller
         );
         $result = $this->Auth_model->updateReq($data);
         if ($result) {
-            //kasi massege kalo berhasil
+            $this->session->set_flashdata('success_dec', '<div class="alert alert-success alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>success!</strong> The request has been decline </div>');
+
             redirect('home/reqUser');
+            $this->session->unset_userdata('success_dec');
         } else {
-            //kasi massege kalo gagal
+            $this->session->set_flashdata('success_dec', '<div class="alert alert-warning alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>Error!</strong> The request cant be decline </div>');
+
             redirect('home/reqUser');
         }
     }
@@ -187,10 +197,13 @@ class Home extends CI_Controller
     {
         $result = $this->Auth_model->delete_req($id);
         if ($result) {
-            //kasi massege kalo berhasil
+            $this->session->set_flashdata('success_delReq', '<div class="alert alert-success alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>success!</strong> The request has been delete </div>');
+
             redirect('home/reqUser');
+            $this->session->unset_userdata('success_delReq');
         } else {
-            //kasi massege kalo gagal
+            $this->session->set_flashdata('success_delReq', '<div class="alert alert-warning alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>Error!</strong> The request cant be delete </div>');
+
             redirect('home/reqUser');
         }
     }
@@ -203,6 +216,8 @@ class Home extends CI_Controller
             $this->session->set_flashdata('success_editUser', '<div class="alert alert-warning alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>success!</strong> Your data has been deleted </div>');
 
             redirect('home/userlist');
+            // create unset session data
+            $this->session->unset_userdata('success_editUser');
         }
     }
 

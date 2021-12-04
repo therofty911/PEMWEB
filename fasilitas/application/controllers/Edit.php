@@ -47,7 +47,10 @@ class Edit extends CI_Controller
                     'Detail' => $this->input->post('detail', TRUE),
                 );
                 $this->Auth_model->update_facility($id, $values);
+                $this->session->set_flashdata('success_editFacility', '<div class="alert alert-success alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>success!</strong> Your facility data has been updated </div>');
+
                 redirect('home/facilityDash');
+                $this->session->unset_userdata('success_editFacility');
             } else {
                 $poster = $this->upload->data();
                 $poster = "assets/poster/" . $poster['file_name'];
@@ -59,7 +62,10 @@ class Edit extends CI_Controller
 
                 );
                 $this->Auth_model->update_facility($id, $values);
+                $this->session->set_flashdata('success_editFacility', '<div class="alert alert-success alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>success!</strong> Your facility data has been updated </div>');
+
                 redirect('home/facilityDash');
+                $this->session->unset_userdata('success_editFacility');
             }
         }
     }

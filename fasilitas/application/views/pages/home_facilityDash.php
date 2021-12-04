@@ -6,6 +6,15 @@
         <div class="d-flex justify-content-end">
             <a href="<?= base_url('add'); ?>" class="btn btn-success btn-sm my-2" style="color:antiquewhite;font-size:20px;margin-right:20px;">Add Facilities</a>
         </div>
+        <?php
+        if ($this->session->flashdata('success_editFacility')) {
+            echo '<div >' . $this->session->flashdata('success_editFacility') . '</div>';
+        } else if ($this->session->flashdata('success_deleteFacility')) {
+            echo '<div >' . $this->session->flashdata('success_deleteFacility') . '</div>';
+        } else if ($this->session->flashdata('success_add')) {
+            echo '<div >' . $this->session->flashdata('success_add') . '</div>';
+        }
+        ?>
         <table class="table table-light">
             <thead>
                 <tr class="text-center">
@@ -33,7 +42,7 @@
                 }
 
                 ?>
-                
+
             </tbody>
         </table>
     </div>

@@ -38,7 +38,7 @@ class Add extends CI_Controller
             $this->load->library('upload', $config);
 
             if (!$this->upload->do_upload('img')) {
-                echo "<div class='alert alert-success' role='alert'> Failed to upload </div>";
+                $this->session->set_flashdata('error_add', '<div class="alert alert-success alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>success!</strong> You need to upload photo too </div>');
             } else {
                 $poster = $this->upload->data();
                 $poster = 'assets/poster/' . $poster['file_name'];
@@ -48,7 +48,10 @@ class Add extends CI_Controller
                     'Detail' => $this->input->post('detail', TRUE),
                 );
                 $this->Auth_model->new_facility($values);
+                $this->session->set_flashdata('success_add', '<div class="alert alert-success alert-dismissible fade show"><button type="button" class="btn-close" data-bs-dismiss="alert"></button><strong>success!</strong> Your facility data has been added </div>');
+
                 redirect('home/facilityDash');
+                $this->session->unset_userdata('success_add');
             }
         }
     }
