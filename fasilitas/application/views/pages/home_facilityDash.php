@@ -27,7 +27,7 @@
                     echo "<td class='text-center'>" . $i . "</td>";
                     echo "<td class='text-center'><img src='", base_url() . $foto, "' class='img-fluid' alt='cant load the image' width='500'></td>";
                     echo "<td class='text-center'>" . $nama . "</td>";
-                    echo "<td class='text-center'><a href='" . base_url("edit/editFacility/$id") . "' class='btn btn-sm btn-success mx-2'>Edit</a><a href='" . base_url("home/$id") . "' class='btn btn-sm btn-danger my-2'>Delete</a>";
+                    echo "<td class='text-center'><a href='" . base_url("edit/editFacility/$id") . "' class='btn btn-sm btn-success mx-2'>Edit</a><a href='" . base_url("home/deleteFacility/$id") . "' class='btn btn-sm btn-danger my-2'>Delete</a>";
                     echo "</tr>";
                     $i++;
                 }

@@ -120,8 +120,11 @@ class Auth_model extends CI_model
         return $this->db->get_where($table, $where);
     }
 
-    function delete_facility()
+    function delete_facility($id)
     {
+        $this->db->where('Facility_ID', $id);
+        $this->db->delete('facility_listing');
+        return true;
     }
 
     function edit_users()

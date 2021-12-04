@@ -112,6 +112,18 @@ class Home extends CI_Controller
         $this->load->view('template/footer');
     }
 
+    public function deleteFacility($id)
+    {
+        $result = $this->Auth_model->delete_facility($id);
+        if ($result) {
+            //kasi massege kalo berhasil
+            redirect('home/facilityDash');
+        } else {
+            //kasi massege kalo gagal
+            redirect('home/facilityDash');
+        }
+    }
+
     // Edit page ada di EditData.php
 
 
