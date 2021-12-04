@@ -133,7 +133,7 @@ class Auth_model extends CI_model
     {
         $this->db->where('Facility_ID', $id);
         $this->db->delete('request_listing');
-        
+
         $this->db->where('Facility_ID', $id);
         $this->db->delete('facility_listing');
         return true;
@@ -145,7 +145,7 @@ class Auth_model extends CI_model
 
     function delete_user($id)
     {
-        $this->db->get_where('Account_ID', $id);
+        $this->db->where('Account_ID', $id);
         $this->db->delete('account');
         return true;
     }
