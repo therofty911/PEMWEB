@@ -33,7 +33,11 @@
 
     @media (max-width: 600px) {
         img {
-            width: 350px;
+            width: 150px;
+        }
+
+        h3 {
+            font-size: 20px;
         }
     }
 </style>
@@ -41,7 +45,7 @@
 <body>
     <div id="firefly"></div>
 
-    <div class="card position-absolute top-50 start-50 translate-middle col-lg-7 col-sm-7 rounded" style="background-color: #000B2E;color:white;">
+    <div class="card position-absolute top-50 start-50 translate-middle col-lg-7 col-sm-7 my-5 mb-5 rounded" style="background-color: #000B2E;color:white;">
         <div class="title text-center">
             <img src="https://media.discordapp.net/attachments/692662918562578513/915571133854658581/rem.png?width=436&height=116">
             <h3>Welcome to facility booking page</h3>

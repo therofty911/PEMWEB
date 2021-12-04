@@ -26,7 +26,7 @@
                     <?= form_error('etime', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="form-group text-right">
-                    <button type="button" class="btn btn-primary col-lg-3 col-sm-4 my-3 float-start"><a href="<?= base_url('home/facilityDetail'); ?>" style="color:white;text-decoration:none;">Back to details</a></button>
+                    <button type="button" class="btn btn-primary col-lg-3 col-sm-4 my-3 float-start"><a href="<?= base_url('home'); ?>" style="color:white;text-decoration:none;">Back to details</a></button>
                     <button type="submit" class="btn btn-primary col-lg-2 col-sm-4 my-3 float-end" style="background-color: #BAA360;">Book</button>
                 </div>
             </form>

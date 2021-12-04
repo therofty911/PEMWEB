@@ -112,6 +112,9 @@ class Home extends CI_Controller
         $this->load->view('template/footer');
     }
 
+    // Edit page ada di EditData.php
+
+
     public function reqUser()
     {
         //$data['user'] = $this->db->get_where('account', ['Last_Name' => $this->session->userdata('fname')])->row_array();

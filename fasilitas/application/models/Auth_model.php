@@ -42,7 +42,7 @@ class Auth_model extends CI_model
     {
         extract($data);
         $this->db->where('Request_ID', $id);
-        $this->db->update('request_listing',array('Status' => $status));
+        $this->db->update('request_listing', array('Status' => $status));
         return true;
     }
 
@@ -52,19 +52,18 @@ class Auth_model extends CI_model
         $this->db->from('request_listing');
         $this->db->join('account', 'account.Account_ID = request_listing.Account_ID');
         $this->db->join('facility_listing', 'facility_listing.Facility_ID = request_listing.Facility_ID');
-        $this->db->insert('request_listing',$data);
-        
+        $this->db->insert('request_listing', $data);
     }
 
     function get_req()
     {
-        $query = $this -> db-> select('*') 
-                            -> from('request_listing') 
-                            -> join('account', 'account.Account_ID = request_listing.Account_ID') 
-                            -> join('facility_listing', 'facility_listing.Facility_ID = request_listing.Facility_ID')
-                            -> get();
+        $query = $this->db->select('*')
+            ->from('request_listing')
+            ->join('account', 'account.Account_ID = request_listing.Account_ID')
+            ->join('facility_listing', 'facility_listing.Facility_ID = request_listing.Facility_ID')
+            ->get();
         $query = $query->result();
-        return $query;                                                                                                  
+        return $query;
     }
     function get_user() //buat table user nanti di admin
     {
@@ -73,13 +72,31 @@ class Auth_model extends CI_model
         return $result;
     }
 
+    function edit_user($where, $table)
+    {
+        return $this->db->get_where($table, $where);
+    }
+
+    function update_user($id, $values)
+    {
+        $this->db->where('Account_ID', $id);
+        $this->db->replace('account', $values);
+    }
+
     function new_facility($values)
     {
         $this->db->insert('facility_listing', $values);
     }
 
-    function update_facility()
+    function update_facility($id, $values)
     {
+        $this->db->where('Facility_ID', $id);
+        $this->db->replace('facility_listing', $values);
+    }
+
+    function edit_facility($where, $table)
+    {
+        return $this->db->get_where($table, $where);
     }
 
     function delete_facility()
@@ -92,7 +109,7 @@ class Auth_model extends CI_model
 
     function delete_user($id)
     {
-        $this->db->where('Account_ID', $id);
+        $this->db->get_where('Account_ID', $id);
         $this->db->delete('account');
 
         return true;
