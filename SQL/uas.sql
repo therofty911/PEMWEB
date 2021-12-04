@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2021 at 07:53 PM
+-- Generation Time: Dec 04, 2021 at 06:32 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -41,7 +41,7 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`Account_ID`, `First_Name`, `Last_Name`, `Email`, `Password`, `Role`) VALUES
-(1, 'Admin', 'Luffy', 'admin@umn.ac.id', '$2y$10$Jrmf0BQeskfdxRuYxAiwWOsDjGUPCtFJY3VcHr5.ZuU6dQUcES14m', 'admin'),
+(1, 'Luffy', 'Uzumaki', 'admin@umn.ac.id', '$2y$10$Jrmf0BQeskfdxRuYxAiwWOsDjGUPCtFJY3VcHr5.ZuU6dQUcES14m', 'admin'),
 (2, 'Management', 'Core', 'management@umn.ac.id', '$2y$10$4mnnTy21dUgCl2X2ZUGoM.fINRbHvJ4GEqHEdAFfoFnNgXwCbqSH.', 'management'),
 (3, 'Caca', 'Opium', 'caca@umn.ac.id', '$2y$10$9KaJ3.4kdubyr9/kBPXkx.52Vb3l6mdwwbgKb6vLXL/To2B0u1Wwm', 'user'),
 (4, 'George', 'Marcellino Jo', 'georgemarcellin00@gmail.com', '$2y$10$lrZHLOwNK1PnxOWXf0udyOtQxTpMluz2ey1qUIVVgkjLas0FP8xYK', 'user');
@@ -64,7 +64,6 @@ CREATE TABLE `facility_listing` (
 --
 
 INSERT INTO `facility_listing` (`Facility_ID`, `Name`, `Image`, `Detail`) VALUES
-(1, 'hotel mantap', 'assets/poster/room22.jpg', 'Ruangan ini memiliki sebuah kursi dan juga meja yang menggunakan dari baja, kemudian untuk gelas nya sendiri terbuat dari plastik GG'),
 (2, 'meeting room', 'assets/poster/meeting-room1.jpg', 'meeting room memiliki dinding yang berlapis plastik, kemudian lantai nya menggunakan semen 3 roda GG');
 
 -- --------------------------------------------------------
@@ -88,7 +87,8 @@ CREATE TABLE `request_listing` (
 --
 
 INSERT INTO `request_listing` (`Request_ID`, `Status`, `Date`, `Start_Time`, `End_Time`, `Facility_ID`, `Account_ID`) VALUES
-(1, 'Pending', '2021-12-04', '01:03:00', '01:07:00', 2, 4);
+(5, 'Pending', '2021-12-23', '22:22:00', '22:22:00', 2, 4),
+(6, 'Pending', '2021-12-17', '02:50:00', '22:56:00', 2, 4);
 
 --
 -- Indexes for dumped tables
@@ -111,8 +111,6 @@ ALTER TABLE `facility_listing`
 --
 ALTER TABLE `request_listing`
   ADD PRIMARY KEY (`Request_ID`),
-  ADD UNIQUE KEY `Facility_ID_2` (`Facility_ID`),
-  ADD UNIQUE KEY `Account_ID_2` (`Account_ID`),
   ADD KEY `Facility_ID` (`Facility_ID`),
   ADD KEY `Account_ID` (`Account_ID`);
 
@@ -136,7 +134,7 @@ ALTER TABLE `facility_listing`
 -- AUTO_INCREMENT for table `request_listing`
 --
 ALTER TABLE `request_listing`
-  MODIFY `Request_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Request_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
