@@ -44,7 +44,6 @@ class Edit extends CI_Controller
                 $values = array(
                     'Facility_ID' => $this->input->post('facilityid', TRUE),
                     'Name' => $this->input->post('name', TRUE),
-                    'Image' => $this->input->post('img', TRUE),
                     'Detail' => $this->input->post('detail', TRUE),
                 );
                 $this->Auth_model->update_facility($id, $values);
