@@ -1,0 +1,43 @@
+Kelompok 5
+
+ANGGOTA KELOMPOK
+===================================================
+| Rulyanda Melsya - 00000045685	--> Front-end	  |
+| George Marcellino Jo - 00000045841 --> Back-end |
+| Casey Tjiptadjaja - 00000045957 --> Database	  |
+| Meitio Susanto - 00000044843 --> Report n tester|
+===================================================
+
+
+LINK WEBSITE
+==========================================
+| Link Web: https://theroftystudio.site/ |
+==========================================
+
+DATA LOGIN
+=================================
+| Admin				|
+| admin@umn.ac.id		|
+| admin123			|
+---------------------------------
+| Management			|
+| management@umn.ac.id		|
+| management123			|
+---------------------------------
+| user				|
+| rulyanda@umn.ac.id		|
+| ruly123			|
+---------------------------------
+| user				|
+| georgemarcellin00@gmail.com	|
+| 123456Bumi			|
+---------------------------------
+| user				|
+| azrael@gmail.com		|
+| azrael			|
+=================================
+
+LINK GITHUB
+==============================================================
+| https://github.com/therofty911/PEMWEB/tree/main/fasilitas  |
+==============================================================
